@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".fragment.DonHangFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#75E47A"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backdoanhthu"
+            android:layout_marginLeft="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_1" />
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:textColor="#FBFAFA"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:text="Doanh Thu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button1"
+            style="@android:style/Widget.Button"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/backbutton"
+            android:text="Tu ngay"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:background="@color/white"
+            android:id="@+id/txt_tuNgay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:hint="dd-MM-yyyy"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnloginn"
+            style="@android:style/Widget.Button"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/backbutton"
+            android:text="Den ngay"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:background="@color/white"
+            android:id="@+id/txt_denNgay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:hint="dd-MM-yyyy"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        style="@android:style/Widget.Button"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/backbutton2"
+        android:text="Doanh thu"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300000 VND"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#0E0C0C"/>
+
+
+
+
+
+</LinearLayout>
