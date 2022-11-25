@@ -17,16 +17,15 @@ public class SQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        db.execSQL("CREATE TABLE admin(" +
-//                "tk TEXT PRIMARY KEY," +
-//                "matkhau TEXT not null)");
+        db.execSQL("CREATE TABLE Admin(" +
+                "TaiKhoan TEXT PRIMARY KEY," +
+                "MatKhau TEXT not null)");
 
         db.execSQL("CREATE TABLE NhanVien(" +
                 "MaNV INTEGER PRIMARY KEY," +
                 "HoTenNV TEXT not null," +
                 "NamSinhNV INTEGER not null," +
-                "DiaChiNV TEXT not null," +
-                "MatKhau TEXT not null)");
+                "DiaChiNV TEXT not null)");
 
         db.execSQL("CREATE TABLE KhachHang(" +
                 "MaKH INTEGER PRIMARY KEY AUTOINCREMENT," +
