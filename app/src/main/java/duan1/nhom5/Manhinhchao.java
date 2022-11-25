@@ -37,4 +37,9 @@ public class Manhinhchao extends AppCompatActivity {
         });
     }
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 }
