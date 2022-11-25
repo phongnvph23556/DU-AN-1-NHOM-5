@@ -38,9 +38,4 @@ public class Manhinhchao extends AppCompatActivity {
     }
 
 
-<<<<<<< HEAD
-    ///hihabdhfjnv
-=======
-    //tiến bịp
->>>>>>> 783d6785f1089f3e4fcfd303222d560e9ee4d5fa
 }
