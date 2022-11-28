@@ -5,17 +5,15 @@ public class NhanVien {
     private String HoTenNV;
     private int NamSinhNV;
     private String DiaChiNV;
-    private String MatKhau;
 
     public NhanVien() {
     }
 
-    public NhanVien(int maNV, String hoTenNV, int namSinhNV, String diaChiNV, String matKhau) {
+    public NhanVien(int maNV, String hoTenNV, int namSinhNV, String diaChiNV) {
         MaNV = maNV;
         HoTenNV = hoTenNV;
         NamSinhNV = namSinhNV;
         DiaChiNV = diaChiNV;
-        MatKhau = matKhau;
     }
 
     public int getMaNV() {
@@ -48,13 +46,5 @@ public class NhanVien {
 
     public void setDiaChiNV(String diaChiNV) {
         DiaChiNV = diaChiNV;
-    }
-
-    public String getMatKhau() {
-        return MatKhau;
-    }
-
-    public void setMatKhau(String matKhau) {
-        MatKhau = matKhau;
     }
 }

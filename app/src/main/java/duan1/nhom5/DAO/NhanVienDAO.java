@@ -34,7 +34,6 @@ public class NhanVienDAO {
         values.put("HoTenNV", nhanVien.getHoTenNV());
         values.put("NamSinhNV", nhanVien.getNamSinhNV());
         values.put("DiaChiNV", nhanVien.getDiaChiNV());
-        values.put("MatKhau", nhanVien.getMatKhau());
         long kq = db.insert("NhanVien", null, values);
         return (kq > 0);
     }
@@ -45,7 +44,6 @@ public class NhanVienDAO {
         values.put("HoTenNV", nhanVien.getHoTenNV());
         values.put("NamSinhNV", nhanVien.getNamSinhNV());
         values.put("DiaChiNV", nhanVien.getDiaChiNV());
-        values.put("MatKhau", nhanVien.getMatKhau());
         long kq = db.update("NhanVien", values, "MaNV=?", new String[]{String.valueOf(nhanVien.getMaNV())});
         return (kq > 0);
     }
@@ -77,9 +75,9 @@ public class NhanVienDAO {
             String HoTenNV = cursor.getString(1);
             int NamSinhNV = cursor.getInt(2);
             String DiaChiNV = cursor.getString(3);
-            String MatKhau = cursor.getString(4);
 
-            list.add(new NhanVien(MaNV, HoTenNV, NamSinhNV, DiaChiNV, MatKhau));
+
+            list.add(new NhanVien(MaNV, HoTenNV, NamSinhNV, DiaChiNV));
             cursor.moveToNext();
         }
         cursor.close();

@@ -54,6 +54,25 @@ public class SQLite extends SQLiteOpenHelper {
                 "TienBan INTEGER not null," +
                 "Ngay DATE not null," +
                 "ThanhToan INTEGER not null)");
+
+
+        db.execSQL("INSERT INTO KhachHang VALUES ('4','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('5','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('6','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('7','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('8','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('9','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('10','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('11','nguyễn văn phong','2003','hà nội','0343243243')");
+
+
+        db.execSQL("INSERT INTO NhanVien VALUES ('1','nguyễn văn phong','2003','hà nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('2','nguyễn văn 09','2003','hà nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('3','nguyễn văn r','2003','hà nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('45','nguyễn văn gf','2003','hà nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('7','nguyễn văn ytr','2003','hà nội')");
+
+
     }
 
     @Override
