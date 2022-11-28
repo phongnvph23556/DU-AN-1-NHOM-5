@@ -31,24 +31,28 @@
             android:layout_marginLeft="20dp">
 
             <TextView
+                android:id="@+id/tv_masp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ma don hang: "
+                android:text="mã sản phẩm "
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="#FF0000"/>
 
             <TextView
+                android:id="@+id/tv_maloaisp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ma loai san pham: Ph23t43"
                 android:textColor="@color/black"/>
             <TextView
+                android:id="@+id/tv_tensp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ten san pham"
                 android:textColor="@color/black"/>
             <TextView
+                android:id="@+id/tv_giabansp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gia Ban"
