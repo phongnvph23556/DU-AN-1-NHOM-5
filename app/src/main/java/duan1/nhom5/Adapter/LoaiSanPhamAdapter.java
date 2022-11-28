@@ -40,10 +40,10 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
         if (loaiSanPham == null) {
             return;
         }
-        holder.maloaisp1.setText(String.valueOf(loaiSanPham.getMaLoaiSP()));
-        holder.tenloai.setText(loaiSanPham.getTenLoai());
+        holder.maloaisp1.setText(String.valueOf("mã loại sản phẩm"+loaiSanPham.getMaLoaiSP()));
+        holder.tenloai.setText("Tên loại: "+loaiSanPham.getTenLoai());
         holder.namsx.setText(String.valueOf(loaiSanPham.getNamSX()));
-        holder.hangsx.setText(loaiSanPham.getHangSX());
+        holder.hangsx.setText("Hãng sản xuất "+loaiSanPham.getHangSX());
     }
 
     @Override

@@ -24,9 +24,7 @@ public class LoaiSanPhamFragment extends Fragment {
     private RecyclerView rcv_loaisp;
     ImageView backloaisp;
 
-    public LoaiSanPhamFragment() {
-        // Required empty public constructor
-    }
+
 
     public static LoaiSanPhamFragment newInstance() {
         LoaiSanPhamFragment fragment = new LoaiSanPhamFragment();
@@ -65,5 +63,9 @@ public class LoaiSanPhamFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    public void dialog_ThemLoaisp(){
+
     }
 }
