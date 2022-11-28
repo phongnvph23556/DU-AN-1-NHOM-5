@@ -113,6 +113,7 @@
                 android:orientation="horizontal"
                 android:layout_marginLeft="30dp">
                 <CheckBox
+                    android:id="@+id/checkuser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView

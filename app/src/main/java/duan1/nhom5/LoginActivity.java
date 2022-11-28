@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(edtName.getText().toString().equals("admin") && edtpass.getText().toString().equals("admin")){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
+                    rememberUser(edtName, edtpass, checkBoxuser.isChecked());
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Bạn nhập sai account ADMIN, Mời bạn nhập lại",Toast.LENGTH_LONG).show();
@@ -39,7 +40,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    public void rememberUser(String Username, String pass, boolean status){
-        SharedPreferences sharedPreferences = 
+    public void rememberUser(EditText Username, EditText pass, boolean status){
+        SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE.txt",MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        if (!status){
+            editor.clear();
+        }else {
+            //thêm data vào file
+            editor.putString("USERNAME", String.valueOf(Username));
+            editor.putString("PASSWORD", String.valueOf(pass));
+            editor.putBoolean("REMEMBER", status);
+        }
+        //lưu lại
+        editor.commit();
     }
 }
