@@ -72,6 +72,22 @@ public class SQLite extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO NhanVien VALUES ('45','nguyễn văn gf','2003','hà nội')");
         db.execSQL("INSERT INTO NhanVien VALUES ('7','nguyễn văn ytr','2003','hà nội')");
 
+        db.execSQL("INSERT INTO SanPham VALUES ('1','nguyễn văn','200000','giày')");
+        db.execSQL("INSERT INTO SanPham VALUES ('5','nguyễn văn','200000','giày')");
+        db.execSQL("INSERT INTO SanPham VALUES ('6','nguyễn văn','200000','giày')");
+        db.execSQL("INSERT INTO SanPham VALUES ('7','nguyễn văn','200000','giày')");
+        db.execSQL("INSERT INTO SanPham VALUES ('8','nguyễn văn','200000','giày')");
+        db.execSQL("INSERT INTO SanPham VALUES ('234','nguyễn văn','200000','giày')");
+
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('4','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('8','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('1','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('54','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('65','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('97','giày','1986','hãng adidas')");
+
+
 
     }
 
