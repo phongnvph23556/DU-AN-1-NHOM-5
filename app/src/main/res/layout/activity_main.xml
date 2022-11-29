@@ -199,7 +199,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="17dp"
-                        app:srcCompat="@drawable/img_nga" />
+                        app:srcCompat="@drawable/img_2" />
 
                 </LinearLayout>
                 <TextView
@@ -272,7 +272,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="16dp"
-                        app:srcCompat="@drawable/img_2" />
+                        app:srcCompat="@drawable/sanpham" />
 
                 </LinearLayout>
                 <TextView
