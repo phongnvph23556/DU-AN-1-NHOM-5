@@ -16,10 +16,8 @@ public class LoaiSanPham {
         HangSX = hangSX;
     }
 
-
-    public LoaiSanPham(String tenloaisp, String namsx, String hangsx) {
+    public LoaiSanPham(int maloaisp, String tenloaisp, String namsx, String hangsx) {
     }
-
 
     public int getMaLoaiSP() {
         return MaLoaiSP;

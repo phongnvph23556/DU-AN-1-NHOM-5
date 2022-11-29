@@ -51,10 +51,12 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp">
             <ImageView
+                android:id="@+id/img_updateloaisp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_edit_note_24"/>
             <ImageView
+                android:id="@+id/img_delete_loaisp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_delete_24"/>
