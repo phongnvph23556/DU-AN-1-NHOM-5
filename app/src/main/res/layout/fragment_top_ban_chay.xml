@@ -19,7 +19,7 @@ tools:context=".fragment.DonHangFragment">
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:src="@drawable/sanpham" />
+        android:src="@drawable/icon_back" />
     <TextView
         android:layout_marginLeft="5dp"
         android:textStyle="bold"

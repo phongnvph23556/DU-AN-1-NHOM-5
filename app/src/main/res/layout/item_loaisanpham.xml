@@ -17,7 +17,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/sanpham" />
+            android:src="@drawable/aowordcup" />
 
         <LinearLayout
             android:layout_width="230dp"
