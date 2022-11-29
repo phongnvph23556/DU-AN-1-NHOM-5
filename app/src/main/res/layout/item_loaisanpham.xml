@@ -23,23 +23,30 @@
             android:orientation="vertical"
             android:layout_marginTop="5dp">
             <TextView
+                android:textColor="#DF1010"
                 android:id="@+id/tv_maloaisp1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="mã loại sp"
-                android:textStyle="bold"/>
+                android:text="mã loại sp" />
 
             <TextView
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
                 android:id="@+id/tv_tenloaisp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="tên loại"/>
             <TextView
+                android:textSize="16dp"
+                android:textStyle="bold"
                 android:id="@+id/tv_namsanxuat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="năm sản xuất"/>
             <TextView
+                android:textSize="16dp"
+                android:textStyle="bold"
                 android:id="@+id/tv_hangsx"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
