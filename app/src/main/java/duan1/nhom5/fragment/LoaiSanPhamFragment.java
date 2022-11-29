@@ -1,5 +1,6 @@
 package duan1.nhom5.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -66,6 +67,7 @@ public class LoaiSanPhamFragment extends Fragment {
     }
 
     public void dialog_ThemLoaisp(){
+        Dialog dialog=new Dialog(getActivity());
 
     }
 }
