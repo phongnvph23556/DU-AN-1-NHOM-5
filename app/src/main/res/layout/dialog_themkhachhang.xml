@@ -13,11 +13,7 @@
         android:layout_height="60dp"
         android:background="#2CBF32"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:layout_marginLeft="10dp"/>
+
         <TextView
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -27,6 +23,12 @@
             android:textSize="30dp"
             android:layout_gravity="center_vertical"
             android:textColor="@color/white"/>
+        <ImageView
+            android:id="@+id/img_canceladdkh"
+            android:layout_gravity="center"
+            android:src="@drawable/img_12"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,7 +60,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edMaKh"
+                android:id="@+id/edtMaKh"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -77,7 +79,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edHoTenKH"
+                android:id="@+id/edtHoTenKH"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -97,7 +99,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edNS"
+                android:id="@+id/edtNS"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -117,7 +119,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edDiachiKH"
+                android:id="@+id/edtDiachiKH"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -139,7 +141,7 @@
 
 
             <EditText
-                android:id="@+id/edSDT"
+                android:id="@+id/edtSDT"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -156,22 +158,22 @@
                 android:gravity="center"
                 android:orientation="horizontal">
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnloginn"
+                    android:id="@+id/btn_themkh"
                     style="@android:style/Widget.Button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/backbutton"
-                    android:text="Đăng Nhập" />
+                    android:text="Thêm" />
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button3"
+                    android:id="@+id/btnhuythemkh"
                     style="@android:style/Widget.Button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/backbutton"
-                    android:text="Đăng Kí" />
+                    android:text="Hủy" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

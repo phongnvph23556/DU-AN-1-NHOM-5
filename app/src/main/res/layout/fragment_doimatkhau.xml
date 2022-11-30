@@ -69,7 +69,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtName"
+            android:id="@+id/edName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -90,7 +90,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtPass"
+            android:id="@+id/edMatkhau"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -110,7 +110,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edRePass"
+            android:id="@+id/edPassmoi"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -130,7 +130,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/nhaplai"
+            android:id="@+id/ednhaplai"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -147,7 +147,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp">
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnloginn"
+                android:id="@+id/btnluu"
                 style="@android:style/Widget.Button"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"/>
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button3"
+                android:id="@+id/btnhuy"
                 android:layout_marginLeft="20dp"
                 style="@android:style/Widget.Button"
                 android:layout_width="130dp"
