@@ -1,5 +1,6 @@
 package duan1.nhom5.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -48,5 +49,11 @@ public class AdminDAO {
         }
         cursor.close();
         return list;
+    }
+    public int updatePass(Admin obj){
+        ContentValues values = new ContentValues();
+        values.put("hoten",obj.getTaiKhoan());
+        values.put("matkhau",obj.getMatKhau());
+        return db.update("ThuThu", values, "maTT=?", new String[]{obj.getAdmin()});
     }
 }
