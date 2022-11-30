@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#B3B2B2"
+    android:backgroundTint="#AAA4A4"
+    app:cardCornerRadius="25dp"
+    android:orientation="vertical"
     tools:context=".fragment.DonHangFragment">
 
     <LinearLayout
@@ -13,32 +14,36 @@
         android:layout_height="60dp"
         android:background="#2CBF32"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:layout_marginLeft="10dp"/>
+
         <TextView
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Them Khach Hang"
-            android:textStyle="bold"
-            android:textSize="30dp"
             android:layout_gravity="center_vertical"
-            android:textColor="@color/white"/>
+            android:text="Thêm Loại Sản Phẩm"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/cancelthemloaisp"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/img_12" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
@@ -49,130 +54,107 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tvMKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mã Khách hàng  "
+                android:text="Mã Loại Sản Phẩm  "
                 android:textColor="#01651E"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edMaKh"
+                android:id="@+id/edt_maloaisp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backgroudedit"
-                android:hint="Nhập mã khách hàng "
+                android:hint="Nhập mã loại sp "
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/tvHotenKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Họ tên khách hàng "
+                android:text="Tên loại sản phẩm "
                 android:textColor="#01651E"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edHoTenKH"
+                android:id="@+id/edt_tenloaisp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backgroudedit"
                 android:ems="10"
-                android:hint="Nhập họ tên hách hàng "
+                android:hint="Nhập tên loại sản phẩm "
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/tvNamSinh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Năm sinh "
+                android:text="Năm sản xuất "
                 android:textColor="#01651E"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edNS"
+                android:id="@+id/edt_namsx"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backgroudedit"
                 android:ems="10"
-                android:hint="Nhập năm sinh "
+                android:hint="Nhập năm sản xuất "
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/tvDiachiKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ  "
+                android:text=" Hãng sản xuất  "
                 android:textColor="#01651E"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edDiachiKH"
+                android:id="@+id/edt_hangsx"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backgroudedit"
                 android:ems="10"
-                android:hint="Nhập địa chỉ "
+                android:hint="Nhập hãng sản xuất "
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/tvSDT"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Số điện thoại "
-                android:textColor="#01651E"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-
-
-            <EditText
-                android:id="@+id/edSDT"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/backgroudedit"
-                android:ems="10"
-                android:hint="Nhập số điện thoại "
-                android:inputType="textPersonName"
-                android:textAlignment="center" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnloginn"
+                    android:id="@+id/btn_themloaisp"
                     style="@android:style/Widget.Button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/backbutton"
-                    android:text="Đăng Nhập" />
+                    android:text="Thêm" />
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button3"
+                    android:id="@+id/btn_huythemloaisp"
                     style="@android:style/Widget.Button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/backbutton"
-                    android:text="Đăng Kí" />
+                    android:text="Hủy" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</androidx.cardview.widget.CardView>

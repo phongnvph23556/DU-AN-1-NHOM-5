@@ -4,17 +4,25 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import duan1.nhom5.Adapter.DonHangAdapter;
+import duan1.nhom5.DAO.DonHangDAO;
+import duan1.nhom5.DAO.KhachHangDAO;
 import duan1.nhom5.MainActivity;
 import duan1.nhom5.R;
 
 public class DonHangFragment extends Fragment {
+    private RecyclerView rcv_donhang;
     ImageView backdonhang;
+    private DonHangAdapter donHangAdapter;
+    private DonHangDAO donHangDAO;
 
     public static DonHangFragment newInstance() {
         DonHangFragment fragment = new DonHangFragment();
@@ -32,6 +40,20 @@ public class DonHangFragment extends Fragment {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_don_hang, container, false);
         backdonhang=v.findViewById(R.id.backdonhang);
+        rcv_donhang=v.findViewById(R.id.rcv_donhang);
+        donHangAdapter=new DonHangAdapter(getActivity());
+        donHangDAO=new DonHangDAO(getActivity());
+
+
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
+        rcv_donhang.setLayoutManager(layoutManager);
+
+        donHangAdapter.setData(donHangDAO.selectAll());
+        rcv_donhang.setAdapter(donHangAdapter);
+
+
+
+
         backdonhang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

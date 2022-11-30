@@ -14,29 +14,30 @@ import java.util.List;
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.R;
 
-public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.UserViewHolder>{
- private Context context;
- private List<KhachHang> khachHangList;
+public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.UserViewHolder> {
+    private Context context;
+    private List<KhachHang> khachHangList;
 
     public KhachHangAdapter(Context context) {
         this.context = context;
     }
-    public void setData(List<KhachHang> list){
-        this.khachHangList=list;
+
+    public void setData(List<KhachHang> list) {
+        this.khachHangList = list;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_khachhang,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_khachhang, parent, false);
         return new UserViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-   KhachHang khachHang=khachHangList.get(position);
-        if(khachHang==null){
+        KhachHang khachHang = khachHangList.get(position);
+        if (khachHang == null) {
             return;
         }
         holder.makh.setText(String.valueOf(khachHang.getMaKH()));
@@ -50,7 +51,7 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.User
 
     @Override
     public int getItemCount() {
-        if(khachHangList!=null){
+        if (khachHangList != null) {
             return khachHangList.size();
         }
         return 0;

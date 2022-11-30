@@ -19,23 +19,22 @@ public class LoaiSanPhamDAO {
         db=sqLite.getWritableDatabase();
     }
 
-    public boolean insert(LoaiSanPham loaiSanPham){
+    public long insert(LoaiSanPham loaiSanPham){
         ContentValues values = new ContentValues();
         values.put("TenLoai", loaiSanPham.getTenLoai());
         values.put("NamSX", loaiSanPham.getNamSX());
         values.put("HangSX", loaiSanPham.getHangSX());
 
-        long kq = db.insert("LoaiSanPham", null, values);
-        return (kq> 0);
+        return db.insert("LoaiSanPham", null, values);
+
     }
 
-    public boolean update(LoaiSanPham loaiSanPham){
+    public int update(LoaiSanPham loaiSanPham){
         ContentValues values = new ContentValues();
         values.put("TenLoai", loaiSanPham.getTenLoai());
         values.put("NamSX", loaiSanPham.getNamSX());
         values.put("HangSX", loaiSanPham.getHangSX());
-        long kq = db.update("LoaiSanPham", values, "MaLoaiSP=?", new String[]{String.valueOf(loaiSanPham.getMaLoaiSP())});
-        return (kq > 0);
+        return db.update("LoaiSanPham", values, "MaLoaiSP=?", new String[]{String.valueOf(loaiSanPham.getMaLoaiSP())});
     }
 
     public boolean delete(int MaLoaiSP){
@@ -71,5 +70,6 @@ public class LoaiSanPhamDAO {
         cursor.close();
         return list;
     }
+
 
 }

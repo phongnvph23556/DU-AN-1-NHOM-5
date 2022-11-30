@@ -36,7 +36,6 @@ public class AdminDAO {
         return list.get(0);
     }
 
-
     public List<Admin> getData(String sql, String... selectionArgs) {
         List<Admin> list = new ArrayList<>();
         Cursor cursor = db.rawQuery(sql, selectionArgs);
