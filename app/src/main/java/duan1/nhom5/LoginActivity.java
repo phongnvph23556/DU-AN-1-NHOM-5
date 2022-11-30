@@ -2,6 +2,7 @@ package duan1.nhom5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,13 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
+    TextView textView;
     EditText edtName, edtpass;
     CheckBox checkBoxuser;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +27,15 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnloginn);
         edtName = findViewById(R.id.edtName);
         edtpass = findViewById(R.id.edtPass);
+        textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,Manhinhchao.class);
+                startActivity(intent);
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

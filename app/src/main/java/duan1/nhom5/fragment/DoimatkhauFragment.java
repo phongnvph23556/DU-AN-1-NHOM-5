@@ -59,7 +59,7 @@ public class DoimatkhauFragment extends Fragment {
         btnluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = getActivity().getSharedPreferences("User_file", Context.MODE_PRIVATE);
+                SharedPreferences preferences = getActivity().getSharedPreferences("USER_FILE.txt", Context.MODE_PRIVATE);
                 String user = preferences.getString("UserName","");
                 if (validate()>0){
                     Admin admin = adminDAO.getID(user);

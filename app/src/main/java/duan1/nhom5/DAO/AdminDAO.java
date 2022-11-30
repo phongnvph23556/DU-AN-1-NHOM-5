@@ -55,4 +55,16 @@ public class AdminDAO {
         values.put("matkhau",obj.getMatKhau());
         return db.update("ThuThu", values, "maTT=?", new String[]{obj.getAdmin()});
     }
+    public long insert(Admin obj){
+        ContentValues values = new ContentValues();
+        values.put("Maadmin",obj.getAdmin());
+        values.put("Tai khoan",obj.getTaiKhoan());
+        values.put("Mat khau",obj.getMatKhau());
+        return db.insert("Dang Ki", null, values);
+    }
+    public List<Admin> getAll(){
+        String sql="Select*from Admin";
+        return getData(sql);
+    }
+
 }

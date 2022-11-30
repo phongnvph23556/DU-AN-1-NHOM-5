@@ -196,6 +196,7 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center">
                 <TextView
+                    android:id="@+id/edquaylai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Don't have an account?singup"
