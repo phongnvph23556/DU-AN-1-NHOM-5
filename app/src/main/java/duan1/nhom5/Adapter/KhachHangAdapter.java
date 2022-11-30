@@ -13,13 +13,17 @@ import java.util.List;
 
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.R;
+import duan1.nhom5.fragment.KhachHangFragment;
 
 public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.UserViewHolder> {
     private Context context;
     private List<KhachHang> khachHangList;
+    private KhachHangFragment khachHangFragment;
 
-    public KhachHangAdapter(Context context) {
+    public KhachHangAdapter(Context context, List<KhachHang> khachHangList, KhachHangFragment khachHangFragment) {
         this.context = context;
+        this.khachHangList = khachHangList;
+        this.khachHangFragment = khachHangFragment;
     }
 
     public void setData(List<KhachHang> list) {
