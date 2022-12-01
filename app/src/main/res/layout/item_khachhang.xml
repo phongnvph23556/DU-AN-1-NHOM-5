@@ -7,6 +7,14 @@
     android:layout_margin="10dp"
     android:layout_height="150dp">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
 <LinearLayout
     android:layout_margin="10dp"
     android:orientation="vertical"
@@ -45,6 +53,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/img_updatekh"
+            android:src="@drawable/img_7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:id="@+id/img_deletekh"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
 
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -18,11 +18,9 @@ public class LoginActivity extends AppCompatActivity {
     TextView textView;
     EditText edtName, edtpass;
     CheckBox checkBoxuser;
-<<<<<<< HEAD
-=======
 
     @SuppressLint("MissingInflatedId")
->>>>>>> 2222e52f14caf366fb5f6cd7584c445de7e0dd06
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         edtpass = findViewById(R.id.edtPass);
         textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
-<<<<<<< HEAD
 
-
-=======
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,17 +38,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
->>>>>>> 2222e52f14caf366fb5f6cd7584c445de7e0dd06
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-<<<<<<< HEAD
-=======
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
 
->>>>>>> 2222e52f14caf366fb5f6cd7584c445de7e0dd06
+
 
                 if(edtName.getText().toString().equals("admin") && edtpass.getText().toString().equals("admin")){
                     intent = new Intent(LoginActivity.this, MainActivity.class);
