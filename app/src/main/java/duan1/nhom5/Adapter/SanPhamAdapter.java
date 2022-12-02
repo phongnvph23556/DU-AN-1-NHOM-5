@@ -14,13 +14,17 @@ import java.util.List;
 import duan1.nhom5.Entity.NhanVien;
 import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.R;
+import duan1.nhom5.fragment.SanPhamFragment;
 
 public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.UserViewHolder>{
     private Context context;
     List<SanPham> sanPhamList;
+    SanPhamFragment sanPhamFragment;
 
-    public SanPhamAdapter(Context context) {
+    public SanPhamAdapter(Context context, List<SanPham> sanPhamList, SanPhamFragment sanPhamFragment) {
         this.context = context;
+        this.sanPhamList = sanPhamList;
+        this.sanPhamFragment = sanPhamFragment;
     }
 
     public void setData(List<SanPham> list) {

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +21,6 @@ import duan1.nhom5.fragment.TopBanChayFragment;
 
 public class MainActivity extends AppCompatActivity {
     ImageView img_donhang, img_khachhang, img_sanpham, img_nhanvien, img_loaisanpham, img_topbanchay, img_doanhthu, img_caidat;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         img_topbanchay = findViewById(R.id.topbanchay);
         img_doanhthu = findViewById(R.id.doanhthu);
         img_caidat = findViewById(R.id.caidat);
+
 
 
         //set sự kiện

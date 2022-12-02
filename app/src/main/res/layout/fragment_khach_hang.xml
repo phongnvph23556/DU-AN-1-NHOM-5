@@ -33,6 +33,7 @@
 
 
         <ImageView
+            android:id="@+id/img_addkh"
             android:layout_marginLeft="110dp"
             android:layout_width="40dp"
             android:layout_height="40dp"

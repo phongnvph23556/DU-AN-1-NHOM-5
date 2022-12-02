@@ -3,14 +3,14 @@ package duan1.nhom5.Entity;
 public class KhachHang {
     private int MaKH;
     private String HoTenKH;
-    private int NamSinhKH;
+    private String NamSinhKH;
     private String DiaChiKH;
-    private int SDT;
+    private String SDT;
 
     public KhachHang() {
     }
 
-    public KhachHang(int maKH, String hoTenKH, int namSinhKH, String diaChiKH, int SDT) {
+    public KhachHang(int maKH, String hoTenKH, String namSinhKH, String diaChiKH, String SDT) {
         MaKH = maKH;
         HoTenKH = hoTenKH;
         NamSinhKH = namSinhKH;
@@ -34,11 +34,11 @@ public class KhachHang {
         HoTenKH = hoTenKH;
     }
 
-    public int getNamSinhKH() {
+    public String getNamSinhKH() {
         return NamSinhKH;
     }
 
-    public void setNamSinhKH(int namSinhKH) {
+    public void setNamSinhKH(String namSinhKH) {
         NamSinhKH = namSinhKH;
     }
 
@@ -50,11 +50,11 @@ public class KhachHang {
         DiaChiKH = diaChiKH;
     }
 
-    public int getSDT() {
+    public String getSDT() {
         return SDT;
     }
 
-    public void setSDT(int SDT) {
+    public void setSDT(String SDT) {
         this.SDT = SDT;
     }
 }

@@ -19,23 +19,23 @@ public class SanPhamDAO {
         db = sqLite.getWritableDatabase();
     }
 
-    public boolean insert(SanPham sanPham) {
+    public long insert(SanPham sanPham) {
         ContentValues values = new ContentValues();
         values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         values.put("TenSanPham", sanPham.getTenSanPham());
         values.put("GiaBan", sanPham.getGiaBan());
 
-        long kq = db.insert("SanPham", null, values);
-        return (kq > 0);
+         return db.insert("SanPham", null, values);
+
     }
 
-    public boolean update(SanPham sanPham) {
+    public int update(SanPham sanPham) {
         ContentValues values = new ContentValues();
         values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         values.put("TenSanPham", sanPham.getTenSanPham());
         values.put("GiaBan", sanPham.getGiaBan());
-        long kq = db.update("SanPham", values, "MaSanPham=?", new String[]{String.valueOf(sanPham.getMaSanPham())});
-        return (kq > 0);
+        return db.update("SanPham", values, "MaSanPham=?", new String[]{String.valueOf(sanPham.getMaSanPham())});
+
     }
 
     public boolean delete(int MaSanPham) {

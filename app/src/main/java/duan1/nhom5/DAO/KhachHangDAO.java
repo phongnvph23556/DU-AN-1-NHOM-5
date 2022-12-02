@@ -63,9 +63,9 @@ public class KhachHangDAO {
         while (!cursor.isAfterLast()) {
             int MaKH = cursor.getInt(0);
             String HoTenKH = cursor.getString(1);
-            int NamSinhKH = cursor.getInt(2);
+            String NamSinhKH = cursor.getString(2);
             String DiaChiKH = cursor.getString(3);
-            int SDT = cursor.getInt(4);
+            String SDT = cursor.getString(4);
             list.add(new KhachHang(MaKH, HoTenKH, NamSinhKH, DiaChiKH, SDT));
             cursor.moveToNext();
         }

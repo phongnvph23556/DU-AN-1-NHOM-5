@@ -140,7 +140,7 @@ public class LoaiSanPhamFragment extends Fragment {
         dialog.show();
     }
 
-    public void suaLoaisp() {
+    public void suaLoaisp(int position) {
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_themloaisp);
 
@@ -182,7 +182,8 @@ public class LoaiSanPhamFragment extends Fragment {
 
 
                 if (validate() > 0) {
-                    loaiSanPham.setMaLoaiSP(Integer.parseInt(edt_maloaisp.getText().toString().trim()));
+                    loaiSanPham=list.get(position);
+//                    loaiSanPham.setMaLoaiSP(Integer.parseInt(edt_maloaisp.getText().toString().trim()));
                     if (loaiSanPhamDAO.update(loaiSanPham) > 0) {
                         Toast.makeText(getActivity(), "Sửa thành công nha", Toast.LENGTH_SHORT).show();
                     } else {

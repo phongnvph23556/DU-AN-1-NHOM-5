@@ -1,6 +1,9 @@
 package duan1.nhom5.fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -34,9 +37,9 @@ public class KhachHangFragment extends Fragment {
     private KhachHangAdapter khachHangAdapter;
     private KhachHangDAO khachHangDAO;
     ArrayList<KhachHang> list;
-    private KhachHang khachHang;
-    ImageView cancel_khachhang;
-    EditText edt_makh, edt_tenkh, edt_namsinhkh, edt_diachikh, edt_sdtkh;
+    KhachHang khachHang;
+    ImageView cancel_khachhang, img_addkh;
+    EditText edt_tenkh, edt_namsinhkh, edt_diachikh, edt_sdtkh;
     Button btn_themkh, btn_huythemkh;
 
 
@@ -44,15 +47,27 @@ public class KhachHangFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View v = inflater.inflate(R.layout.fragment_khach_hang, container, false);
         backkhachhang = v.findViewById(R.id.backkhachhang);
         rcv_khachhang = v.findViewById(R.id.rcv_khachhang);
         khachHangDAO = new KhachHangDAO(getActivity());
+        img_addkh = v.findViewById(R.id.img_addkh);
+
         capNhatRCV();
+        img_addkh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog(0, 0);
+            }
+        });
+
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         rcv_khachhang.setLayoutManager(layoutManager);
 
 
+        //về màn hình chính
         backkhachhang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,12 +84,19 @@ public class KhachHangFragment extends Fragment {
         rcv_khachhang.setAdapter(khachHangAdapter);
     }
 
-    public void dialog_ThemLoaisp() {
+    public void openDialog(final int type, int position) {
+
+        khachHang = new KhachHang();
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_themkhachhang);
-
         btn_themkh = dialog.findViewById(R.id.btn_themkh);
         btn_huythemkh = dialog.findViewById(R.id.btnhuythemkh);
+        cancel_khachhang = dialog.findViewById(R.id.img_cancelkh);
+
+        edt_tenkh = dialog.findViewById(R.id.edtHoTenKH);
+        edt_namsinhkh = dialog.findViewById(R.id.edtNS);
+        edt_diachikh = dialog.findViewById(R.id.edtDiachiKH);
+        edt_sdtkh = dialog.findViewById(R.id.edtSDTKH);
 
         btn_huythemkh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,45 +107,96 @@ public class KhachHangFragment extends Fragment {
                 edt_sdtkh.setText("");
             }
         });
-        edt_makh = dialog.findViewById(R.id.edtMaKh);
-        edt_tenkh = dialog.findViewById(R.id.edtHoTenKH);
-        edt_namsinhkh = dialog.findViewById(R.id.edtNS);
-        edt_diachikh = dialog.findViewById(R.id.edtDiachiKH);
-        edt_sdtkh = dialog.findViewById(R.id.edtSDT);
-        cancel_khachhang=dialog.findViewById(R.id.img_canceladdkh);
 
-        //tắt dialog thêm
+
         cancel_khachhang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
-
-        edt_makh.setEnabled(false);//tắt nhập với mã loại sp
-
+        if (type != 0) {
+            khachHang = list.get(position);
+            edt_tenkh.setText(khachHang.getHoTenKH());
+            edt_namsinhkh.setText(String.valueOf(khachHang.getNamSinhKH()));
+            edt_diachikh.setText(khachHang.getDiaChiKH());
+            edt_sdtkh.setText(String.valueOf(khachHang.getSDT()));
+        }
 
         btn_themkh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                khachHang = new KhachHang();
-                khachHang.setHoTenKH(edt_tenkh.getText().toString());
-                khachHang.setNamSinhKH(Integer.parseInt(edt_namsinhkh.getText().toString()));
-                khachHang.setDiaChiKH(edt_diachikh.getText().toString());
-                khachHang.setSDT(Integer.parseInt(edt_sdtkh.getText().toString()));
 
+                khachHang.setHoTenKH(edt_tenkh.getText().toString().trim());
+                khachHang.setNamSinhKH(edt_namsinhkh.getText().toString().trim());
+                khachHang.setDiaChiKH(edt_diachikh.getText().toString().trim());
+                khachHang.setSDT(edt_sdtkh.getText().toString().trim());
+                if (validate() > 0) {
+                    //type =0 sẽ insert ngược lại sẽ update
+                    if (type == 0) {
 
+                        if (khachHangDAO.insert(khachHang) > 0) {
+                            Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
 
-                    if (khachHangDAO.insert(khachHang) > 0) {
-                        Toast.makeText(getActivity(), "Thêm thành công nha", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+
                     } else {
-                        Toast.makeText(getActivity(), "Thêm thất bại nha", Toast.LENGTH_SHORT).show();
-                    }
 
+                        if (khachHangDAO.update(khachHang) > 0) {
+                            Toast.makeText(getActivity(), "Sửa thành công", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Sửa thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+                    }
+                }
+                capNhatRCV();
+
+            }
+        });
+        dialog.show();
+
+
+    }
+
+    public void xoa(final int MaKH) {
+        //Sử dụng Alert
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Delete");
+        builder.setMessage("Bạn có muốn xóa không?");
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Gọi function Delete
+                khachHangDAO.delete(MaKH);
+                Toast.makeText(getActivity(),"Xóa thành công",Toast.LENGTH_SHORT).show();
+                //cập nhật lại rcv;
                 capNhatRCV();
                 dialog.cancel();
             }
         });
-        dialog.show();
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        builder.show();
+    }
+
+
+    public int validate() {
+        int check = 1;
+        if (edt_tenkh.getText().length() == 0 || edt_namsinhkh.getText().length() == 0 || edt_diachikh.getText().length() == 0 || edt_sdtkh.getText().length() == 0) {
+            Toast.makeText(getActivity(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            check = -1;
+        }
+        return check;
     }
 }

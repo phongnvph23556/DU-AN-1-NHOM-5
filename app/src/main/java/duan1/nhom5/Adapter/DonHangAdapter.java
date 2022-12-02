@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import duan1.nhom5.DAO.DonHangDAO;
 import duan1.nhom5.Entity.DonHang;
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.Entity.SanPham;
@@ -22,6 +23,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.UserView
     SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/mm/yyyy");
     private Context context;
     List<DonHang> donHangList;
+
 
     public DonHangAdapter(Context context) {
         this.context = context;
@@ -85,4 +87,5 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.UserView
             thanhtoan=itemView.findViewById(R.id.tv_thanhtoan);
         }
     }
+
 }

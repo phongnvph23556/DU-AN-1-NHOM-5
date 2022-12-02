@@ -41,6 +41,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         LoaiSanPham loaiSanPham = loaiSanPhamList.get(position);
+        int st=position;
         if (loaiSanPham == null) {
             return;
         }
@@ -61,7 +62,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
         holder.img_update_loaisp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment.suaLoaisp();
+                fragment.suaLoaisp(st);
             }
         });
     }
