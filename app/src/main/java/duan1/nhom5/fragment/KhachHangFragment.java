@@ -43,7 +43,6 @@ public class KhachHangFragment extends Fragment {
     Button btn_themkh, btn_huythemkh;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,9 +58,10 @@ public class KhachHangFragment extends Fragment {
         img_addkh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog(0);
+                openDialog(0, 0);
             }
         });
+
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         rcv_khachhang.setLayoutManager(layoutManager);
@@ -84,7 +84,7 @@ public class KhachHangFragment extends Fragment {
         rcv_khachhang.setAdapter(khachHangAdapter);
     }
 
-    public void openDialog(final int type) {
+    public void openDialog(final int type, int position) {
 
         khachHang = new KhachHang();
         Dialog dialog = new Dialog(getActivity());
@@ -115,18 +115,22 @@ public class KhachHangFragment extends Fragment {
                 dialog.dismiss();
             }
         });
-
-
-
+        if (type != 0) {
+            khachHang = list.get(position);
+            edt_tenkh.setText(khachHang.getHoTenKH());
+            edt_namsinhkh.setText(String.valueOf(khachHang.getNamSinhKH()));
+            edt_diachikh.setText(khachHang.getDiaChiKH());
+            edt_sdtkh.setText(String.valueOf(khachHang.getSDT()));
+        }
 
         btn_themkh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                khachHang.setHoTenKH(edt_tenkh.getText().toString());
-                khachHang.setNamSinhKH(Integer.parseInt(edt_namsinhkh.getText().toString()));
-                khachHang.setDiaChiKH(edt_diachikh.getText().toString());
-                khachHang.setSDT(Integer.parseInt(edt_sdtkh.getText().toString()));
+                khachHang.setHoTenKH(edt_tenkh.getText().toString().trim());
+                khachHang.setNamSinhKH(edt_namsinhkh.getText().toString().trim());
+                khachHang.setDiaChiKH(edt_diachikh.getText().toString().trim());
+                khachHang.setSDT(edt_sdtkh.getText().toString().trim());
                 if (validate() > 0) {
                     //type =0 sẽ insert ngược lại sẽ update
                     if (type == 0) {
@@ -137,27 +141,24 @@ public class KhachHangFragment extends Fragment {
                         } else {
                             Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
                         }
-
+                        dialog.dismiss();
 
                     } else {
 
-
-//                        khachHang.setMaKH(Integer.parseInt(edtMaTV.getText().toString()));
                         if (khachHangDAO.update(khachHang) > 0) {
                             Toast.makeText(getActivity(), "Sửa thành công", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getActivity(), "Sửa thất bại", Toast.LENGTH_SHORT).show();
                         }
-
+                        dialog.dismiss();
                     }
-
                 }
                 capNhatRCV();
-                dialog.dismiss();
 
             }
         });
         dialog.show();
+
 
     }
 
@@ -173,7 +174,7 @@ public class KhachHangFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 //Gọi function Delete
                 khachHangDAO.delete(MaKH);
-
+                Toast.makeText(getActivity(),"Xóa thành công",Toast.LENGTH_SHORT).show();
                 //cập nhật lại rcv;
                 capNhatRCV();
                 dialog.cancel();

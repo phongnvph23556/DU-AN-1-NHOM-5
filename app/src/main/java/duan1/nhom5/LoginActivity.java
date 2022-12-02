@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,Manhinhchao.class);
+                Intent intent = new Intent(LoginActivity.this, Manhinhchao.class);
                 startActivity(intent);
             }
         });
@@ -44,17 +44,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-
-
-
-                if(edtName.getText().toString().equals("admin") && edtpass.getText().toString().equals("admin")){
-                    intent = new Intent(LoginActivity.this, MainActivity.class);
+                if (edtName.getText().toString().equals("admin") && edtpass.getText().toString().equals("admin")) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Bạn nhập sai account ADMIN, Mời bạn nhập lại",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Bạn nhập sai account ADMIN, Mời bạn nhập lại", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -62,23 +56,24 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void remnberup(String u,String p,boolean status){
-        SharedPreferences shPe=   getSharedPreferences("ADMIN",MODE_PRIVATE);
-        SharedPreferences.Editor editor=shPe.edit();
-        if (status==false){
+    public void remnberup(String u, String p, boolean status) {
+        SharedPreferences shPe = getSharedPreferences("ADMIN", MODE_PRIVATE);
+        SharedPreferences.Editor editor = shPe.edit();
+        if (status == false) {
             editor.clear();
         } else {
-            editor.putString("USERNAME",u);
-            editor.putString("PASWORD",p);
-            editor.putBoolean("REMEMBER",status);
+            editor.putString("USERNAME", u);
+            editor.putString("PASWORD", p);
+            editor.putBoolean("REMEMBER", status);
         }
         editor.commit();
     }
-    public void chk(View view){
-        String ten=edtName.getText().toString();
-        String paa=edtpass.getText().toString();
-        boolean status=checkBoxuser.isChecked();
-        remnberup(ten,paa,status);
+
+    public void chk(View view) {
+        String ten = edtName.getText().toString();
+        String paa = edtpass.getText().toString();
+        boolean status = checkBoxuser.isChecked();
+        remnberup(ten, paa, status);
     }
 
 

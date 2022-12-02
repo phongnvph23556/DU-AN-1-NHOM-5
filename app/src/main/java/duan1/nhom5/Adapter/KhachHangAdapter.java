@@ -42,7 +42,7 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.User
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         KhachHang khachHang = khachHangList.get(position);
-        KhachHang i=khachHangList.get(position);
+        int st = position;
         if (khachHang == null) {
             return;
         }
@@ -55,7 +55,8 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.User
         holder.img_updatekh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                khachHangFragment.openDialog( 1);
+                khachHangFragment.openDialog(1, st);
+
             }
         });
         holder.imgdeletekh.setOnClickListener(new View.OnClickListener() {
