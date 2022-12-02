@@ -24,6 +24,7 @@ public class LoaiSanPhamDAO {
         values.put("TenLoai", loaiSanPham.getTenLoai());
         values.put("NamSX", loaiSanPham.getNamSX());
         values.put("HangSX", loaiSanPham.getHangSX());
+        values.put("HinhAnh",loaiSanPham.getHinhAnh());
 
         return db.insert("LoaiSanPham", null, values);
 
@@ -34,6 +35,7 @@ public class LoaiSanPhamDAO {
         values.put("TenLoai", loaiSanPham.getTenLoai());
         values.put("NamSX", loaiSanPham.getNamSX());
         values.put("HangSX", loaiSanPham.getHangSX());
+        values.put("HinhAnh",loaiSanPham.getHinhAnh());
         return db.update("LoaiSanPham", values, "MaLoaiSP=?", new String[]{String.valueOf(loaiSanPham.getMaLoaiSP())});
     }
 
@@ -64,7 +66,8 @@ public class LoaiSanPhamDAO {
             String TenLoai = cursor.getString(1);
             String NamSX=cursor.getString(2);
             String HangSX=cursor.getString(3);
-            list.add(new LoaiSanPham(MaLoaiSP,TenLoai,NamSX,HangSX));
+            byte[] HinhAnh=cursor.getBlob(4);
+            list.add(new LoaiSanPham(MaLoaiSP,TenLoai,NamSX,HangSX,HinhAnh));
             cursor.moveToNext();
         }
         cursor.close();

@@ -38,7 +38,8 @@ public class SQLite extends SQLiteOpenHelper {
                 "MaLoaiSP INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "TenLoai TEXT not null," +
                 "NamSX INTEGER not null," +
-                "HangSX TEXT not null) ");
+                "HangSX TEXT not null," +
+                "HinhAnh BLOB) ");
 
         db.execSQL("CREATE TABLE SanPham(" +
                 "MaSanPham INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -79,13 +80,13 @@ public class SQLite extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO SanPham VALUES ('8','nguyễn văn','200000','giày')");
         db.execSQL("INSERT INTO SanPham VALUES ('234','nguyễn văn','200000','giày')");
 
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','giày','1986','hãng adidas')");
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('4','giày','1986','hãng adidas')");
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('8','giày','1986','hãng adidas')");
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('1','giày','1986','hãng adidas')");
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('54','giày','1986','hãng adidas')");
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('65','giày','1986','hãng adidas')");
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('97','giày','1986','hãng adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','giày','1986','hãng adidas','1')");
+//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('4','giày','1986','hãng adidas')");
+//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('8','giày','1986','hãng adidas')");
+//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('1','giày','1986','hãng adidas')");
+//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('54','giày','1986','hãng adidas')");
+//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('65','giày','1986','hãng adidas')");
+//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('97','giày','1986','hãng adidas')");
 
         db.execSQL("INSERT INTO DonHang VALUES ('1','1','1','1','100000','2000/12/12','1')");
         db.execSQL("INSERT INTO DonHang VALUES ('2','2','2','2','600000','2000/12/12','1')");

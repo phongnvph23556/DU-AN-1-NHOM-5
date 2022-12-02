@@ -2,14 +2,20 @@ package duan1.nhom5.fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.Instrumentation;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +45,8 @@ public class LoaiSanPhamFragment extends Fragment {
     ImageView backloaisp, add_loaisp, cancel_loaisp;
     EditText edt_tenloaisp, edt_namsx, edt_hangsx;
     Button btn_themloaisp, btnhuythemloaisp;
+    ImageView imgthemhinhanh;
+    private final int GALLERR_CODE=1000;
 
 
     @Override
@@ -55,7 +64,7 @@ public class LoaiSanPhamFragment extends Fragment {
         loaiSanPhamDAO = new LoaiSanPhamDAO(getActivity());
         rcv_loaisp = v.findViewById(R.id.rcv_loaisp);
         add_loaisp = v.findViewById(R.id.img_addloaisp);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
+        LinearLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         rcv_loaisp.setLayoutManager(layoutManager);
 
         capNhatRCV();
@@ -98,6 +107,16 @@ public class LoaiSanPhamFragment extends Fragment {
         edt_tenloaisp = dialog.findViewById(R.id.edt_tenloaisp);
         edt_namsx = dialog.findViewById(R.id.edt_namsx);
         edt_hangsx = dialog.findViewById(R.id.edt_hangsx);
+        imgthemhinhanh = dialog.findViewById(R.id.img_addhinhanh);
+        imgthemhinhanh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galalery = new Intent(Intent.ACTION_PICK);
+                galalery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galalery,GALLERR_CODE);
+            }
+
+        });
 
         btnhuythemloaisp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,14 +140,21 @@ public class LoaiSanPhamFragment extends Fragment {
             edt_namsx.setText(String.valueOf(loaiSanPham.getNamSX()));
             edt_hangsx.setText(loaiSanPham.getHangSX());
         }
+        BitmapDrawable bitmapDrawable= (BitmapDrawable) imgthemhinhanh.getDrawable();
+        Bitmap bitmap=bitmapDrawable.getBitmap();
+        ByteArrayOutputStream arrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,arrayOutputStream);
+        byte[] hinh=arrayOutputStream.toByteArray();
 
         btn_themloaisp.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
                 loaiSanPham.setTenLoai(edt_tenloaisp.getText().toString().trim());
                 loaiSanPham.setNamSX(edt_namsx.getText().toString());
                 loaiSanPham.setHangSX(edt_hangsx.getText().toString());
+                byte[] hinh1 = hinh;
                 if (validate() > 0) {
                     //type =0 sẽ insert ngược lại sẽ update
                     if (type == 0) {
@@ -195,5 +221,15 @@ public class LoaiSanPhamFragment extends Fragment {
             check = -1;
         }
         return check;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==-1){
+            if(requestCode==GALLERR_CODE){
+                imgthemhinhanh.setImageURI(data.getData());
+            }
+        }
     }
 }

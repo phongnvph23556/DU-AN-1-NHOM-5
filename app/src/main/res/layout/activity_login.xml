@@ -84,7 +84,7 @@
                     android:background="@drawable/backgroudedit"
                     android:ems="10"
                     android:hint="UserName"
-                    android:inputType="textPersonName"
+                    android:inputType="text"
                     android:textAlignment="center" />
 
                 <TextView
@@ -103,9 +103,8 @@
                     android:layout_marginTop="8dp"
                     android:background="@drawable/backgroudedit"
                     android:ems="10"
-                    android:password="true"
                     android:hint="Password"
-                    android:inputType="textPersonName"
+                    android:inputType="textWebPassword"
                     android:textAlignment="center" />
             </LinearLayout>
             <LinearLayout

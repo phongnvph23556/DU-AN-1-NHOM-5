@@ -1,6 +1,8 @@
 package duan1.nhom5.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,10 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
         holder.namsx.setText("Năm sản xuất: " + loaiSanPham.getNamSX());
         holder.hangsx.setText("Hãng sản xuất: " + loaiSanPham.getHangSX());
 
+//        byte[] hinhanh = loaiSanPham.getHinhAnh();
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
+//        holder.img_hinhanh.setImageBitmap(bitmap);
+
         //xóa
         holder.img_delete_loaisp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +84,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private TextView maloaisp1, tenloai, namsx, hangsx;
-        ImageView img_delete_loaisp, img_update_loaisp;
+        ImageView img_delete_loaisp, img_update_loaisp,img_hinhanh;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +94,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
             hangsx = itemView.findViewById(R.id.tv_hangsx);
             img_delete_loaisp = itemView.findViewById(R.id.img_delete_loaisp);
             img_update_loaisp = itemView.findViewById(R.id.img_updateloaisp);
+            img_hinhanh=itemView.findViewById(R.id.img_hinhanh);
         }
     }
 

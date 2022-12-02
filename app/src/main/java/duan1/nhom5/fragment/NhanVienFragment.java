@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -73,7 +74,8 @@ public class NhanVienFragment extends Fragment {
             }
         });
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
+        LinearLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         rcv_nhanvien.setLayoutManager(layoutManager);
 
 
@@ -137,6 +139,7 @@ public class NhanVienFragment extends Fragment {
 
                 nhanVien.setHoTenNV(edt_tennv.getText().toString().trim());
                 nhanVien.setNamSinhNV(edt_namsinhnv.getText().toString().trim());
+                nhanVien.setDiaChiNV(edt_diachinv.getText().toString().trim());
                 if (validate() > 0) {
                     //type =0 sẽ insert ngược lại sẽ update
                     if (type == 0) {

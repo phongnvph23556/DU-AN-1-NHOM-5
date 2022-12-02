@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_hinhanh"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
