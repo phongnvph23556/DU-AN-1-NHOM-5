@@ -96,13 +96,14 @@
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPass"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/backgroudedit"
                     android:ems="10"
+                    android:password="true"
                     android:hint="Password"
                     android:inputType="textPersonName"
                     android:textAlignment="center" />

@@ -3,13 +3,13 @@ package duan1.nhom5.Entity;
 public class NhanVien {
     private int MaNV;
     private String HoTenNV;
-    private int NamSinhNV;
+    private String NamSinhNV;
     private String DiaChiNV;
 
     public NhanVien() {
     }
 
-    public NhanVien(int maNV, String hoTenNV, int namSinhNV, String diaChiNV) {
+    public NhanVien(int maNV, String hoTenNV, String namSinhNV, String diaChiNV) {
         MaNV = maNV;
         HoTenNV = hoTenNV;
         NamSinhNV = namSinhNV;
@@ -32,11 +32,11 @@ public class NhanVien {
         HoTenNV = hoTenNV;
     }
 
-    public int getNamSinhNV() {
+    public String getNamSinhNV() {
         return NamSinhNV;
     }
 
-    public void setNamSinhNV(int namSinhNV) {
+    public void setNamSinhNV(String namSinhNV) {
         NamSinhNV = namSinhNV;
     }
 

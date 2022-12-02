@@ -62,7 +62,7 @@ public class LoaiSanPhamDAO {
         while (!cursor.isAfterLast()){
             int MaLoaiSP = cursor.getInt(0);
             String TenLoai = cursor.getString(1);
-            int NamSX=cursor.getInt(2);
+            String NamSX=cursor.getString(2);
             String HangSX=cursor.getString(3);
             list.add(new LoaiSanPham(MaLoaiSP,TenLoai,NamSX,HangSX));
             cursor.moveToNext();

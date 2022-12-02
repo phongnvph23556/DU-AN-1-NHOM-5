@@ -1,170 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundhome"
+    android:background="#B3B2B2"
     android:orientation="vertical"
-    tools:context=".fragment.NhanVienFragment">
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_marginTop="10dp"
-        android:text="Thêm Nhân Viên"
-        android:textAlignment="center"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    tools:context=".fragment.DonHangFragment">
 
     <LinearLayout
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#2CBF32"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="Thêm Nhân Viên"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_cancelnv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="Mã Nhân Viên"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/ed_manv"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:background="@drawable/backgroudedit"
-            android:hint="Nhập mã nhân viên"
-
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:text="Tên Nhân Viên"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/ed_tennv"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:background="@drawable/backgroudedit"
-            android:hint="Nhập tên nhân viên"
-
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:text="Địa Chỉ "
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/ed_diachi"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:background="@drawable/backgroudedit"
-            android:hint="Nhập địa chỉ"
-
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:text="Mật Khẩu"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/ed_password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:background="@drawable/backgroudedit"
-            android:hint="Nhập mật khẩu"
-
-            android:inputType="textPersonName" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
-            android:text="Năm Sinh"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Họ tên nhân viên "
+                android:textColor="#01651E"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/ed_namsinh"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:ems="10"
-            android:background="@drawable/backgroudedit"
-            android:hint="Nhập năm sinh"
-            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/edtTenNV"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/backgroudedit"
+                android:ems="10"
+                android:hint="Nhập họ tên nhân viên"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Năm sinh "
+                android:textColor="#01651E"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtnsNV"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/backgroudedit"
+                android:ems="10"
+                android:hint="Nhập năm sinh "
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ  "
+                android:textColor="#01651E"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtDiachiNV"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/backgroudedit"
+                android:ems="10"
+                android:hint="Nhập địa chỉ "
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_themnv"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/backbutton"
+                    android:text="Thêm" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnhuythemnv"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/backbutton"
+                    android:text="Hủy" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginHorizontal="20dp">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonluu"
-            android:layout_marginLeft="20dp"
-            style="@android:style/Widget.Button"
-            android:layout_width="150dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/backbutton2"
-            android:text="Lưu" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonhuy"
-            android:layout_marginLeft="20dp"
-            style="@android:style/Widget.Button"
-            android:layout_width="150dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/backbutton2"
-            android:text="Hủy" />
-    </LinearLayout>
-</LinearLayout>
+</FrameLayout>

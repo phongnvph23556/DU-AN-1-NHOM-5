@@ -19,16 +19,14 @@ import duan1.nhom5.fragment.KhachHangFragment;
 
 public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.UserViewHolder> {
     private Context context;
-    private List<KhachHang> khachHangList;
-    ArrayList<KhachHang> list;
+    ArrayList<KhachHang> khachHangList;
     private KhachHangFragment khachHangFragment;
-    KhachHang khachHang;
 
 
-    public KhachHangAdapter(Context context, List<KhachHang> khachHangList, KhachHangFragment khachHangFragment) {
+    public KhachHangAdapter(Context context, ArrayList<KhachHang> khachHangList, KhachHangFragment khachHangFragment) {
         this.context = context;
-        this.khachHangList = khachHangList;
         this.khachHangFragment = khachHangFragment;
+        this.khachHangList = khachHangList;
     }
 
 
@@ -46,11 +44,11 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.User
         if (khachHang == null) {
             return;
         }
-        holder.makh.setText(String.valueOf(khachHang.getMaKH()));
-        holder.tenkh.setText(khachHang.getHoTenKH());
-        holder.namsinhkh.setText(String.valueOf(khachHang.getNamSinhKH()));
-        holder.diachikh.setText(khachHang.getDiaChiKH());
-        holder.sdtkh.setText(String.valueOf(khachHang.getSDT()));
+        holder.makh.setText("Mã khách hàng: " + khachHang.getMaKH());
+        holder.tenkh.setText("Tên khách hàng: " + khachHang.getHoTenKH());
+        holder.namsinhkh.setText("Năm sinh: " + khachHang.getNamSinhKH());
+        holder.diachikh.setText("Địa chỉ: " + khachHang.getDiaChiKH());
+        holder.sdtkh.setText("Số điện thoại: " + khachHang.getSDT());
 
         holder.img_updatekh.setOnClickListener(new View.OnClickListener() {
             @Override

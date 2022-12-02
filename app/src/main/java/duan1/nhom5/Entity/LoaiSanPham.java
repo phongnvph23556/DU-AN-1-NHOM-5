@@ -3,20 +3,17 @@ package duan1.nhom5.Entity;
 public class LoaiSanPham {
     private int MaLoaiSP;
     private String TenLoai;
-    private int NamSX;
+    private String  NamSX;
     private String HangSX;
 
     public LoaiSanPham() {
     }
 
-    public LoaiSanPham(int maLoaiSP, String tenLoai, int namSX, String hangSX) {
+    public LoaiSanPham(int maLoaiSP, String tenLoai, String namSX, String hangSX) {
         MaLoaiSP = maLoaiSP;
         TenLoai = tenLoai;
         NamSX = namSX;
         HangSX = hangSX;
-    }
-
-    public LoaiSanPham(int maloaisp, String tenloaisp, String namsx, String hangsx) {
     }
 
     public int getMaLoaiSP() {
@@ -35,11 +32,11 @@ public class LoaiSanPham {
         TenLoai = tenLoai;
     }
 
-    public int getNamSX() {
+    public String getNamSX() {
         return NamSX;
     }
 
-    public void setNamSX(int namSX) {
+    public void setNamSX(String namSX) {
         NamSX = namSX;
     }
 

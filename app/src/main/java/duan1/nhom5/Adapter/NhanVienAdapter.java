@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,20 +14,19 @@ import java.util.List;
 
 import duan1.nhom5.Entity.NhanVien;
 import duan1.nhom5.R;
+import duan1.nhom5.fragment.NhanVienFragment;
 
 public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserViewHolder> {
     private Context context;
     private List<NhanVien> nhanVienList;
+    private NhanVienFragment nhanVienFragment;
 
-    public NhanVienAdapter(Context context) {
+
+    public NhanVienAdapter(Context context, List<NhanVien> nhanVienList, NhanVienFragment nhanVienFragment) {
         this.context = context;
+        this.nhanVienList = nhanVienList;
+        this.nhanVienFragment = nhanVienFragment;
     }
-
-    public void setData(List<NhanVien> list) {
-        this.nhanVienList = list;
-        notifyDataSetChanged();
-    }
-
 
     @NonNull
     @Override
@@ -37,7 +37,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-
+        int st = position;
         NhanVien nhanVien = nhanVienList.get(position);
         if (nhanVien == null) {
             return;
@@ -46,6 +46,18 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
         holder.hotennv.setText(nhanVien.getHoTenNV());
         holder.namsinhnv.setText(String.valueOf(nhanVien.getNamSinhNV()));
         holder.diachinv.setText(nhanVien.getDiaChiNV());
+        holder.img_updatenv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nhanVienFragment.Dialog_ThemNV(1, st);
+            }
+        });
+        holder.deletenv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nhanVienFragment.xoa(nhanVien.getMaNV());
+            }
+        });
     }
 
     @Override
@@ -58,6 +70,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private TextView manv, hotennv, namsinhnv, diachinv;
+        private ImageView img_updatenv, deletenv;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +78,10 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
             hotennv = itemView.findViewById(R.id.tv_hotennv);
             namsinhnv = itemView.findViewById(R.id.tv_namsinhnv);
             diachinv = itemView.findViewById(R.id.tv_diachinv);
+
+            img_updatenv = itemView.findViewById(R.id.img_updatenv);
+            deletenv = itemView.findViewById(R.id.img_deletenv);
+
 
         }
     }

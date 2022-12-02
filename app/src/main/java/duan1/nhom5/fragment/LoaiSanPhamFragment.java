@@ -23,6 +23,7 @@ import java.util.List;
 
 import duan1.nhom5.Adapter.LoaiSanPhamAdapter;
 import duan1.nhom5.DAO.LoaiSanPhamDAO;
+import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.Entity.LoaiSanPham;
 import duan1.nhom5.MainActivity;
 import duan1.nhom5.R;
@@ -33,9 +34,9 @@ public class LoaiSanPhamFragment extends Fragment {
     private LoaiSanPhamDAO loaiSanPhamDAO;
     private RecyclerView rcv_loaisp;
     ArrayList<LoaiSanPham> list;
-    private LoaiSanPham loaiSanPham;
+    LoaiSanPham loaiSanPham;
     ImageView backloaisp, add_loaisp, cancel_loaisp;
-    EditText edt_maloaisp, edt_tenloaisp, edt_namsx, edt_hangsx;
+    EditText edt_tenloaisp, edt_namsx, edt_hangsx;
     Button btn_themloaisp, btnhuythemloaisp;
 
 
@@ -62,7 +63,7 @@ public class LoaiSanPhamFragment extends Fragment {
         add_loaisp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog_ThemLoaisp();
+                Dialog_ThemLoaiSP(0, 0);
             }
         });
 
@@ -85,12 +86,18 @@ public class LoaiSanPhamFragment extends Fragment {
         rcv_loaisp.setAdapter(loaiSanPhamAdapter);
     }
 
-    public void dialog_ThemLoaisp() {
+    public void Dialog_ThemLoaiSP(final int type, int position) {
+
+        loaiSanPham = new LoaiSanPham();
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog_themloaisp);
-
         btn_themloaisp = dialog.findViewById(R.id.btn_themloaisp);
         btnhuythemloaisp = dialog.findViewById(R.id.btn_huythemloaisp);
+        cancel_loaisp = dialog.findViewById(R.id.cancelthemloaisp);
+
+        edt_tenloaisp = dialog.findViewById(R.id.edt_tenloaisp);
+        edt_namsx = dialog.findViewById(R.id.edt_namsx);
+        edt_hangsx = dialog.findViewById(R.id.edt_hangsx);
 
         btnhuythemloaisp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,101 +107,56 @@ public class LoaiSanPhamFragment extends Fragment {
                 edt_hangsx.setText("");
             }
         });
-        edt_maloaisp = dialog.findViewById(R.id.edt_maloaisp);
-        edt_tenloaisp = dialog.findViewById(R.id.edt_tenloaisp);
-        edt_namsx = dialog.findViewById(R.id.edt_namsx);
-        edt_hangsx = dialog.findViewById(R.id.edt_hangsx);
-        cancel_loaisp = dialog.findViewById(R.id.cancelthemloaisp);
 
-        //tắt dialog thêm
+
         cancel_loaisp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
-
-        edt_maloaisp.setEnabled(false);//tắt nhập với mã loại sp
-
-
-        btn_themloaisp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loaiSanPham = new LoaiSanPham();
-                loaiSanPham.setTenLoai(edt_tenloaisp.getText().toString());
-                loaiSanPham.setNamSX(Integer.parseInt(edt_namsx.getText().toString()));
-                loaiSanPham.setHangSX(edt_hangsx.getText().toString());
-
-
-                if (validate() > 0) {
-                    if (loaiSanPhamDAO.insert(loaiSanPham) > 0) {
-                        Toast.makeText(getActivity(), "Thêm thành công nha", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getActivity(), "Thêm thất bại nha", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                capNhatRCV();
-                dialog.cancel();
-            }
-        });
-        dialog.show();
-    }
-
-    public void suaLoaisp(int position) {
-        Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(R.layout.dialog_themloaisp);
-
-        btn_themloaisp = dialog.findViewById(R.id.btn_themloaisp);
-        btnhuythemloaisp = dialog.findViewById(R.id.btn_huythemloaisp);
-
-        btnhuythemloaisp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edt_tenloaisp.setText("");
-                edt_namsx.setText("");
-                edt_hangsx.setText("");
-            }
-        });
-        edt_maloaisp = dialog.findViewById(R.id.edt_maloaisp);
-        edt_tenloaisp = dialog.findViewById(R.id.edt_tenloaisp);
-        edt_namsx = dialog.findViewById(R.id.edt_namsx);
-        edt_hangsx = dialog.findViewById(R.id.edt_hangsx);
-        cancel_loaisp = dialog.findViewById(R.id.cancelthemloaisp);
-
-        //tắt dialog thêm
-        cancel_loaisp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        edt_maloaisp.setEnabled(false);//tắt nhập với mã loại sp
-
+        if (type != 0) {
+            loaiSanPham = list.get(position);
+            edt_tenloaisp.setText(loaiSanPham.getTenLoai());
+            edt_namsx.setText(String.valueOf(loaiSanPham.getNamSX()));
+            edt_hangsx.setText(loaiSanPham.getHangSX());
+        }
 
         btn_themloaisp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loaiSanPham = new LoaiSanPham();
-                loaiSanPham.setTenLoai(edt_tenloaisp.getText().toString());
-                loaiSanPham.setNamSX(Integer.parseInt(edt_namsx.getText().toString()));
+
+                loaiSanPham.setTenLoai(edt_tenloaisp.getText().toString().trim());
+                loaiSanPham.setNamSX(edt_namsx.getText().toString());
                 loaiSanPham.setHangSX(edt_hangsx.getText().toString());
-
-
                 if (validate() > 0) {
-                    loaiSanPham=list.get(position);
-//                    loaiSanPham.setMaLoaiSP(Integer.parseInt(edt_maloaisp.getText().toString().trim()));
-                    if (loaiSanPhamDAO.update(loaiSanPham) > 0) {
-                        Toast.makeText(getActivity(), "Sửa thành công nha", Toast.LENGTH_SHORT).show();
+                    //type =0 sẽ insert ngược lại sẽ update
+                    if (type == 0) {
+
+                        if (loaiSanPhamDAO.insert(loaiSanPham) > 0) {
+                            Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+
                     } else {
-                        Toast.makeText(getActivity(), "Sửa thất bại nha", Toast.LENGTH_SHORT).show();
+
+                        if (loaiSanPhamDAO.update(loaiSanPham) > 0) {
+                            Toast.makeText(getActivity(), "Sửa thành công", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Sửa thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
                     }
                 }
                 capNhatRCV();
-                dialog.cancel();
             }
         });
         dialog.show();
+
+
     }
 
 
@@ -210,7 +172,7 @@ public class LoaiSanPhamFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 //Gọi function Delete
                 loaiSanPhamDAO.delete(MaLoaiSP);
-
+                Toast.makeText(getActivity(), "Xóa thành công", Toast.LENGTH_SHORT).show();
                 //cập nhật lại rcv;
                 capNhatRCV();
                 dialog.cancel();

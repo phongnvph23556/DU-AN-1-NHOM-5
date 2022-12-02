@@ -41,14 +41,14 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         LoaiSanPham loaiSanPham = loaiSanPhamList.get(position);
-        int st=position;
+        int st = position;
         if (loaiSanPham == null) {
             return;
         }
-        holder.maloaisp1.setText("mã loại sản phẩm" + loaiSanPham.getMaLoaiSP());
+        holder.maloaisp1.setText("Mã loại: " + loaiSanPham.getMaLoaiSP());
         holder.tenloai.setText("Tên loại: " + loaiSanPham.getTenLoai());
         holder.namsx.setText("Năm sản xuất: " + loaiSanPham.getNamSX());
-        holder.hangsx.setText("Hãng sản xuất " + loaiSanPham.getHangSX());
+        holder.hangsx.setText("Hãng sản xuất: " + loaiSanPham.getHangSX());
 
         //xóa
         holder.img_delete_loaisp.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
         holder.img_update_loaisp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment.suaLoaisp(st);
+                fragment.Dialog_ThemLoaiSP(1, st);
             }
         });
     }

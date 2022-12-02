@@ -22,7 +22,7 @@ public class SQLite extends SQLiteOpenHelper {
                 "MatKhau TEXT not null)");
 
         db.execSQL("CREATE TABLE NhanVien(" +
-                "MaNV INTEGER PRIMARY KEY," +
+                "MaNV INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "HoTenNV TEXT not null," +
                 "NamSinhNV INTEGER not null," +
                 "DiaChiNV TEXT not null)");

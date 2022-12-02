@@ -28,24 +28,21 @@ public class NhanVienDAO {
 //        }
 //    }
 
-    public boolean insert(NhanVien nhanVien) {
+    public long insert(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
-        values.put("MaNV", nhanVien.getMaNV());
         values.put("HoTenNV", nhanVien.getHoTenNV());
         values.put("NamSinhNV", nhanVien.getNamSinhNV());
         values.put("DiaChiNV", nhanVien.getDiaChiNV());
-        long kq = db.insert("NhanVien", null, values);
-        return (kq > 0);
+        return db.insert("NhanVien", null, values);
     }
 
-    public boolean update(NhanVien nhanVien) {
+    public int update(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
-        values.put("MaNV", nhanVien.getMaNV());
         values.put("HoTenNV", nhanVien.getHoTenNV());
         values.put("NamSinhNV", nhanVien.getNamSinhNV());
         values.put("DiaChiNV", nhanVien.getDiaChiNV());
-        long kq = db.update("NhanVien", values, "MaNV=?", new String[]{String.valueOf(nhanVien.getMaNV())});
-        return (kq > 0);
+        return db.update("NhanVien", values, "MaNV=?", new String[]{String.valueOf(nhanVien.getMaNV())});
+
     }
 
     public boolean delete(String MaNV) {
@@ -73,7 +70,7 @@ public class NhanVienDAO {
         while (!cursor.isAfterLast()) {
             int MaNV = cursor.getInt(0);
             String HoTenNV = cursor.getString(1);
-            int NamSinhNV = cursor.getInt(2);
+            String NamSinhNV = cursor.getString(2);
             String DiaChiNV = cursor.getString(3);
 
 
