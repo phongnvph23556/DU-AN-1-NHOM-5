@@ -3,6 +3,7 @@ package duan1.nhom5.Adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import duan1.nhom5.Entity.LoaiSanPham;
-import duan1.nhom5.Entity.NhanVien;
 import duan1.nhom5.R;
 import duan1.nhom5.fragment.LoaiSanPhamFragment;
 
@@ -47,14 +46,19 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
         if (loaiSanPham == null) {
             return;
         }
+//        String hinh= String.valueOf(loaiSanPham.getHinhAnh());
+
+        byte[] hinhanh = loaiSanPham.getHinhAnh();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
+        holder.img_hinhanh.setImageURI(Uri.parse(String.valueOf(hinhanh)));
+
         holder.maloaisp1.setText("Mã loại: " + loaiSanPham.getMaLoaiSP());
         holder.tenloai.setText("Tên loại: " + loaiSanPham.getTenLoai());
         holder.namsx.setText("Năm sản xuất: " + loaiSanPham.getNamSX());
         holder.hangsx.setText("Hãng sản xuất: " + loaiSanPham.getHangSX());
+//        holder.img_hinhanh.setImageURI(Uri.parse(hinh));
 
-//        byte[] hinhanh = loaiSanPham.getHinhAnh();
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
-//        holder.img_hinhanh.setImageBitmap(bitmap);
+
 
         //xóa
         holder.img_delete_loaisp.setOnClickListener(new View.OnClickListener() {

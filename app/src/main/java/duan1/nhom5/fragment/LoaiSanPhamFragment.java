@@ -146,6 +146,7 @@ public class LoaiSanPhamFragment extends Fragment {
         bitmap.compress(Bitmap.CompressFormat.PNG,100,arrayOutputStream);
         byte[] hinh=arrayOutputStream.toByteArray();
 
+
         btn_themloaisp.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -154,7 +155,7 @@ public class LoaiSanPhamFragment extends Fragment {
                 loaiSanPham.setTenLoai(edt_tenloaisp.getText().toString().trim());
                 loaiSanPham.setNamSX(edt_namsx.getText().toString());
                 loaiSanPham.setHangSX(edt_hangsx.getText().toString());
-                byte[] hinh1 = hinh;
+//                loaiSanPham.setHinhAnh(imgthemhinhanh.getImageAlpha(hinh));
                 if (validate() > 0) {
                     //type =0 sẽ insert ngược lại sẽ update
                     if (type == 0) {
@@ -231,5 +232,9 @@ public class LoaiSanPhamFragment extends Fragment {
                 imgthemhinhanh.setImageURI(data.getData());
             }
         }
+    }
+
+    private class Img {
+
     }
 }

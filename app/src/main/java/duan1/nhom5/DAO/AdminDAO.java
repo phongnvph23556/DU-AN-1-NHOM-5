@@ -53,18 +53,41 @@ public class AdminDAO {
         ContentValues values = new ContentValues();
         values.put("hoten",obj.getTaiKhoan());
         values.put("matkhau",obj.getMatKhau());
-        return db.update("ThuThu", values, "maTT=?", new String[]{obj.getAdmin()});
+        return db.update("ThuThu", values, "maTT=?", new String[]{obj.getTaiKhoan()});
     }
-    public long insert(Admin obj){
-        ContentValues values = new ContentValues();
-        values.put("Maadmin",obj.getAdmin());
-        values.put("Tai khoan",obj.getTaiKhoan());
-        values.put("Mat khau",obj.getMatKhau());
-        return db.insert("Dang Ki", null, values);
+//    public long insert(Admin obj){
+//        ContentValues values = new ContentValues();
+//        values.put("TaiKhoan",obj.getTaiKhoan());
+//        values.put("MatKhau",obj.getMatKhau());
+//        return db.insert("Admin", null, values);
+//    }
+
+    public Boolean insert(String TaiKhoan, String MatKhau){
+        ContentValues contentValues= new ContentValues();
+        contentValues.put("TaiKhoan", TaiKhoan);
+        contentValues.put("MatKhau", MatKhau);
+        long result = db.insert("Admin", null, contentValues);
+        if(result==-1) return false;
+        else
+            return true;
     }
     public List<Admin> getAll(){
         String sql="Select*from Admin";
         return getData(sql);
+    }
+    public Boolean checkTaiKhoan(String TaiKhoan) {
+        Cursor cursor = db.rawQuery("Select * from Admin where TaiKhoan = ?", new String[]{TaiKhoan});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkusernamepassword(String TaiKhoan, String MatKhau){
+        Cursor cursor = db.rawQuery("Select * from Admin where TaiKhoan = ? and MatKhau = ?", new String[] {TaiKhoan,MatKhau});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
 }
