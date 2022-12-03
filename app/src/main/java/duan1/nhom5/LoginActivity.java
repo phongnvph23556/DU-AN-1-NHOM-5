@@ -33,7 +33,17 @@ public class LoginActivity extends AppCompatActivity {
         edtpass = findViewById(R.id.edtPass);
         textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
-        adminDAO=new AdminDAO(this);
+        adminDAO = new AdminDAO(this);
+
+        //đọc user,pass trong sharedpreference
+        SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        String user = sharedPreferences.getString("USERNAME", "");
+        String pass = sharedPreferences.getString("PASSWORD", "");
+        Boolean rememb = sharedPreferences.getBoolean("REMEMBER", false);
+
+        edtName.setText(user);
+        edtpass.setText(pass);
+        checkBoxuser.setChecked(rememb);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,21 +53,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String user = edtName.getText().toString();
                 String pass = edtpass.getText().toString();
 
-                if(user.equals("")||pass.equals(""))
+                if (user.equals("") || pass.equals(""))
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-                else{
+                else {
                     Boolean checkuserpass = adminDAO.checkusernamepassword(user, pass);
-                    if(checkuserpass==true){
+                    if (checkuserpass == true) {
                         Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
+                        rememberUser(user, pass, checkBoxuser.isChecked());
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                    }else{
+                    } else {
                         Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -66,24 +78,21 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void remnberup(String u, String p, boolean status) {
-        SharedPreferences shPe = getSharedPreferences("ADMIN", MODE_PRIVATE);
-        SharedPreferences.Editor editor = shPe.edit();
-        if (status == false) {
+    public void rememberUser(String u, String p, boolean status) {
+        SharedPreferences preferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        if (!status) {
+            //xóa tình trạng lưu trước đó
             editor.clear();
         } else {
+            //lưu dữ liệu
             editor.putString("USERNAME", u);
-            editor.putString("PASWORD", p);
+            editor.putString("PASSWORD", p);
             editor.putBoolean("REMEMBER", status);
         }
+        //lưu lại toàn bộ dữ liệu
         editor.commit();
-    }
 
-    public void chk(View view) {
-        String ten = edtName.getText().toString();
-        String paa = edtpass.getText().toString();
-        boolean status = checkBoxuser.isChecked();
-        remnberup(ten, paa, status);
     }
 
 

@@ -115,8 +115,7 @@
                 <CheckBox
                     android:id="@+id/checkuser"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="chk"/>
+                    android:layout_height="wrap_content" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

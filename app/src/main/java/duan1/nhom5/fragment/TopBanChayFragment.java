@@ -32,21 +32,9 @@ public class TopBanChayFragment extends Fragment {
 
 
 
-    public TopBanChayFragment() {
-        // Required empty public constructor
-    }
 
-    public static TopBanChayFragment newInstance() {
-        TopBanChayFragment fragment = new TopBanChayFragment();
 
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

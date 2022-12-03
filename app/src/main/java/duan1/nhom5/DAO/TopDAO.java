@@ -37,13 +37,13 @@ public class TopDAO {
         return list;
     }
 
-//    public int getDoanhThu(String tuNgay, String denNgay){
-//        String sql = "SELECT SUM(tienthue) FROM PhieuMuon WHERE ngay BETWEEN'" + tuNgay + "' AND '" + denNgay + "' ";
-//        Cursor cursor = db.rawQuery(sql, null);
-//        cursor.moveToFirst();
-//        int doanhThu = cursor.getInt(0);
-//        cursor.close();
-//        return doanhThu;
-//    }
+    public int getDoanhThu(String tuNgay, String denNgay){
+        String sql = "SELECT SUM(TienBan) FROM DonHang WHERE Ngay BETWEEN'" + tuNgay + "' AND '" + denNgay + "' ";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int doanhThu = cursor.getInt(0);
+        cursor.close();
+        return doanhThu;
+    }
 
 }
