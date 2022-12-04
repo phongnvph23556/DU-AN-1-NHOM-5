@@ -19,23 +19,23 @@ public class SanPhamDAO {
         db = sqLite.getWritableDatabase();
     }
 
-    public long insert(SanPham sanPham) {
+    public boolean insert(SanPham sanPham) {
         ContentValues values = new ContentValues();
         values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         values.put("TenSanPham", sanPham.getTenSanPham());
         values.put("GiaBan", sanPham.getGiaBan());
 
-         return db.insert("SanPham", null, values);
-
+        long kq = db.insert("SanPham", null, values);
+        return (kq > 0);
     }
 
-    public int update(SanPham sanPham) {
+    public boolean update(SanPham sanPham) {
         ContentValues values = new ContentValues();
         values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         values.put("TenSanPham", sanPham.getTenSanPham());
         values.put("GiaBan", sanPham.getGiaBan());
-        return db.update("SanPham", values, "MaSanPham=?", new String[]{String.valueOf(sanPham.getMaSanPham())});
-
+        long kq = db.update("SanPham", values, "MaSanPham=?", new String[]{String.valueOf(sanPham.getMaSanPham())});
+        return (kq > 0);
     }
 
     public boolean delete(int MaSanPham) {
@@ -65,8 +65,8 @@ public class SanPhamDAO {
             int MaLoaiSP = cursor.getInt(1);
             String TenSanPham = cursor.getString(2);
             int GiaBan = cursor.getInt(3);
-
-            list.add(new SanPham(MaSanPham, MaLoaiSP, TenSanPham, GiaBan));
+            String TenLoai=cursor.getString(4);
+            list.add(new SanPham(MaSanPham, MaLoaiSP, TenSanPham, GiaBan,TenLoai));
             cursor.moveToNext();
         }
         cursor.close();

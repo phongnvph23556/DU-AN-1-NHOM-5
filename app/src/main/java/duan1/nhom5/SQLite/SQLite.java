@@ -79,7 +79,7 @@ public class SQLite extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO SanPham VALUES ('8','nguyễn văn','200000','giày')");
         db.execSQL("INSERT INTO SanPham VALUES ('234','nguyễn văn','200000','giày')");
 
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','giày','1986','hãng adidas','1')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','giày','1986','hãng adidas')");
 //        db.execSQL("INSERT INTO LoaiSanPham VALUES ('4','giày','1986','hãng adidas')");
 //        db.execSQL("INSERT INTO LoaiSanPham VALUES ('8','giày','1986','hãng adidas')");
 //        db.execSQL("INSERT INTO LoaiSanPham VALUES ('1','giày','1986','hãng adidas')");

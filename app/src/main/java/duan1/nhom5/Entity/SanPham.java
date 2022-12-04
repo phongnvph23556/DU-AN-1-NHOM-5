@@ -5,15 +5,31 @@ public class SanPham {
     private int MaLoaiSP;
     private String TenSanPham;
     private int GiaBan;
+    private String tenLoaii;
 
     public SanPham() {
     }
 
-    public SanPham(int maSanPham, int maLoaiSP, String tenSanPham, int giaBan) {
+    public SanPham(int maSanPham, int maLoaiSP, String tenSanPham, int giaBan, String tenLoai) {
         MaSanPham = maSanPham;
         MaLoaiSP = maLoaiSP;
         TenSanPham = tenSanPham;
         GiaBan = giaBan;
+        tenLoaii = tenLoai;
+    }
+
+
+    public SanPham(int maSanPham, String ten, int giaban, int maloai) {
+        MaLoaiSP = maloai;
+        TenSanPham = ten;
+        GiaBan = giaban;
+        MaSanPham = maSanPham;
+    }
+
+    public SanPham(String ten, int giaban, int maloai) {
+        this.MaLoaiSP = maloai;
+        this.TenSanPham = ten;
+        this.GiaBan = giaban;
     }
 
     public int getMaSanPham() {

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="350dp"
+    android:layout_gravity="center"
+    android:layout_height="500dp"
     android:background="#818181"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.SanPhamFragment">
@@ -13,11 +14,7 @@
         android:background="#2CBF32"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:layout_marginLeft="10dp"/>
+
         <TextView
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -55,46 +52,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mã Sản Phẩm "
-                android:textColor="#01651E"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edmasp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/backgroudedit"
-                android:hint="Nhập mã sản phẩm "
-                android:inputType="textPersonName"
-                android:textAlignment="center" />
-
-            <TextView
                 android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mã loại sản phẩm  "
-                android:textColor="#01651E"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edMaLSP"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/backgroudedit"
-                android:ems="10"
-                android:hint="Nhập mã loại sản phẩm  "
-                android:inputType="textPersonName"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tên sản phẩm  "
@@ -103,18 +61,18 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edTenSP"
+                android:id="@+id/edt_tensp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backgroudedit"
                 android:ems="10"
-                android:hint="Nhập tên sản phẩm  "
+                android:hint="Nhập tên sản phẩm "
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gía bán  "
@@ -123,27 +81,50 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edGiaban"
+                android:id="@+id/edt_giaban"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/backgroudedit"
                 android:ems="10"
-                android:hint="Nhập giá bán  "
+                android:hint="Nhập giá bán "
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Loại sản phẩm  "
+                    android:textColor="#01651E"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spn_loaisp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnLuusanphan"
+                    android:id="@+id/btnthemsp"
                     style="@android:style/Widget.Button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -152,7 +133,7 @@
                     android:text="Lưu" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnHuysanphan"
+                    android:id="@+id/btnHuythemsp"
                     style="@android:style/Widget.Button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
