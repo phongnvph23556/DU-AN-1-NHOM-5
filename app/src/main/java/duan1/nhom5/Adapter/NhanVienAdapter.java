@@ -49,7 +49,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.manv.setText(String.valueOf(nhanVienList.get(position).getMaNV()));
+        holder.manv.setText("Mã nhân viên: "+nhanVienList.get(position).getMaNV());
         holder.hotennv.setText(nhanVienList.get(position).getHoTenNV());
         int stt = position;
         holder.cardView.setOnClickListener(new View.OnClickListener() {

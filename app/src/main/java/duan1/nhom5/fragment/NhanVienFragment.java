@@ -41,7 +41,6 @@ public class NhanVienFragment extends Fragment {
     private NhanVienDAO nhanVienDAO;
     private NhanVienAdapter nhanVienAdapter;
     List<NhanVien> list;
-    NhanVien nhanVien;
     ImageView imgadd_nv, img_cancelnv;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -64,7 +63,7 @@ public class NhanVienFragment extends Fragment {
             }
         });
 
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rcv_nhanvien.setLayoutManager(layoutManager);
         nhanVienAdapter = new NhanVienAdapter(getActivity(), list);
@@ -95,6 +94,14 @@ public class NhanVienFragment extends Fragment {
         Button them = dialog.findViewById(R.id.btn_themnv);
         Button huy = dialog.findViewById(R.id.btnhuythemnv);
 
+        img_cancelnv=dialog.findViewById(R.id.img_cancelnv);
+        img_cancelnv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +120,9 @@ public class NhanVienFragment extends Fragment {
         huy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+               name.setText("");
+               date.setText("");
+               address.setText("");
             }
         });
 
@@ -124,7 +133,7 @@ public class NhanVienFragment extends Fragment {
                 String ngay = date.getText().toString().trim();
                 String diachi = address.getText().toString().trim();
                 if (ten.isEmpty() || ngay.isEmpty() || diachi.isEmpty()) {
-                    Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
                     if (nhanVienDAO.insert(new NhanVien(ten,ngay,diachi))) {
                         Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();

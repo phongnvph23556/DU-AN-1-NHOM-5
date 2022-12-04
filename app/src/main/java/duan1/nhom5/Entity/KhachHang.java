@@ -10,13 +10,21 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(int maKH, String hoTenKH, String namSinhKH, String diaChiKH, String SDT) {
+    public KhachHang(String hoTenKH, String namSinhKH, String diaChiKH, String Sodt) {
+        HoTenKH = hoTenKH;
+        NamSinhKH = namSinhKH;
+        DiaChiKH = diaChiKH;
+        SDT = Sodt;
+    }
+
+    public KhachHang(int maKH, String hoTenKH, String namSinhKH, String diaChiKH, String Sodt) {
         MaKH = maKH;
         HoTenKH = hoTenKH;
         NamSinhKH = namSinhKH;
         DiaChiKH = diaChiKH;
-        this.SDT = SDT;
+        SDT = Sodt;
     }
+
 
     public int getMaKH() {
         return MaKH;

@@ -18,7 +18,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Them Khach Hang"
+            android:text="Thêm Khách Hàng"
             android:textStyle="bold"
             android:textSize="30dp"
             android:layout_gravity="center_vertical"

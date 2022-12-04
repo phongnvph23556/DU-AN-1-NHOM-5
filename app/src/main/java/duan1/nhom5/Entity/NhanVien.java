@@ -6,7 +6,11 @@ public class NhanVien {
     private String NamSinhNV;
     private String DiaChiNV;
 
-    public NhanVien() {
+    public NhanVien(String ten, String ngay, String diachi) {
+        HoTenNV = ten;
+        NamSinhNV = ngay;
+        DiaChiNV = diachi;
+
     }
 
     public NhanVien(int maNV, String hoTenNV, String namSinhNV, String diaChiNV) {
@@ -15,10 +19,6 @@ public class NhanVien {
         NamSinhNV = namSinhNV;
         DiaChiNV = diaChiNV;
     }
-
-    public NhanVien(String ten, String ngay, String diachi) {
-    }
-
 
     public int getMaNV() {
         return MaNV;
