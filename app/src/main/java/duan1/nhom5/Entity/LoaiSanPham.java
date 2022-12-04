@@ -5,17 +5,20 @@ public class LoaiSanPham {
     private String TenLoai;
     private String NamSX;
     private String HangSX;
-    private byte[] HinhAnh;
 
     public LoaiSanPham() {
     }
 
-    public LoaiSanPham(int maLoaiSP, String tenLoai, String namSX, String hangSX, byte[] hinhAnh) {
+    public LoaiSanPham(int maLoaiSP, String tenLoai, String namSX, String hangSX) {
         MaLoaiSP = maLoaiSP;
         TenLoai = tenLoai;
         NamSX = namSX;
         HangSX = hangSX;
-        HinhAnh = hinhAnh;
+    }
+    public LoaiSanPham( String tenLoai, String namSX, String hangSX) {
+        TenLoai = tenLoai;
+        NamSX = namSX;
+        HangSX = hangSX;
     }
 
     public int getMaLoaiSP() {
@@ -49,13 +52,4 @@ public class LoaiSanPham {
     public void setHangSX(String hangSX) {
         HangSX = hangSX;
     }
-
-    public byte[] getHinhAnh() {
-        return HinhAnh;
-    }
-
-    public void setHinhAnh(byte[] hinhAnh) {
-        HinhAnh = hinhAnh;
-    }
-
 }

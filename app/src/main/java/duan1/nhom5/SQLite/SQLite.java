@@ -38,8 +38,7 @@ public class SQLite extends SQLiteOpenHelper {
                 "MaLoaiSP INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "TenLoai TEXT not null," +
                 "NamSX INTEGER not null," +
-                "HangSX TEXT not null," +
-                "HinhAnh BLOB) ");
+                "HangSX TEXT not null)");
 
         db.execSQL("CREATE TABLE SanPham(" +
                 "MaSanPham INTEGER PRIMARY KEY AUTOINCREMENT," +
