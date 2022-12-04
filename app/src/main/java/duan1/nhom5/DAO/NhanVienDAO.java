@@ -28,21 +28,22 @@ public class NhanVienDAO {
 //        }
 //    }
 
-    public long insert(NhanVien nhanVien) {
+    public boolean insert(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
         values.put("HoTenNV", nhanVien.getHoTenNV());
         values.put("NamSinhNV", nhanVien.getNamSinhNV());
         values.put("DiaChiNV", nhanVien.getDiaChiNV());
-        return db.insert("NhanVien", null, values);
+        long kq = db.insert("NhanVien", null, values);
+        return (kq > 0);
     }
 
-    public int update(NhanVien nhanVien) {
+    public boolean update(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
         values.put("HoTenNV", nhanVien.getHoTenNV());
         values.put("NamSinhNV", nhanVien.getNamSinhNV());
         values.put("DiaChiNV", nhanVien.getDiaChiNV());
-        return db.update("NhanVien", values, "MaNV=?", new String[]{String.valueOf(nhanVien.getMaNV())});
-
+        long kq = db.update("NhanVien", values, "MaNV=?", new String[]{String.valueOf(nhanVien.getMaNV())});
+        return (kq > 0);
     }
 
     public boolean delete(String MaNV) {

@@ -16,6 +16,10 @@ public class NhanVien {
         DiaChiNV = diaChiNV;
     }
 
+    public NhanVien(String ten, String ngay, String diachi) {
+    }
+
+
     public int getMaNV() {
         return MaNV;
     }

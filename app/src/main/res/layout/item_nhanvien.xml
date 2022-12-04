@@ -4,6 +4,7 @@
     android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
+    android:id="@+id/cardviewnv"
     android:backgroundTint="#5DBA48"
     android:layout_margin="10dp"
     android:orientation="horizontal">
@@ -21,7 +22,7 @@
             android:layout_marginLeft="20dp">
 
             <TextView
-                android:id="@+id/tv_manv"
+                android:id="@+id/tv_maNV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Manv: Ph23t43"
@@ -36,35 +37,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/tv_namsinhnv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="năm sinh"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/tv_diachinv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="địa chỉ"
-                android:textColor="@color/black"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="60dp">
-            <ImageView
-                android:id="@+id/img_updatenv"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_baseline_edit_note_24"/>
-            <ImageView
-                android:id="@+id/img_deletenv"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_baseline_delete_24"/>
 
-        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
