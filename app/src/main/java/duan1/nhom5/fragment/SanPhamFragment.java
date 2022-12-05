@@ -55,10 +55,10 @@ public class SanPhamFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rcv_sanpham);
         addsp = view.findViewById(R.id.img_addsp);
         sanPhamDAO = new SanPhamDAO(getActivity());
-        list = sanPhamDAO.selectAll();
+        list=new ArrayList<>();
 
 
-//        list.addAll(sanPhamDAO.selectAll());
+        list.addAll(sanPhamDAO.selectAll());
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new SanPhamAdapter(getActivity(), list, getDSLoaisach());

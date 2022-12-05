@@ -24,6 +24,24 @@ public class DonHang {
         ThanhToan = thanhToan;
     }
 
+    public DonHang(int madh, int maKH, int maSanPham, int tienBan, Date ngay, int thanhToan, int manv) {
+        MaDH = madh;
+        MaKH = maKH;
+        MaSanPham = maSanPham;
+        TienBan = tienBan;
+        Ngay = ngay;
+        ThanhToan = thanhToan;
+        MaNV = manv;
+    }
+    public DonHang(int maKH, int maSanPham, int tienBan, Date ngay, int thanhToan, int manv) {
+        MaKH = maKH;
+        MaSanPham = maSanPham;
+        TienBan = tienBan;
+        Ngay = ngay;
+        ThanhToan = thanhToan;
+        MaNV = manv;
+    }
+
     public int getMaDH() {
         return MaDH;
     }

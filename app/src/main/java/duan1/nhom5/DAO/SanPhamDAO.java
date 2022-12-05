@@ -21,9 +21,9 @@ public class SanPhamDAO {
 
     public boolean insert(SanPham sanPham) {
         ContentValues values = new ContentValues();
-        values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         values.put("TenSanPham", sanPham.getTenSanPham());
         values.put("GiaBan", sanPham.getGiaBan());
+        values.put("MaLoaiSP", sanPham.getMaLoaiSP());
 
         long kq = db.insert("SanPham", null, values);
         return (kq > 0);
@@ -31,9 +31,9 @@ public class SanPhamDAO {
 
     public boolean update(SanPham sanPham) {
         ContentValues values = new ContentValues();
-        values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         values.put("TenSanPham", sanPham.getTenSanPham());
         values.put("GiaBan", sanPham.getGiaBan());
+        values.put("MaLoaiSP", sanPham.getMaLoaiSP());
         long kq = db.update("SanPham", values, "MaSanPham=?", new String[]{String.valueOf(sanPham.getMaSanPham())});
         return (kq > 0);
     }
@@ -44,13 +44,13 @@ public class SanPhamDAO {
     }
 
     public List<SanPham> selectAll() {
-        String sql = "SELECT * FROM SanPham INNER JOIN LoaiSanPham ON SanPham.MaSanPham = LoaiSanPham.MaLoaiSP";
+        String sql = "SELECT * FROM SanPham INNER JOIN LoaiSanPham ON SanPham.MaLoaiSP = LoaiSanPham.MaLoaiSP";
         return getData(sql);
     }
 
     public SanPham getID(int MaSanPham) {
         String MaSanPham1 = String.valueOf(MaSanPham);
-        String sql = "SELECT * FROM SanPham INNER JOIN LoaiSanPham ON SanPham.MaSanPham = LoaiSanPham.MaLoaiSP WHERE MaSanPham=?";
+        String sql = "SELECT * FROM SanPham INNER JOIN LoaiSanPham ON SanPham.MaLoaiSP = LoaiSanPham.MaLoaiSP WHERE MaSanPham=?";
         List<SanPham> list = new ArrayList<>();
         list = getData(sql, MaSanPham1);
         return list.get(0);
@@ -62,11 +62,11 @@ public class SanPhamDAO {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             int MaSanPham = cursor.getInt(0);
-            int MaLoaiSP = cursor.getInt(1);
-            String TenSanPham = cursor.getString(2);
-            int GiaBan = cursor.getInt(3);
-            String TenLoai=cursor.getString(4);
-            list.add(new SanPham(MaSanPham, MaLoaiSP, TenSanPham, GiaBan,TenLoai));
+            String TenSanPham = cursor.getString(1);
+            int GiaBan = cursor.getInt(2);
+            int MaLoaiSP = cursor.getInt(3);
+            String TenLoai = cursor.getString(5);
+            list.add(new SanPham(MaSanPham, TenSanPham, GiaBan, MaLoaiSP, TenLoai));
             cursor.moveToNext();
         }
         cursor.close();

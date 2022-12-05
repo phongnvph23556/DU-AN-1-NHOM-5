@@ -10,7 +10,7 @@ public class SanPham {
     public SanPham() {
     }
 
-    public SanPham(int maSanPham, int maLoaiSP, String tenSanPham, int giaBan, String tenLoai) {
+    public SanPham(int maSanPham, String tenSanPham, int giaBan, int maLoaiSP, String tenLoai) {
         MaSanPham = maSanPham;
         MaLoaiSP = maLoaiSP;
         TenSanPham = tenSanPham;
@@ -18,6 +18,13 @@ public class SanPham {
         tenLoaii = tenLoai;
     }
 
+    public String getTenLoaii() {
+        return tenLoaii;
+    }
+
+    public void setTenLoaii(String tenLoaii) {
+        this.tenLoaii = tenLoaii;
+    }
 
     public SanPham(int maSanPham, String ten, int giaban, int maloai) {
         MaLoaiSP = maloai;

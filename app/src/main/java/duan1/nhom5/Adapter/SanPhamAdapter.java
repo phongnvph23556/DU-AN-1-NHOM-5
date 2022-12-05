@@ -96,7 +96,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         tvmasp.setText("Mã sản phẩm :" + list.get(position).getMaSanPham());
         tvtensp.setText("Tên sản phẩm :" + list.get(position).getTenSanPham());
         tvgia.setText("Giá bán : " + list.get(position).getGiaBan() + " VND");
-        tvloaisp.setText("Loại sản phẩm : " + list.get(position).getMaLoaiSP());
+        tvloaisp.setText("Loại sản phẩm : " + list.get(position).getTenLoaii());
 
         btnxoa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,7 +145,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
 
                 tensp.setText(list.get(position).getTenSanPham());
                 edtprice.setText(String.valueOf(list.get(position).getGiaBan()));
-                spnloaisp.setSelection(list.get(position).getMaLoaiSP());
+//                spnloaisp.setSelection(list.get(position).getMaLoaiSP());
                 btnadd.setText("Thay đổi");
 
                 SimpleAdapter adapter = new SimpleAdapter(context,  // context

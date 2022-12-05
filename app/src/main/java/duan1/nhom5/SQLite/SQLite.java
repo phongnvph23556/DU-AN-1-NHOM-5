@@ -56,42 +56,36 @@ public class SQLite extends SQLiteOpenHelper {
                 "ThanhToan INTEGER not null)");
 
 
-        db.execSQL("INSERT INTO KhachHang VALUES ('4','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('5','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('6','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('7','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('8','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('9','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('10','nguyễn văn phong','2003','hà nội','0343243243')");
-        db.execSQL("INSERT INTO KhachHang VALUES ('11','nguyễn văn phong','2003','hà nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('4','Nguyễn Văn Phong','2003','Hà Nội','0343243243')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('5','Nguyễn Sơn Dương','2003','Cà Mau','0378540244')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('6','Nguyễn Văn Quân','2000','Nghệ An','0378540244')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('7','Đặng Thế Tiến','2002','Nam Định','0378540244')");
+        db.execSQL("INSERT INTO KhachHang VALUES ('8','Hoàng Văn Thắng','2003','Thanh Hóa','0378540244')");
 
 
-        db.execSQL("INSERT INTO NhanVien VALUES ('1','nguyễn văn phong','2003','hà nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('2','nguyễn văn 09','2003','hà nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('3','nguyễn văn r','2003','hà nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('45','nguyễn văn gf','2003','hà nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('7','nguyễn văn ytr','2003','hà nội')");
 
-        db.execSQL("INSERT INTO SanPham VALUES ('1','nguyễn văn','200000','giày')");
-        db.execSQL("INSERT INTO SanPham VALUES ('5','nguyễn văn','200000','giày')");
-        db.execSQL("INSERT INTO SanPham VALUES ('6','nguyễn văn','200000','giày')");
-        db.execSQL("INSERT INTO SanPham VALUES ('7','nguyễn văn','200000','giày')");
-        db.execSQL("INSERT INTO SanPham VALUES ('8','nguyễn văn','200000','giày')");
-        db.execSQL("INSERT INTO SanPham VALUES ('234','nguyễn văn','200000','giày')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('1','Nguyễn Văn Phong','2003','Hà Nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('3','Nguyễn Văn Dương','2003','Hà Nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('4','Hoàng Huy Quân','2003','Hà Nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('5','Nguyễn Đặng Tiến','2003','Hà Nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('6','Nguyễn Thế Sáng','2003','Hà Nam')");
+        db.execSQL("INSERT INTO NhanVien VALUES ('7','Nguyễn Hoan Thắng','2003','Hà Nội')");
 
-        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','giày','1986','hãng adidas')");
-//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('4','giày','1986','hãng adidas')");
-//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('8','giày','1986','hãng adidas')");
-//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('1','giày','1986','hãng adidas')");
-//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('54','giày','1986','hãng adidas')");
-//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('65','giày','1986','hãng adidas')");
-//        db.execSQL("INSERT INTO LoaiSanPham VALUES ('97','giày','1986','hãng adidas')");
 
-        db.execSQL("INSERT INTO DonHang VALUES ('1','1','1','1','100000','2000/12/12','1')");
-        db.execSQL("INSERT INTO DonHang VALUES ('2','2','2','2','600000','2000/12/12','1')");
-        db.execSQL("INSERT INTO DonHang VALUES ('3','4','4','4','100000','2000/12/12','1')");
-        db.execSQL("INSERT INTO DonHang VALUES ('5','6','6','5','100000','2000/12/12','1')");
-        db.execSQL("INSERT INTO DonHang VALUES ('55','6','7','7','100000','2000/12/12','1')");
+        db.execSQL("INSERT INTO SanPham VALUES ('1','Giày Jogarbola','2000000','2')");
+        db.execSQL("INSERT INTO SanPham VALUES ('5','Giày Kamito','4300000','5')");
+        db.execSQL("INSERT INTO SanPham VALUES ('67','Giày Ba sọc','1000000','8')");
+        db.execSQL("INSERT INTO SanPham VALUES ('7','Áo Đấu Tuyển Đức','4000000','7')");
+        db.execSQL("INSERT INTO SanPham VALUES ('9','Áo Đấu CLB Manchester United','1500000','8')");
+        db.execSQL("INSERT INTO SanPham VALUES ('2','Áo Đấu Tuyển Brazil','6000000','4')");
+
+
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','Giày','1986','Adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('7','Bóng','1999','Nike')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('9','Tất','1986','Adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('23','Găng Tay','1986','Nike')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('54','Áo','1997','Adidas')");
+        db.execSQL("INSERT INTO LoaiSanPham VALUES ('67','Túi','2000','Nike')");
 
 
 

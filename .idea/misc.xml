@@ -7,6 +7,7 @@
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/activity_manhinhchao.xml" value="0.23007246376811594" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/activity_signup.xml" value="0.23007246376811594" />
+        <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/dialog_detail_donhang.xml" value="0.2" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/dialog_detail_kh.xml" value="0.20885416666666667" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/dialog_detail_loaisp.xml" value="0.2" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/dialog_detail_sp.xml" value="0.22135416666666666" />
@@ -29,7 +30,7 @@
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/fragment_nhan_vien.xml" value="0.23007246376811594" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/fragment_san_pham.xml" value="0.23007246376811594" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/fragment_top_ban_chay.xml" value="0.23007246376811594" />
-        <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/item_donhang.xml" value="0.1" />
+        <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/item_donhang.xml" value="0.2" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/item_khachhang.xml" value="0.21041666666666667" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/item_loaisanpham.xml" value="0.4" />
         <entry key="..\:/DU-AN-1-NHOM-5/DU-AN-1-NHOM-5/app/src/main/res/layout/item_nhanvien.xml" value="0.23007246376811594" />
