@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import duan1.nhom5.Adapter.LoaiSanPhamAdapter;
 import duan1.nhom5.Adapter.SanPhamAdapter;
@@ -38,10 +40,10 @@ import duan1.nhom5.R;
 
 
 public class SanPhamFragment extends Fragment {
-
+    SearchView searchView;
     RecyclerView recyclerView;
     ImageView addsp;
-
+    ImageView backsp;
     SanPhamDAO sanPhamDAO;
     List<SanPham> list;
     SanPhamAdapter adapter;
@@ -51,11 +53,34 @@ public class SanPhamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_san_pham, container, false);
+        searchView = view.findViewById(R.id.search_viewsp);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
+
 
         recyclerView = view.findViewById(R.id.rcv_sanpham);
+        backsp = view.findViewById(R.id.backsanpham);
+        backsp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
         addsp = view.findViewById(R.id.img_addsp);
         sanPhamDAO = new SanPhamDAO(getActivity());
-        list=new ArrayList<>();
+        list = new ArrayList<>();
 
 
         list.addAll(sanPhamDAO.selectAll());
@@ -72,6 +97,20 @@ public class SanPhamFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void filterList(String text) {
+        List<SanPham> filterlist = new ArrayList<>();
+        for (SanPham sanPham : list) {
+            if (sanPham.getTenSanPham().toLowerCase().contains(text.toLowerCase())) {
+                filterlist.add(sanPham);
+            }
+        }
+        if (filterlist.isEmpty()) {
+
+        } else {
+            adapter.setFill_List(filterlist);
+        }
     }
 
     private void dialog_them() {

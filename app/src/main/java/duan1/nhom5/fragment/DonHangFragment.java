@@ -46,7 +46,7 @@ public class DonHangFragment extends Fragment {
 
     RecyclerView recyclerView;
     ImageView imgadd_donhang;
-
+    ImageView backdonhang;
     DonHangDAO donHangDAO;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
     List<DonHang> list;
@@ -59,6 +59,14 @@ public class DonHangFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_don_hang, container, false);
         recyclerView = view.findViewById(R.id.rcv_donhang);
         imgadd_donhang = view.findViewById(R.id.img_themdonhang);
+        backdonhang=view.findViewById(R.id.backdonhang);
+        backdonhang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         donHangDAO = new DonHangDAO(getActivity());
         list = new ArrayList<>();

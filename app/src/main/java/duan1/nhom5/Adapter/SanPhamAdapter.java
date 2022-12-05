@@ -34,6 +34,10 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
     List<SanPham> list;
     SanPhamDAO sanPhamDAO;
     ArrayList<HashMap<String, Object>> listHMSP;
+    public void setFill_List(List<SanPham> fillList){
+        this.list=fillList;
+        notifyDataSetChanged();
+    }
     public SanPhamAdapter(Context context, List<SanPham> list, ArrayList<HashMap<String, Object>> listHMSanPham ) {
         this.context = context;
         this.list = list;

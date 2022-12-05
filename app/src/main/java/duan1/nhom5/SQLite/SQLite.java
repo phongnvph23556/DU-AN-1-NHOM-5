@@ -72,12 +72,12 @@ public class SQLite extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO NhanVien VALUES ('7','Nguyễn Hoan Thắng','2003','Hà Nội')");
 
 
-        db.execSQL("INSERT INTO SanPham VALUES ('1','Giày Jogarbola','2000000','2')");
+        db.execSQL("INSERT INTO SanPham VALUES ('1','Giày Jogarbola','2000000','5')");
         db.execSQL("INSERT INTO SanPham VALUES ('5','Giày Kamito','4300000','5')");
-        db.execSQL("INSERT INTO SanPham VALUES ('67','Giày Ba sọc','1000000','8')");
-        db.execSQL("INSERT INTO SanPham VALUES ('7','Áo Đấu Tuyển Đức','4000000','7')");
-        db.execSQL("INSERT INTO SanPham VALUES ('9','Áo Đấu CLB Manchester United','1500000','8')");
-        db.execSQL("INSERT INTO SanPham VALUES ('2','Áo Đấu Tuyển Brazil','6000000','4')");
+        db.execSQL("INSERT INTO SanPham VALUES ('67','Giày Ba sọc','1000000','5')");
+        db.execSQL("INSERT INTO SanPham VALUES ('7','Áo Đấu Tuyển Đức','4000000','54')");
+        db.execSQL("INSERT INTO SanPham VALUES ('9','Áo Đấu CLB Manchester United','1500000','54')");
+        db.execSQL("INSERT INTO SanPham VALUES ('2','Áo Đấu Tuyển Brazil','6000000','54')");
 
 
         db.execSQL("INSERT INTO LoaiSanPham VALUES ('5','Giày','1986','Adidas')");
