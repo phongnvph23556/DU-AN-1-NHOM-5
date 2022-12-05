@@ -16,15 +16,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import duan1.nhom5.DAO.AdminDAO;
+import duan1.nhom5.DAO.NhanVienDAO;
 import duan1.nhom5.Entity.Admin;
 import duan1.nhom5.Entity.LoaiSanPham;
+import duan1.nhom5.Entity.NhanVien;
 
 public class SignupActivity extends AppCompatActivity {
 
     private Button btndangki,btnhuy;
     private EditText edten,edmatkhau,ednhaplai;
-    private AdminDAO adminDAO;
-    private Admin admin;
     private TextView textView;
     ArrayList<Admin> list;
     @SuppressLint("MissingInflatedId")
@@ -48,16 +48,6 @@ public class SignupActivity extends AppCompatActivity {
         btndangki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                admin = new Admin();
-                admin.setMatKhau(edmatkhau.getText().toString());
-                admin.setTaiKhoan(ednhaplai.getText().toString());
-                if (validate() > 0) {
-                    if (adminDAO.insert(admin) > 0) {
-                        Toast.makeText(SignupActivity.this, "Them Thanh Cong", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(SignupActivity.this, "Them That Bai", Toast.LENGTH_SHORT).show();
-                    }
-                }
 ;
             }
         });

@@ -68,8 +68,6 @@ public class DoimatkhauFragment extends Fragment {
                         Toast.makeText(getActivity(), "Thay doi thanh cong", Toast.LENGTH_SHORT).show();
                         edname.setText("");
                         edpass.setText("");
-                        edpassmoi.setText("");
-                        edrepass.setText("");
                     }else {
                         Toast.makeText(getActivity(), "thay doi khong thanh cong", Toast.LENGTH_SHORT).show();
                     }
@@ -93,16 +91,11 @@ public class DoimatkhauFragment extends Fragment {
             Toast.makeText(getContext(),"Bạn phải nhập đầy đủ thông tin",Toast.LENGTH_SHORT).show();
             check=-1;
         }else {
-            //đọc user,pass trong SharePreferences
             SharedPreferences preferences=getActivity().getSharedPreferences("USER_FILE", Context.MODE_PRIVATE);
-            String ten = preferences.getString("Ten","");
+//            String ten = preferences.getString("Ten","");
             String matkhaucu=preferences.getString("PASSWORD","");
             String matkhaumoi=edpassmoi.getText().toString();
             String matkhaumoi2=edrepass.getText().toString();
-            if (!ten.equals(edname.getText().toString())){
-                Toast.makeText(getContext(), "Ten dang nhap sai", Toast.LENGTH_SHORT).show();
-                check = -1;
-            }
             if(!matkhaucu.equals(edpass.getText().toString())){
                 Toast.makeText(getContext(),"Mật khẩu cũ sai",Toast.LENGTH_SHORT).show();
                 check=-1;
