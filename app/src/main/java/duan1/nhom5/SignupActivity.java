@@ -16,15 +16,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import duan1.nhom5.DAO.AdminDAO;
+import duan1.nhom5.DAO.NhanVienDAO;
 import duan1.nhom5.Entity.Admin;
 import duan1.nhom5.Entity.LoaiSanPham;
+import duan1.nhom5.Entity.NhanVien;
 
 public class SignupActivity extends AppCompatActivity {
 
     private Button btndangki,btnhuy;
     private EditText edten,edmatkhau,ednhaplai;
-    private AdminDAO adminDAO;
-    private Admin admin;
     private TextView textView;
     ArrayList<Admin> list;
     @SuppressLint("MissingInflatedId")
@@ -53,6 +53,9 @@ public class SignupActivity extends AppCompatActivity {
         btndangki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+;
+
                 String taikhoan=edten.getText().toString();
                 String pass=edmatkhau.getText().toString();
                 String repass=ednhaplai.getText().toString();
@@ -75,6 +78,7 @@ public class SignupActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Mật khẩu không trùng khớp",Toast.LENGTH_SHORT).show();
                     }
                 }
+
             }
         });
 

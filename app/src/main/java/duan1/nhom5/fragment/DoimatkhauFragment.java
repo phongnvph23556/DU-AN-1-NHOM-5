@@ -67,6 +67,9 @@ public class DoimatkhauFragment extends Fragment {
                     if (adminDAO.changepass(user,mkmoi)) {
                         Toast.makeText(getActivity(), "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
                         edpass.setText("");
+
+                    }else {
+                        Toast.makeText(getActivity(), "thay doi khong thanh cong", Toast.LENGTH_SHORT).show();
                         edpassmoi.setText("");
                         edrepass.setText("");
                     } else {
@@ -86,6 +89,21 @@ public class DoimatkhauFragment extends Fragment {
         return v;
     }
 
+    public  int validate(){
+        int check=1;
+        if(edname.getText().length()==0||edpass.getText().length()==0||edpassmoi.getText().length()==0||edrepass.getText().length()==0){
+            Toast.makeText(getContext(),"Bạn phải nhập đầy đủ thông tin",Toast.LENGTH_SHORT).show();
+            check=-1;
+        }else {
+            SharedPreferences preferences=getActivity().getSharedPreferences("USER_FILE", Context.MODE_PRIVATE);
+//            String ten = preferences.getString("Ten","");
+            String matkhaucu=preferences.getString("PASSWORD","");
+            String matkhaumoi=edpassmoi.getText().toString();
+            String matkhaumoi2=edrepass.getText().toString();
+            if(!matkhaucu.equals(edpass.getText().toString())){
+                Toast.makeText(getContext(),"Mật khẩu cũ sai",Toast.LENGTH_SHORT).show();
+                check=-1;
+
     public int validate() {
         int check = 1;
         if (edpass.getText().length() == 0 || edpassmoi.getText().length() == 0 || edrepass.getText().length() == 0) {
@@ -100,6 +118,7 @@ public class DoimatkhauFragment extends Fragment {
             if (!matkhaucu.equals(edpass.getText().toString())) {
                 Toast.makeText(getContext(), "Mật khẩu cũ sai", Toast.LENGTH_SHORT).show();
                 check = -1;
+
 
             }
             if (!matkhaumoi.equals(matkhaumoi2)) {
