@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,12 +17,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import duan1.nhom5.Adapter.LoaiSanPhamAdapter;
 import duan1.nhom5.Adapter.SanPhamAdapter;
+import duan1.nhom5.DAO.LoaiSanPhamDAO;
 import duan1.nhom5.DAO.SanPhamDAO;
 import duan1.nhom5.Entity.LoaiSanPham;
 import duan1.nhom5.Entity.SanPham;
@@ -30,168 +38,105 @@ import duan1.nhom5.R;
 
 
 public class SanPhamFragment extends Fragment {
-    private RecyclerView rcv_sanpham;
-    private ImageView backsanpham, img_addsp, cancel_themsp;
-    private SanPhamDAO sanPhamDAO;
-    private ArrayList<SanPham> list;
-    private SanPhamAdapter sanPhamAdapter;
-    private SanPham sanPham;
-    private EditText edmasp, Edmalsp, edTensp, edGiaban;
-    private Button btnThemsp, btnHuysp;
-    public static SanPhamFragment newInstance() {
-        SanPhamFragment fragment = new SanPhamFragment();
 
-        return fragment;
-    }
+    RecyclerView recyclerView;
+    ImageView addsp;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    SanPhamDAO sanPhamDAO;
+    List<SanPham> list;
+    SanPhamAdapter adapter;
 
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_san_pham, container, false);
-        backsanpham = v.findViewById(R.id.backsanpham);
-        rcv_sanpham=v.findViewById(R.id.rcv_sanpham);
-        btnThemsp = v.findViewById(R.id.btnLuusanphan);
-        btnHuysp = v.findViewById(R.id.btnHuysanphan);
-        img_addsp=v.findViewById(R.id.img_addsp);
-        sanPhamDAO=new SanPhamDAO(getActivity());
+        View view = inflater.inflate(R.layout.fragment_san_pham, container, false);
+
+        recyclerView = view.findViewById(R.id.rcv_sanpham);
+        addsp = view.findViewById(R.id.img_addsp);
+        sanPhamDAO = new SanPhamDAO(getActivity());
+        list = sanPhamDAO.selectAll();
 
 
+//        list.addAll(sanPhamDAO.selectAll());
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new SanPhamAdapter(getActivity(), list, getDSLoaisach());
+        recyclerView.setAdapter(adapter);
 
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
-        rcv_sanpham.setLayoutManager(layoutManager);
-
-
-        capNhatRCV();
-
-
-        img_addsp.setOnClickListener(new View.OnClickListener() {
+        addsp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog_addSanpham();
+                dialog_them();
             }
         });
 
-
-
-        backsanpham.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        return v;
+        return view;
     }
 
-    public void capNhatRCV() {
-        list = (ArrayList<SanPham>) sanPhamDAO.selectAll();
-        sanPhamAdapter = new SanPhamAdapter(getActivity(), list, this);
-        rcv_sanpham.setAdapter(sanPhamAdapter);
-    }
+    private void dialog_them() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setView(LayoutInflater.from(getActivity()).inflate(R.layout.dialog_themsanpham, null));
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
-    public void dialog_addSanpham(){
-        Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(R.layout.dialog_themsanpham);
+        EditText tensp = dialog.findViewById(R.id.edt_tensp);
+        EditText edtprice = dialog.findViewById(R.id.edt_giaban);
+        Spinner spnloaisp = dialog.findViewById(R.id.spn_loaisp);
+        Button btnadd = dialog.findViewById(R.id.btnthemsp);
+        Button btncannel = dialog.findViewById(R.id.btnHuythemsp);
 
+        ArrayList<HashMap<String, Object>> listHMSanPham = getDSLoaisach();
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(),  // context
+                listHMSanPham,                                   // list hashmap
+                android.R.layout.simple_list_item_1,              // layout hiển thị
+                new String[]{"tenloaisp"},                      // giá trị cần hiển thị (key trong hashmap
+                new int[]{android.R.id.text1});                   // đưa giá trị cần hiển thị lên widget nào trong layout simple_list_item_1
+        spnloaisp.setAdapter(adapter);
 
-        btnThemsp = dialog.findViewById(R.id.btnLuusanphan);
-        btnHuysp = dialog.findViewById(R.id.btnHuysanphan);
-
-
-        btnHuysp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edmasp.setText("");
-                Edmalsp.setText("");
-                edTensp.setText("");
-                edGiaban.setText("");
-            }
-        });
-
-        edmasp = dialog.findViewById(R.id.edmasp);
-        Edmalsp = dialog.findViewById(R.id.edt_maloaisp);
-        edTensp = dialog.findViewById(R.id.edTenSP);
-        edGiaban= dialog.findViewById(R.id.edGiaban);
-        cancel_themsp = dialog.findViewById(R.id.cancel_themsanpham);
-
-        //tắt dialog thêm
-        cancel_themsp.setOnClickListener(new View.OnClickListener() {
+        btncannel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
 
-        edmasp.setEnabled(false);//tắt nhập với mã loại sp
-
-
-
-        btnThemsp.setOnClickListener(new View.OnClickListener() {
+        btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sanPham = new SanPham();
-
-                sanPham.setMaLoaiSP(Integer.parseInt(Edmalsp.getText().toString()));
-                sanPham.setTenSanPham(edTensp.getText().toString());
-                sanPham.setGiaBan(Integer.parseInt(edGiaban.getText().toString()));
-
-                if (validate() > 0){
-                    if (sanPhamDAO.insert(sanPham) > 0) {
-                        Toast.makeText(getActivity(), "Thêm thành công nha", Toast.LENGTH_SHORT).show();
+                String ten = tensp.getText().toString().trim();
+                int giaban = Integer.parseInt(edtprice.getText().toString().trim());
+                HashMap<String, Object> hashMap = (HashMap<String, Object>) spnloaisp.getSelectedItem();
+                int maloai = (int) hashMap.get("maloaisp");
+                if (ten.isEmpty() || giaban == 0 || maloai == 0) {
+                    Toast.makeText(getActivity(), "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (sanPhamDAO.insert(new SanPham(ten, giaban, maloai))) {
+                        Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        list.clear();
+                        list.addAll(sanPhamDAO.selectAll());
+                        adapter.notifyDataSetChanged();
                     } else {
-                        Toast.makeText(getActivity(), "Thêm thất bại nha", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
                     }
-                    capNhatRCV();
-                    dialog.cancel();
                 }
             }
         });
-        dialog.show();
     }
 
-    public void xoa(int Masanpham) {
-        //Sử dụng Alert
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Delete");
-        builder.setMessage("Bạn có muốn xóa không?");
-        builder.setCancelable(true);
-
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //Gọi function Delete
-                sanPhamDAO.delete(Masanpham);
-
-                //cập nhật lại rcv;
-                capNhatRCV();
-                dialog.cancel();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        builder.show();
-    }
-
-    public int validate() {
-        int check = 1;
-        if (edmasp.getText().length() == 0 || Edmalsp.getText().length() == 0 || edTensp.getText().length() == 0 || edGiaban.getText().length() == 0) {
-            Toast.makeText(getContext(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-            check = -1;
+    private ArrayList<HashMap<String, Object>> getDSLoaisach() {
+        ArrayList<HashMap<String, Object>> listHashMap = new ArrayList<>();
+        LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO(getActivity());
+        List<LoaiSanPham> list = loaiSanPhamDAO.selectAll();
+        for (LoaiSanPham loaiSanPham : list) {
+            HashMap<String, Object> hashmap = new HashMap<>();
+            hashmap.put("maloaisp", loaiSanPham.getMaLoaiSP());
+            hashmap.put("tenloaisp", loaiSanPham.getTenLoai());
+            listHashMap.add(hashmap);
         }
-        return check;
+        return listHashMap;
     }
-
 
 }

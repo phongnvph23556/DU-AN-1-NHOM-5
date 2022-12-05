@@ -36,87 +36,42 @@
 
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/edt_tungay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="30dp"
-        >
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button1"
-            style="@android:style/Widget.Button"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/backbutton"
-            android:text="Tu ngay"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:layout_gravity="center_vertical"
-            android:background="@color/white"
-            android:id="@+id/txt_tuNgay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:hint="dd-MM-yyyy"
-            android:layout_marginLeft="20dp"
-            android:textColor="@color/black" />
+        android:drawableEnd="@drawable/ic_baseline_calendar_month_24"
+        android:hint="Từ ngày"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edt_denngay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        >
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnloginn"
-            style="@android:style/Widget.Button"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/backbutton"
-            android:text="Den ngay"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:layout_gravity="center_vertical"
-            android:background="@color/white"
-            android:id="@+id/txt_denNgay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:hint="dd-MM-yyyy"
-            android:layout_marginLeft="20dp"
-            android:textColor="@color/black" />
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/ic_baseline_calendar_month_24"
+        android:hint="Đến ngày"/>
 
-    </LinearLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
-        style="@android:style/Widget.Button"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/backbutton2"
+    <Button
+        android:id="@+id/btn_doanhthu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:text="Doanh thu"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        android:layout_marginTop="40dp"
-        android:textStyle="bold"/>
+        android:textSize="20sp"
+        android:background="@drawable/backbutton"
+        android:layout_gravity="center"/>
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_doanhthu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="300000 VND"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="#0E0C0C"/>
-
-
+        android:text="Doanh thu: "
+        android:layout_marginTop="30dp"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
 
 
 

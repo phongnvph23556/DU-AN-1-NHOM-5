@@ -19,23 +19,25 @@ public class KhachHangDAO {
         db = sqLite.getWritableDatabase();
     }
 
-    public long insert(KhachHang khachHang) {
+    public boolean insert(KhachHang khachHang) {
         ContentValues values = new ContentValues();
         values.put("HoTenKH", khachHang.getHoTenKH());
         values.put("NamSinhKH", khachHang.getNamSinhKH());
         values.put("DiaChiKH", khachHang.getDiaChiKH());
         values.put("SDT", khachHang.getSDT());
 
-        return db.insert("KhachHang", null, values);
+        long kq = db.insert("KhachHang", null, values);
+        return (kq > 0);
     }
 
-    public int update(KhachHang khachHang) {
+    public boolean update(KhachHang khachHang) {
         ContentValues values = new ContentValues();
         values.put("HoTenKH", khachHang.getHoTenKH());
         values.put("NamSinhKH", khachHang.getNamSinhKH());
         values.put("DiaChiKH", khachHang.getDiaChiKH());
         values.put("SDT", khachHang.getSDT());
-        return db.update("KhachHang", values, "MaKH=?", new String[]{String.valueOf(khachHang.getMaKH())});
+        long kq = db.update("KhachHang", values, "MaKH=?", new String[]{String.valueOf(khachHang.getMaKH())});
+        return (kq > 0);
     }
 
     public boolean delete(int MaKH) {

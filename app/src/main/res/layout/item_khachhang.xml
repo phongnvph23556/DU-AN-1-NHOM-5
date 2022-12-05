@@ -1,76 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:backgroundTint="#75BD78"
-    app:cardCornerRadius="20dp"
-    android:layout_margin="10dp"
-    android:layout_height="150dp">
+    android:id="@+id/cardviewKH"
+    android:elevation="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="15dp"
+    android:backgroundTint="#C1E8BA"
+    app:cardCornerRadius="15dp">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginLeft="15dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/img_3" />
 
+    </LinearLayout>
 
-
-<LinearLayout
-    android:layout_margin="10dp"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/makh"
-        android:text="mã kh"
-        android:textColor="#D52F2F"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/tenkh"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:text="nguyễn văn phong"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/namsinhkh"
-        android:text="năm sinh 2003"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/diachikh"
-        android:text="địa chỉ: hà nội"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/sdtkh"
-        android:text="sdt: 0345432543"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
     <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/img_updatekh"
-            android:src="@drawable/img_7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
-        <ImageView
-            android:layout_marginTop="20dp"
-            android:id="@+id/img_deletekh"
-            android:src="@drawable/ic_baseline_delete_24"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_maKh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manv: Ph23t43"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_hotenKH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dang The Tien"
+            android:textColor="@color/purple_700"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
-    </LinearLayout>
 </androidx.cardview.widget.CardView>

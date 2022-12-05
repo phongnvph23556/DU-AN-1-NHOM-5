@@ -13,11 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import duan1.nhom5.DAO.AdminDAO;
+
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     TextView textView;
     EditText edtName, edtpass;
     CheckBox checkBoxuser;
+    AdminDAO adminDAO;
 
     @SuppressLint("MissingInflatedId")
 
@@ -30,50 +33,66 @@ public class LoginActivity extends AppCompatActivity {
         edtpass = findViewById(R.id.edtPass);
         textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
+        adminDAO = new AdminDAO(this);
+
+        //đọc user,pass trong sharedpreference
+        SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        String user = sharedPreferences.getString("USERNAME", "");
+        String pass = sharedPreferences.getString("PASSWORD", "");
+        Boolean rememb = sharedPreferences.getBoolean("REMEMBER", false);
+
+        edtName.setText(user);
+        edtpass.setText(pass);
+        checkBoxuser.setChecked(rememb);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, Manhinhchao.class);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });
 
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user = edtName.getText().toString();
+                String pass = edtpass.getText().toString();
 
-
-                if (edtName.getText().toString().equals("admin") && edtpass.getText().toString().equals("admin")) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Bạn nhập sai account ADMIN, Mời bạn nhập lại", Toast.LENGTH_LONG).show();
+                if (user.equals("") || pass.equals(""))
+                    Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                else {
+                    Boolean checkuserpass = adminDAO.checkusernamepassword(user, pass);
+                    if (checkuserpass == true) {
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        rememberUser(user, pass, checkBoxuser.isChecked());
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
 
             }
         });
     }
 
-    public void remnberup(String u, String p, boolean status) {
-        SharedPreferences shPe = getSharedPreferences("ADMIN", MODE_PRIVATE);
-        SharedPreferences.Editor editor = shPe.edit();
-        if (status == false) {
+    public void rememberUser(String u, String p, boolean status) {
+        SharedPreferences preferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        if (!status) {
+            //xóa tình trạng lưu trước đó
             editor.clear();
         } else {
+            //lưu dữ liệu
             editor.putString("USERNAME", u);
-            editor.putString("PASWORD", p);
+            editor.putString("PASSWORD", p);
             editor.putBoolean("REMEMBER", status);
         }
+        //lưu lại toàn bộ dữ liệu
         editor.commit();
-    }
 
-    public void chk(View view) {
-        String ten = edtName.getText().toString();
-        String paa = edtpass.getText().toString();
-        boolean status = checkBoxuser.isChecked();
-        remnberup(ten, paa, status);
     }
 
 

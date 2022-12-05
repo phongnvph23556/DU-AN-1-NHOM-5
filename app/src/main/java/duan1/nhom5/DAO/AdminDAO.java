@@ -13,27 +13,28 @@ import duan1.nhom5.SQLite.SQLite;
 
 public class AdminDAO {
     private SQLiteDatabase db;
+    public static String TAIKHOAN="";
 
     public AdminDAO(Context context) {
         SQLite sqLite = new SQLite(context);
         db = sqLite.getWritableDatabase();
     }
-
-    //check đăng nhập
-    public boolean checkDangNhap(String TaiKhoan, String MatKhau) {
-        Cursor cursor = db.rawQuery("SELECT * FROM Admin WHERE TaiKhoan=? AND MatKhau =?", new String[]{TaiKhoan, MatKhau});
-        if (cursor.getCount() != 0) {
-            return true;
-        } else {
+    public boolean changepass(String TaiKhoan,String MatKhau){
+        ContentValues values=new ContentValues();
+        values.put("MatKhau",MatKhau);
+        int row=db.update("Admin",values,"TaiKhoan=?",new String[Integer.parseInt(TaiKhoan)]);
+        if(row<=0){
             return false;
         }
+        return true;
     }
 
-    public Admin getID(String TaiKhoan) {
-        String sql = "SELECT * FROM Admin";
-        List<Admin> list = new ArrayList<>();
-        list = getData(sql);
-        return list.get(0);
+
+    public Admin getTaiKhoan(String TaiKhoan) {
+        String sql = "SELECT * FROM Admin WHERE TaiKhoan=?";
+        List<Admin> list = getData(sql, TaiKhoan);
+        return  list.get(0);
+
     }
 
     public List<Admin> getData(String sql, String... selectionArgs) {
@@ -50,7 +51,7 @@ public class AdminDAO {
         return list;
     }
     public int updatePass(Admin obj){
-        ContentValues values = new ContentValues();
+        ContentValues values = new ContentValues(
         values.put("taikhoan",obj.getTaiKhoan());
         values.put("matkhau",obj.getMatKhau());
         return db.update("ThuThu", values, "maTT=?", new String[]{obj.getAdmin()});
@@ -60,10 +61,36 @@ public class AdminDAO {
         values.put("Tai khoan",obj.getTaiKhoan());
         values.put("Mat khau",obj.getMatKhau());
         return db.insert("Dang Ki", null, values);
+        values.put("TaiKhoan",obj.getTaiKhoan());
+        values.put("MatKhau",obj.getMatKhau());
+        return db.update("Admin", values, "TaiKhoan=?", new String[]{obj.getTaiKhoan()});
     }
-    public List<Admin> getAll(){
-        String sql="Select*from Admin";
-        return getData(sql);
+
+
+    public Boolean insert(String TaiKhoan, String MatKhau){
+        ContentValues contentValues= new ContentValues();
+        contentValues.put("TaiKhoan", TaiKhoan);
+        contentValues.put("MatKhau", MatKhau);
+        long result = db.insert("Admin", null, contentValues);
+        if(result==-1) return false;
+        else
+            return true;
+
+    }
+
+    public Boolean checkTaiKhoan(String TaiKhoan) {
+        Cursor cursor = db.rawQuery("Select * from Admin where TaiKhoan = ?", new String[]{TaiKhoan});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkusernamepassword(String TaiKhoan, String MatKhau){
+        Cursor cursor = db.rawQuery("Select * from Admin where TaiKhoan = ? and MatKhau = ?", new String[] {TaiKhoan,MatKhau});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
 }

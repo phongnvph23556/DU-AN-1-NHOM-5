@@ -34,23 +34,56 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         btndangki = findViewById(R.id.btndki);
         btnhuy=findViewById(R.id.btnhuydki);
-        edten=findViewById(R.id.ed_Name);
+
+        edten=findViewById(R.id.edt_taikhoan);
         edmatkhau = findViewById(R.id.ed_Pass);
-        textView = findViewById(R.id.edquaylai);
         ednhaplai=findViewById(R.id.ed_RePass);
+
+        textView = findViewById(R.id.edquaylai);
+
+        adminDAO=new AdminDAO(this);
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this,Manhinhchao.class);
+                Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
         btndangki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 ;
+
+                String taikhoan=edten.getText().toString();
+                String pass=edmatkhau.getText().toString();
+                String repass=ednhaplai.getText().toString();
+                if(taikhoan.equals("")||pass.equals("")||repass.equals("")){
+                    Toast.makeText(getApplicationContext(),"Vui lòng nhập đầy đủ thông tin",Toast.LENGTH_SHORT).show();
+                }else {
+                    if(pass.equals(repass)){
+                        Boolean check_user=adminDAO.checkTaiKhoan(taikhoan);
+                        if(check_user==false){
+                            Boolean insert=adminDAO.insert(taikhoan,pass);
+                            if(insert==true){
+                                Toast.makeText(getApplicationContext(),"Đăng kí thành công",Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(getApplicationContext(),"Đăng kí thất bại",Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(getApplicationContext(),"Tài khoản đã tồn tại! vui lòng đăng nhập",Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Mật khẩu không trùng khớp",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
             }
         });
+
+
+
         btnhuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,12 +92,5 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
-    public int validate() {
-        int check = 1;
-        if (edten.getText().length() == 0 || edmatkhau.getText().length() == 0 || ednhaplai.getText().length() == 0) {
-            Toast.makeText(getApplicationContext(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-            check = -1;
-        }
-        return check;
-    }
+
 }
