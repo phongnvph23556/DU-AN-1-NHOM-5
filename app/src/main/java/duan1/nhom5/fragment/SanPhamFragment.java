@@ -38,7 +38,7 @@ import duan1.nhom5.R;
 
 
 public class SanPhamFragment extends Fragment {
-
+    ImageView backsp;
     RecyclerView recyclerView;
     ImageView addsp;
 
@@ -53,9 +53,17 @@ public class SanPhamFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_san_pham, container, false);
 
         recyclerView = view.findViewById(R.id.rcv_sanpham);
+        backsp=view.findViewById(R.id.backsanpham);
+        backsp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
         addsp = view.findViewById(R.id.img_addsp);
         sanPhamDAO = new SanPhamDAO(getActivity());
-        list=new ArrayList<>();
+        list = new ArrayList<>();
 
 
         list.addAll(sanPhamDAO.selectAll());

@@ -50,20 +50,13 @@ public class AdminDAO {
         cursor.close();
         return list;
     }
-    public int updatePass(Admin obj){
-        ContentValues values = new ContentValues(
-        values.put("taikhoan",obj.getTaiKhoan());
-        values.put("matkhau",obj.getMatKhau());
-        return db.update("ThuThu", values, "maTT=?", new String[]{obj.getAdmin()});
-    }
+
     public long insert(Admin obj){
         ContentValues values = new ContentValues();
         values.put("Tai khoan",obj.getTaiKhoan());
         values.put("Mat khau",obj.getMatKhau());
         return db.insert("Dang Ki", null, values);
-        values.put("TaiKhoan",obj.getTaiKhoan());
-        values.put("MatKhau",obj.getMatKhau());
-        return db.update("Admin", values, "TaiKhoan=?", new String[]{obj.getTaiKhoan()});
+
     }
 
 

@@ -262,7 +262,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="16dp"
-                        app:srcCompat="@drawable/sanpham" />
+                        app:srcCompat="@drawable/sp" />
 
                 </LinearLayout>
                 <TextView
