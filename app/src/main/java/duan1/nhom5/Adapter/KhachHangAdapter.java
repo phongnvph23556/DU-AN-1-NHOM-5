@@ -30,6 +30,7 @@ import duan1.nhom5.DAO.KhachHangDAO;
 import duan1.nhom5.DAO.NhanVienDAO;
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.Entity.NhanVien;
+import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.R;
 import duan1.nhom5.fragment.KhachHangFragment;
 
@@ -38,6 +39,11 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.User
     private List<KhachHang> khachHangList;
     KhachHangDAO khachHangDAO;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+    public void setFill_List(List<KhachHang> fillList){
+        this.khachHangList=fillList;
+        notifyDataSetChanged();
+    }
 
 
     public KhachHangAdapter(Context context, List<KhachHang> nhanVienList) {

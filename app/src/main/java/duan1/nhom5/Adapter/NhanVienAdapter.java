@@ -25,6 +25,7 @@ import java.util.List;
 
 import duan1.nhom5.DAO.NhanVienDAO;
 import duan1.nhom5.Entity.NhanVien;
+import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.R;
 import duan1.nhom5.fragment.NhanVienFragment;
 
@@ -33,6 +34,11 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
     private List<NhanVien> nhanVienList;
     NhanVienDAO nhanVienDAO;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+    public void setFill_List(List<NhanVien> fillList) {
+        this.nhanVienList = fillList;
+        notifyDataSetChanged();
+    }
 
     public NhanVienAdapter(Context context, List<NhanVien> nhanVienList) {
         this.context = context;
@@ -49,7 +55,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.manv.setText("Mã nhân viên: "+nhanVienList.get(position).getMaNV());
+        holder.manv.setText("Mã nhân viên: " + nhanVienList.get(position).getMaNV());
         holder.hotennv.setText(nhanVienList.get(position).getHoTenNV());
         int stt = position;
         holder.cardView.setOnClickListener(new View.OnClickListener() {

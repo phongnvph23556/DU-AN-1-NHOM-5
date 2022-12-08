@@ -31,6 +31,7 @@ import duan1.nhom5.DAO.KhachHangDAO;
 import duan1.nhom5.DAO.LoaiSanPhamDAO;
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.Entity.LoaiSanPham;
+import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.R;
 import duan1.nhom5.fragment.LoaiSanPhamFragment;
 
@@ -38,6 +39,11 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     private Context context;
     private List<LoaiSanPham> loaiSanPhamList;
     LoaiSanPhamDAO loaiSanPhamDAO;
+
+    public void setFill_List(List<LoaiSanPham> fillList) {
+        this.loaiSanPhamList = fillList;
+        notifyDataSetChanged();
+    }
 
 
     public LoaiSanPhamAdapter(Context context, List<LoaiSanPham> loaiSanPhamList) {
@@ -166,7 +172,6 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
                 hangsx.setText(loaiSanPhamList.get(position).getHangSX());
 
                 them.setText("Thay đổi");
-
 
 
                 huy.setOnClickListener(new View.OnClickListener() {

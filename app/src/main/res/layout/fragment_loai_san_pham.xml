@@ -41,18 +41,17 @@
             android:src="@drawable/img_11" />
 
     </LinearLayout>
-    <EditText
+    <SearchView
+        android:id="@+id/search_viewloaisp"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/searhome"
-        android:drawableEnd="@drawable/ic_baseline_search_24"
+        android:background="@drawable/searchview_backgowd"
         android:elevation="10dp"
-        android:hint="Tìm kiếm..."
-        android:paddingLeft="20dp"
-        android:paddingRight="15dp"
-        android:textStyle="italic" />
+        android:iconifiedByDefault="false"
+        android:queryHint="Tìm loại sản phẩm..." />
     <androidx.recyclerview.widget.RecyclerView
         tools:listitem="@layout/item_loaisanpham"
         android:id="@+id/rcv_loaisp"

@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -31,11 +32,13 @@ import duan1.nhom5.Adapter.NhanVienAdapter;
 import duan1.nhom5.DAO.NhanVienDAO;
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.Entity.NhanVien;
+import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.MainActivity;
 import duan1.nhom5.R;
 
 
 public class NhanVienFragment extends Fragment {
+    SearchView searchView;
     private ImageView backnhanvien;
     private RecyclerView rcv_nhanvien;
     private NhanVienDAO nhanVienDAO;
@@ -50,6 +53,23 @@ public class NhanVienFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_nhan_vien, container, false);
+
+        searchView = v.findViewById(R.id.search_viewnv);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
+
+
         backnhanvien = v.findViewById(R.id.backnhanvien);
         rcv_nhanvien = v.findViewById(R.id.rcv_nhanvien);
         nhanVienDAO = new NhanVienDAO(getActivity());
@@ -80,6 +100,20 @@ public class NhanVienFragment extends Fragment {
         return v;
     }
 
+    private void filterList(String text) {
+        List<NhanVien> filterlist = new ArrayList<>();
+        for (NhanVien nhanVien : list) {
+            if (nhanVien.getHoTenNV().toLowerCase().contains(text.toLowerCase())) {
+                filterlist.add(nhanVien);
+            }
+        }
+        if (filterlist.isEmpty()) {
+
+        } else {
+            nhanVienAdapter.setFill_List(filterlist);
+        }
+    }
+
 
     public void dialog_themNV() {
 
@@ -94,7 +128,7 @@ public class NhanVienFragment extends Fragment {
         Button them = dialog.findViewById(R.id.btn_themnv);
         Button huy = dialog.findViewById(R.id.btnhuythemnv);
 
-        img_cancelnv=dialog.findViewById(R.id.img_cancelnv);
+        img_cancelnv = dialog.findViewById(R.id.img_cancelnv);
         img_cancelnv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,9 +154,9 @@ public class NhanVienFragment extends Fragment {
         huy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               name.setText("");
-               date.setText("");
-               address.setText("");
+                name.setText("");
+                date.setText("");
+                address.setText("");
             }
         });
 
@@ -135,7 +169,7 @@ public class NhanVienFragment extends Fragment {
                 if (ten.isEmpty() || ngay.isEmpty() || diachi.isEmpty()) {
                     Toast.makeText(getActivity(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (nhanVienDAO.insert(new NhanVien(ten,ngay,diachi))) {
+                    if (nhanVienDAO.insert(new NhanVien(ten, ngay, diachi))) {
                         Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         list.clear();

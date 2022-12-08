@@ -44,25 +44,17 @@
 
     <SearchView
         android:id="@+id/search_viewsp"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="48dp"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/searhome"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/searchview_backgowd"
         android:elevation="10dp"
         android:iconifiedByDefault="false"
         android:queryHint="Tìm sản phẩm..." />
-    <!--    <EditText-->
-    <!--        android:layout_width="350dp"-->
-    <!--        android:layout_height="48dp"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        android:layout_marginTop="20dp"-->
-    <!--        android:background="@drawable/searhome"-->
-    <!--        android:drawableEnd="@drawable/ic_baseline_search_24"-->
-    <!--        android:elevation="10dp"-->
-    <!--        android:hint="Tìm kiếm..."-->
-    <!--        android:paddingLeft="20dp"-->
-    <!--        android:paddingRight="15dp"-->
-    <!--        android:textStyle="italic" />-->
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_sanpham"
         android:layout_width="match_parent"

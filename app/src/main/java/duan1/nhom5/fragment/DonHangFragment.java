@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ import duan1.nhom5.MainActivity;
 import duan1.nhom5.R;
 
 public class DonHangFragment extends Fragment {
-
+    SearchView searchView;
     RecyclerView recyclerView;
     ImageView imgadd_donhang;
     ImageView backdonhang;
@@ -57,9 +58,25 @@ public class DonHangFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_don_hang, container, false);
+
+//        searchView = view.findViewById(R.id.search_viewdh);
+//        searchView.clearFocus();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                filterList(newText);
+//                return false;
+//            }
+//        });
+
         recyclerView = view.findViewById(R.id.rcv_donhang);
         imgadd_donhang = view.findViewById(R.id.img_themdonhang);
-        backdonhang=view.findViewById(R.id.backdonhang);
+        backdonhang = view.findViewById(R.id.backdonhang);
         backdonhang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +104,20 @@ public class DonHangFragment extends Fragment {
 
         return view;
     }
+
+//    private void filterList(String text) {
+//        List<SanPham> filterlist = new ArrayList<>();
+//        for (SanPham sanPham : list) {
+//            if (sanPham.getTenSanPham().toLowerCase().contains(text.toLowerCase())) {
+//                filterlist.add(sanPham);
+//            }
+//        }
+//        if (filterlist.isEmpty()) {
+//
+//        } else {
+//            adapter.setFill_List(filterlist);
+//        }
+//    }
 
     private void dialog_them() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -38,11 +39,13 @@ import duan1.nhom5.DAO.KhachHangDAO;
 import duan1.nhom5.DAO.LoaiSanPhamDAO;
 import duan1.nhom5.Entity.KhachHang;
 import duan1.nhom5.Entity.LoaiSanPham;
+import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.MainActivity;
 import duan1.nhom5.R;
 
 
 public class LoaiSanPhamFragment extends Fragment {
+    SearchView searchView;
     private ImageView backloaisp;
     private RecyclerView rcv_loaisp;
     private LoaiSanPhamDAO loaiSanPhamDAO;
@@ -57,6 +60,21 @@ public class LoaiSanPhamFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_loai_san_pham, container, false);
+        searchView = v.findViewById(R.id.search_viewloaisp);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
+
         backloaisp = v.findViewById(R.id.backloaisp);
         rcv_loaisp = v.findViewById(R.id.rcv_loaisp);
         loaiSanPhamDAO = new LoaiSanPhamDAO(getActivity());
@@ -87,6 +105,20 @@ public class LoaiSanPhamFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    private void filterList(String text) {
+        List<LoaiSanPham> filterlist = new ArrayList<>();
+        for (LoaiSanPham loaiSanPham : list) {
+            if (loaiSanPham.getTenLoai().toLowerCase().contains(text.toLowerCase())) {
+                filterlist.add(loaiSanPham);
+            }
+        }
+        if (filterlist.isEmpty()) {
+
+        } else {
+            loaiSanPhamAdapter.setFill_List(filterlist);
+        }
     }
 
     public void dialog_themLoaiSP() {

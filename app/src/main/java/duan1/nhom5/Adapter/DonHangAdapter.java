@@ -49,6 +49,11 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
     List<HashMap<String, Object>> listHMNhanVien;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+//    public void setFill_List(List<SanPham> fillList) {
+//        this.listt = fillList;
+//        notifyDataSetChanged();
+//    }
+
     public DonHangAdapter(Context context, List<DonHang> list, List<HashMap<String, Object>> listHMKhachHang, List<HashMap<String, Object>> listHMSanPham, List<HashMap<String, Object>> listHMnhanvien) {
         this.context = context;
         this.list = list;
@@ -185,7 +190,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
                 Button btnthem = dialog.findViewById(R.id.dialog_themdh);
                 Button btnhuy = dialog.findViewById(R.id.dialog_huythemdh);
 
-                TextView tvthemdonhang=dialog.findViewById(R.id.tv_themdonhang);
+                TextView tvthemdonhang = dialog.findViewById(R.id.tv_themdonhang);
                 tvthemdonhang.setText("Sửa đơn hàng");
 
                 btnthem.setText("Sửa");
@@ -261,7 +266,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
                         int makhachhang = (int) hashMapKhachHang.get("MaKH");
                         int masanpham = (int) hashMapSanPham.get("MaSanPham");
                         int manhanvien = (int) hashMapNhanvien.get("MaNV");
-                        if (donHangDAO.update(new DonHang(donHang.getMaDH(),makhachhang, masanpham, tienban, ngay, thanhtoan, manhanvien))) {
+                        if (donHangDAO.update(new DonHang(donHang.getMaDH(), makhachhang, masanpham, tienban, ngay, thanhtoan, manhanvien))) {
                             Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                             list.clear();
@@ -279,7 +284,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-            return list.size();
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import duan1.nhom5.fragment.CaiDatFragment;
 import duan1.nhom5.fragment.DoanhthuFragment;
@@ -21,10 +22,13 @@ import duan1.nhom5.fragment.TopBanChayFragment;
 
 public class MainActivity extends AppCompatActivity {
     ImageView img_donhang, img_khachhang, img_sanpham, img_nhanvien, img_loaisanpham, img_topbanchay, img_doanhthu, img_caidat;
+    LinearLayout themnhanvien;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        themnhanvien = findViewById(R.id.themnhanvien);
 
         img_donhang = findViewById(R.id.donhang);
         img_khachhang = findViewById(R.id.khachhang);
@@ -36,13 +40,12 @@ public class MainActivity extends AppCompatActivity {
         img_caidat = findViewById(R.id.caidat);
 
 
-
         //set sự kiện
         //đơn hàng
         img_donhang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new DonHangFragment();
+                Fragment fragment = new DonHangFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         img_khachhang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new KhachHangFragment();
+                Fragment fragment = new KhachHangFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         img_sanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new SanPhamFragment();
+                Fragment fragment = new SanPhamFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         img_nhanvien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new NhanVienFragment();
+                Fragment fragment = new NhanVienFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         img_loaisanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new LoaiSanPhamFragment();
+                Fragment fragment = new LoaiSanPhamFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         img_topbanchay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new TopBanChayFragment();
+                Fragment fragment = new TopBanChayFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         img_doanhthu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new DoanhthuFragment();
+                Fragment fragment = new DoanhthuFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         img_caidat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment=new CaiDatFragment();
+                Fragment fragment = new CaiDatFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.manhinh, fragment).commit();
             }
