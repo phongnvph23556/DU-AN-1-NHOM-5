@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<SlideModel> slideModels=new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.aodaumu, ScaleTypes.CENTER_INSIDE));
-        slideModels.add(new SlideModel("https://338sport.com.vn/wp-content/uploads/2021/03/Slide-338sport.com_.vn-2021-1400x401.jpg", ScaleTypes.CENTER_INSIDE));
-        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2021/08/Banner-Slide5.jpg", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/Banner-Slide-T8-3.png", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/3333334.png", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://338sport.com.vn/wp-content/uploads/2021/03/Slide-338sport.com_.vn-2021-1400x401.jpg", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2021/08/Banner-Slide5.jpg", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/Banner-Slide-T8-3.png", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/3333334.png", ScaleTypes.CENTER_CROP));
 
-        imageSlider.setImageList(slideModels,ScaleTypes.FIT);
+        imageSlider.setImageList(slideModels,ScaleTypes.CENTER_CROP);
 
 
 
