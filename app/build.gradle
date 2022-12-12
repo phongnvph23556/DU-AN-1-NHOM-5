@@ -37,5 +37,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     //import thư viện hình ảnh tròn
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //sline show
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
 }
