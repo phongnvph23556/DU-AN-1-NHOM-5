@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import duan1.nhom5.DAO.AdminDAO;
+import duan1.nhom5.DAO.NhanVienDAO;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtName, edtpass;
     CheckBox checkBoxuser;
     AdminDAO adminDAO;
+    NhanVienDAO nhanVienDAO;
 
     @SuppressLint("MissingInflatedId")
 
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
         adminDAO = new AdminDAO(this);
+        nhanVienDAO=new NhanVienDAO(this);
 
         //đọc user,pass trong sharedpreference
         SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
@@ -63,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user.equals("") || pass.equals(""))
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 else {
-                    Boolean checkuserpass = adminDAO.checkusernamepassword(user, pass);
+                    Boolean checkuserpass = nhanVienDAO.checkusernamepassword(user, pass);
                     if (checkuserpass == true) {
                         Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         rememberUser(user, pass, checkBoxuser.isChecked());

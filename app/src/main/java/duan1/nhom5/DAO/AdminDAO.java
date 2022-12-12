@@ -75,12 +75,12 @@ public class AdminDAO {
         else
             return false;
     }
-    public Boolean checkusernamepassword(String TaiKhoan, String MatKhau){
-        Cursor cursor = db.rawQuery("Select * from Admin where TaiKhoan = ? and MatKhau = ?", new String[] {TaiKhoan,MatKhau});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
-    }
+//    public Boolean checkusernamepassword(String TaiKhoan, String MatKhau){
+//        Cursor cursor = db.rawQuery("Select * from Admin where TaiKhoan = ? and MatKhau = ?", new String[] {TaiKhoan,MatKhau});
+//        if(cursor.getCount()>0)
+//            return true;
+//        else
+//            return false;
+//    }
 
 }

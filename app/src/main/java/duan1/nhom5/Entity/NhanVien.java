@@ -1,30 +1,43 @@
 package duan1.nhom5.Entity;
 
-public class NhanVien {
-    private int MaNV;
+import java.io.Serializable;
+
+public class NhanVien implements Serializable {
+    private String MaNV;
     private String HoTenNV;
-    private String NamSinhNV;
-    private String DiaChiNV;
+    private String TaiKhoanNV;
+    private String MatKhauNV;
 
-    public NhanVien(String ten, String ngay, String diachi) {
-        HoTenNV = ten;
-        NamSinhNV = ngay;
-        DiaChiNV = diachi;
+//    public NhanVien(String ten, String ngay, String diachi) {
+//        HoTenNV = ten;
+//        NamSinhNV = ngay;
+//        DiaChiNV = diachi;
+//
+//    }
+//
+//    public NhanVien(int maNV, String hoTenNV, String namSinhNV, String diaChiNV) {
+//        MaNV = maNV;
+//        HoTenNV = hoTenNV;
+//        NamSinhNV = namSinhNV;
+//        DiaChiNV = diaChiNV;
+//    }
 
+
+    public NhanVien() {
     }
 
-    public NhanVien(int maNV, String hoTenNV, String namSinhNV, String diaChiNV) {
+    public NhanVien(String maNV, String hoTenNV, String taiKhoanNV, String matKhauNV) {
         MaNV = maNV;
         HoTenNV = hoTenNV;
-        NamSinhNV = namSinhNV;
-        DiaChiNV = diaChiNV;
+        TaiKhoanNV = taiKhoanNV;
+        MatKhauNV = matKhauNV;
     }
 
-    public int getMaNV() {
+    public String getMaNV() {
         return MaNV;
     }
 
-    public void setMaNV(int maNV) {
+    public void setMaNV(String maNV) {
         MaNV = maNV;
     }
 
@@ -36,19 +49,19 @@ public class NhanVien {
         HoTenNV = hoTenNV;
     }
 
-    public String getNamSinhNV() {
-        return NamSinhNV;
+    public String getTaiKhoanNV() {
+        return TaiKhoanNV;
     }
 
-    public void setNamSinhNV(String namSinhNV) {
-        NamSinhNV = namSinhNV;
+    public void setTaiKhoanNV(String taiKhoanNV) {
+        TaiKhoanNV = taiKhoanNV;
     }
 
-    public String getDiaChiNV() {
-        return DiaChiNV;
+    public String getMatKhauNV() {
+        return MatKhauNV;
     }
 
-    public void setDiaChiNV(String diaChiNV) {
-        DiaChiNV = diaChiNV;
+    public void setMatKhauNV(String matKhauNV) {
+        MatKhauNV = matKhauNV;
     }
 }

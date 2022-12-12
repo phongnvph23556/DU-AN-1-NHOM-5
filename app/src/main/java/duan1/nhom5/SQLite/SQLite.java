@@ -17,15 +17,15 @@ public class SQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE Admin(" +
-                "TaiKhoan TEXT PRIMARY KEY," +
-                "MatKhau TEXT not null)");
+//        db.execSQL("CREATE TABLE Admin(" +
+//                "TaiKhoan TEXT PRIMARY KEY," +
+//                "MatKhau TEXT not null)");
 
         db.execSQL("CREATE TABLE NhanVien(" +
-                "MaNV INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "MaNV TEXT PRIMARY KEY," +
                 "HoTenNV TEXT not null," +
-                "NamSinhNV INTEGER not null," +
-                "DiaChiNV TEXT not null)");
+                "TaiKhoanNV TEXT not null," +
+                "MatKhauNV TEXT not null)");
 
         db.execSQL("CREATE TABLE KhachHang(" +
                 "MaKH INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -63,13 +63,15 @@ public class SQLite extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO KhachHang VALUES ('8','Hoàng Văn Thắng','2003','Thanh Hóa','0378540244')");
 
 
+//
+//        db.execSQL("INSERT INTO NhanVien VALUES ('1','Nguyễn Văn Phong','2003','Hà Nội')");
+//        db.execSQL("INSERT INTO NhanVien VALUES ('3','Nguyễn Văn Dương','2003','Hà Nội')");
+//        db.execSQL("INSERT INTO NhanVien VALUES ('4','Hoàng Huy Quân','2003','Hà Nội')");
+//        db.execSQL("INSERT INTO NhanVien VALUES ('5','Nguyễn Đặng Tiến','2003','Hà Nội')");
+//        db.execSQL("INSERT INTO NhanVien VALUES ('6','Nguyễn Thế Sáng','2003','Hà Nam')");
+//        db.execSQL("INSERT INTO NhanVien VALUES ('7','Nguyễn Hoan Thắng','2003','Hà Nội')");
 
-        db.execSQL("INSERT INTO NhanVien VALUES ('1','Nguyễn Văn Phong','2003','Hà Nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('3','Nguyễn Văn Dương','2003','Hà Nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('4','Hoàng Huy Quân','2003','Hà Nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('5','Nguyễn Đặng Tiến','2003','Hà Nội')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('6','Nguyễn Thế Sáng','2003','Hà Nam')");
-        db.execSQL("INSERT INTO NhanVien VALUES ('7','Nguyễn Hoan Thắng','2003','Hà Nội')");
+        db.execSQL("INSERT INTO NhanVien VALUES('PH23556','văn phong','admin','admin')");
 
 
         db.execSQL("INSERT INTO SanPham VALUES ('1','Giày Jogarbola','2000000','5')");
@@ -86,7 +88,6 @@ public class SQLite extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO LoaiSanPham VALUES ('23','Găng Tay','1986','Nike')");
         db.execSQL("INSERT INTO LoaiSanPham VALUES ('54','Áo','1997','Adidas')");
         db.execSQL("INSERT INTO LoaiSanPham VALUES ('67','Túi','2000','Nike')");
-
 
 
     }

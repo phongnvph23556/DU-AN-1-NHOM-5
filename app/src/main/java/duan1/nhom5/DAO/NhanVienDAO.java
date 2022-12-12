@@ -30,18 +30,20 @@ public class NhanVienDAO {
 
     public boolean insert(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
+        values.put("MaNV", nhanVien.getMaNV());
         values.put("HoTenNV", nhanVien.getHoTenNV());
-        values.put("NamSinhNV", nhanVien.getNamSinhNV());
-        values.put("DiaChiNV", nhanVien.getDiaChiNV());
+        values.put("TaiKhoanNV", nhanVien.getTaiKhoanNV());
+        values.put("MatKhauNV", nhanVien.getMatKhauNV());
         long kq = db.insert("NhanVien", null, values);
         return (kq > 0);
     }
 
     public boolean update(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
+        values.put("MaNV", nhanVien.getMaNV());
         values.put("HoTenNV", nhanVien.getHoTenNV());
-        values.put("NamSinhNV", nhanVien.getNamSinhNV());
-        values.put("DiaChiNV", nhanVien.getDiaChiNV());
+        values.put("TaiKhoanNV", nhanVien.getTaiKhoanNV());
+        values.put("MatKhauNV", nhanVien.getMatKhauNV());
         long kq = db.update("NhanVien", values, "MaNV=?", new String[]{String.valueOf(nhanVien.getMaNV())});
         return (kq > 0);
     }
@@ -69,17 +71,25 @@ public class NhanVienDAO {
         Cursor cursor = db.rawQuery(sql, selectionArgs);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            int MaNV = cursor.getInt(0);
+            String MaNV = cursor.getString(0);
             String HoTenNV = cursor.getString(1);
-            String NamSinhNV = cursor.getString(2);
-            String DiaChiNV = cursor.getString(3);
+            String TaiKhoanNV = cursor.getString(2);
+            String MatKhauNV = cursor.getString(3);
 
 
-            list.add(new NhanVien(MaNV, HoTenNV, NamSinhNV, DiaChiNV));
+            list.add(new NhanVien(MaNV, HoTenNV, TaiKhoanNV, MatKhauNV));
             cursor.moveToNext();
         }
         cursor.close();
         return list;
+    }
+
+    public Boolean checkusernamepassword(String TaiKhoanNV, String MatKhauNV) {
+        Cursor cursor = db.rawQuery("Select * from NhanVien where TaiKhoanNV = ? and MatKhauNV = ?", new String[]{TaiKhoanNV, MatKhauNV});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
     }
 
 

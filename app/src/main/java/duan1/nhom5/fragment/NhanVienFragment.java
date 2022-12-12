@@ -122,9 +122,10 @@ public class NhanVienFragment extends Fragment {
         dialog.setContentView(R.layout.dialog_themnhanvien);
         dialog.show();
 
+        EditText ma = dialog.findViewById(R.id.edtMaNV);
         EditText name = dialog.findViewById(R.id.edtTenNV);
-        EditText date = dialog.findViewById(R.id.edtnsNV);
-        EditText address = dialog.findViewById(R.id.edtDiachiNV);
+        EditText tknv = dialog.findViewById(R.id.edttaikhoanNV);
+        EditText mknv = dialog.findViewById(R.id.edtmatkhauNV);
         Button them = dialog.findViewById(R.id.btn_themnv);
         Button huy = dialog.findViewById(R.id.btnhuythemnv);
 
@@ -136,40 +137,27 @@ public class NhanVienFragment extends Fragment {
             }
         });
 
-        date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calendar.set(year, month, dayOfMonth);
-                        date.setText(simpleDateFormat.format(calendar.getTime()));
-                    }
-                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
-                datePickerDialog.show();
-            }
-        });
 
-        huy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                name.setText("");
-                date.setText("");
-                address.setText("");
-            }
-        });
+//        huy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                name.setText("");
+//                date.setText("");
+//                address.setText("");
+//            }
+//        });
 
         them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String manv = ma.getText().toString().trim();
                 String ten = name.getText().toString().trim();
-                String ngay = date.getText().toString().trim();
-                String diachi = address.getText().toString().trim();
-                if (ten.isEmpty() || ngay.isEmpty() || diachi.isEmpty()) {
+                String tk = tknv.getText().toString().trim();
+                String mk = mknv.getText().toString().trim();
+                if (manv.isEmpty() || ten.isEmpty() || tk.isEmpty() || mk.isEmpty()) {
                     Toast.makeText(getActivity(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (nhanVienDAO.insert(new NhanVien(ten, ngay, diachi))) {
+                    if (nhanVienDAO.insert(new NhanVien(manv, ten, tk, mk))) {
                         Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         list.clear();

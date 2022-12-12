@@ -240,8 +240,8 @@ public class DonHangFragment extends Fragment {
             HashMap<String, Object> hashmap = new HashMap<>();
             hashmap.put("MaNV", nhanVien.getMaNV());
             hashmap.put("HoTenNV", nhanVien.getHoTenNV());
-            hashmap.put("NamSinhNV", nhanVien.getNamSinhNV());
-            hashmap.put("DiaChiNV", nhanVien.getDiaChiNV());
+//            hashmap.put("NamSinhNV", nhanVien.getNamSinhNV());
+//            hashmap.put("DiaChiNV", nhanVien.getDiaChiNV());
             listHashMap.add(hashmap);
         }
         return listHashMap;

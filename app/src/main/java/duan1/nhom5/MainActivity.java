@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -17,6 +18,7 @@ import com.denzcoskun.imageslider.models.SlideModel;
 
 import java.util.ArrayList;
 
+import duan1.nhom5.Entity.NhanVien;
 import duan1.nhom5.fragment.CaiDatFragment;
 import duan1.nhom5.fragment.DoanhthuFragment;
 import duan1.nhom5.fragment.DonHangFragment;
@@ -30,23 +32,34 @@ public class MainActivity extends AppCompatActivity {
     private ImageSlider imageSlider;
     ImageView img_donhang, img_khachhang, img_sanpham, img_nhanvien, img_loaisanpham, img_topbanchay, img_doanhthu, img_caidat;
     LinearLayout themnhanvien;
+    private NhanVien nhanVien;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        themnhanvien = findViewById(R.id.themnhanvien);
-        imageSlider=findViewById(R.id.imgslider);
 
-        ArrayList<SlideModel> slideModels=new ArrayList<>();
+        themnhanvien = findViewById(R.id.themnhanvien);
+        TextView tenhienthi = findViewById(R.id.tv_tenhienthi);
+
+        if (nhanVien.getTaiKhoanNV().equals("admin")) {
+            tenhienthi.setText("Chào mừng! Admin nha");
+        } else {
+            themnhanvien.setVisibility(View.GONE);
+        }
+
+
+        imageSlider = findViewById(R.id.imgslider);
+
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.aodaumu, ScaleTypes.CENTER_INSIDE));
         slideModels.add(new SlideModel("https://338sport.com.vn/wp-content/uploads/2021/03/Slide-338sport.com_.vn-2021-1400x401.jpg", ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2021/08/Banner-Slide5.jpg", ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/Banner-Slide-T8-3.png", ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/3333334.png", ScaleTypes.CENTER_CROP));
 
-        imageSlider.setImageList(slideModels,ScaleTypes.CENTER_CROP);
-
+        imageSlider.setImageList(slideModels, ScaleTypes.CENTER_CROP);
 
 
         img_donhang = findViewById(R.id.donhang);
