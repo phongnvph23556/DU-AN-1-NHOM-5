@@ -53,6 +53,7 @@
         android:hint="Đến ngày"/>
 
     <Button
+        android:layout_marginHorizontal="20dp"
         android:id="@+id/btn_doanhthu"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -61,10 +62,12 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:background="@drawable/backbutton"
+        android:backgroundTint="@color/green"
         android:layout_gravity="center"/>
 
     <TextView
+        android:layout_marginLeft="10dp"
+        android:textColor="#DD2E2E"
         android:id="@+id/tv_doanhthu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

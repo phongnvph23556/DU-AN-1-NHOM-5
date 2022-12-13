@@ -30,12 +30,6 @@ public class TopBanChayFragment extends Fragment {
     TopDAO topDAO;
     TopAdapter adapter;
 
-
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -16,7 +16,7 @@ import duan1.nhom5.SQLite.SQLite;
 
 public class DonHangDAO {
     private SQLiteDatabase db;
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     public DonHangDAO(Context context) {
         SQLite sqLite = new SQLite(context);

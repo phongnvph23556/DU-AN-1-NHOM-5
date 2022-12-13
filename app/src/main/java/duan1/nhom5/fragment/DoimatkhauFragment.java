@@ -39,7 +39,6 @@ public class DoimatkhauFragment extends Fragment {
         edpassmoi = v.findViewById(R.id.edPassmoi);
         edrepass = v.findViewById(R.id.ednhaplai);
         backdoimk = v.findViewById(R.id.backdoimk);
-//        adminDAO = new AdminDAO(getActivity());
         nhanVienDAO=new NhanVienDAO(getActivity());
         backdoimk.setOnClickListener(new View.OnClickListener() {
             @Override

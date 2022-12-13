@@ -49,10 +49,10 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
     List<HashMap<String, Object>> listHMNhanVien;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-//    public void setFill_List(List<SanPham> fillList) {
-//        this.listt = fillList;
-//        notifyDataSetChanged();
-//    }
+    public void setFill_List(List<DonHang> fillList) {
+        this.list = fillList;
+        notifyDataSetChanged();
+    }
 
     public DonHangAdapter(Context context, List<DonHang> list, List<HashMap<String, Object>> listHMKhachHang, List<HashMap<String, Object>> listHMSanPham, List<HashMap<String, Object>> listHMnhanvien) {
         this.context = context;

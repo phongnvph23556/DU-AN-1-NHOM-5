@@ -35,7 +35,6 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
     private Context context;
     private List<NhanVien> nhanVienList;
     NhanVienDAO nhanVienDAO;
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     public void setFill_List(List<NhanVien> fillList) {
         this.nhanVienList = fillList;
@@ -175,29 +174,29 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
                     }
                 });
 
-//                them.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        String ma= manv.getText().toString().trim();
-//                        String ten = name.getText().toString().trim();
-//                        String tk=tknv.getText().toString().trim();
-//                        String mk=mknv.getText().toString().trim();
-//                        if (ma.isEmpty()||ten.isEmpty() || tk.isEmpty() || mk.isEmpty()) {
-//                            Toast.makeText(context, "Thất bại", Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            if (nhanVienDAO.update(new NhanVien(nhanVienList.get(position).getMaNV(), ten, ngay, diachi))) {
-//                                Toast.makeText(context, "Thành công", Toast.LENGTH_SHORT).show();
-//                                dialog.dismiss();
-//                                nhanVienList.clear();
-//                                nhanVienList.addAll(nhanVienDAO.selectAll());
-//                                notifyDataSetChanged();
-//                            } else {
-//                                Toast.makeText(context, "Thất bại", Toast.LENGTH_SHORT).show();
-//                                dialog.dismiss();
-//                            }
-//                        }
-//                    }
-//                });
+                them.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String ma = manv.getText().toString().trim();
+                        String ten = name.getText().toString().trim();
+                        String tk = tknv.getText().toString().trim();
+                        String mk = mknv.getText().toString().trim();
+                        if (ma.isEmpty()||ten.isEmpty() || tk.isEmpty() || mk.isEmpty()) {
+                            Toast.makeText(context, "Thất bại", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (nhanVienDAO.update(new NhanVien(nhanVienList.get(position).getMaNV(), ten, tk, mk))) {
+                                Toast.makeText(context, "Thành công", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                                nhanVienList.clear();
+                                nhanVienList.addAll(nhanVienDAO.selectAll());
+                                notifyDataSetChanged();
+                            } else {
+                                Toast.makeText(context, "Thất bại", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        }
+                    }
+                });
             }
         });
 

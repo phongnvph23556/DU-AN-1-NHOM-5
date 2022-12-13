@@ -64,62 +64,86 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nhap mat khau cu"
+            android:text="Mật khẩu cũ"
             android:textColor="#015A05"
             android:layout_marginLeft="10dp"
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edMatkhau"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
+            app:boxStrokeWidth="0dp"
+            app:passwordToggleEnabled="true"
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:id="@+id/edMatkhau"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:hint="Nhập mật khẩu cũ"
             android:background="@drawable/backgroudedit"
-            android:ems="10"
-            android:hint="Mat khau cu"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mat khau moi"
+            android:text="Mật khẩu mới"
             android:textColor="#015A05"
             android:layout_marginLeft="10dp"
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edPassmoi"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/backgroudedit"
-            android:ems="10"
-            android:hint="Mat khau moi"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
+            app:boxStrokeWidth="0dp"
+            app:passwordToggleEnabled="true"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textPassword"
+                android:id="@+id/edPassmoi"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:hint="Nhập mật khẩu mới"
+                android:background="@drawable/backgroudedit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/textnhaplai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nhap lai mat khau"
+            android:text="Nhập lại mật khẩu"
             android:textColor="#015A05"
             android:layout_marginLeft="10dp"
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/ednhaplai"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/backgroudedit"
-            android:ems="10"
-            android:hint="nhap lai"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
+            app:boxStrokeWidth="0dp"
+            app:passwordToggleEnabled="true"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textPassword"
+                android:id="@+id/ednhaplai"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:hint="Nhập lại mật khẩu mới"
+                android:background="@drawable/backgroudedit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/backbutton"
-                android:text="Luu"
+                android:text="Lưu"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
             <androidx.appcompat.widget.AppCompatButton
@@ -145,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/backbutton"
-                android:text="Huy"
+                android:text="Hủy"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
         </LinearLayout>

@@ -59,20 +59,20 @@ public class DonHangFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_don_hang, container, false);
 
-//        searchView = view.findViewById(R.id.search_viewdh);
-//        searchView.clearFocus();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                filterList(newText);
-//                return false;
-//            }
-//        });
+        searchView = view.findViewById(R.id.search_viewdh);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
 
         recyclerView = view.findViewById(R.id.rcv_donhang);
         imgadd_donhang = view.findViewById(R.id.img_themdonhang);
@@ -105,19 +105,19 @@ public class DonHangFragment extends Fragment {
         return view;
     }
 
-//    private void filterList(String text) {
-//        List<SanPham> filterlist = new ArrayList<>();
-//        for (SanPham sanPham : list) {
-//            if (sanPham.getTenSanPham().toLowerCase().contains(text.toLowerCase())) {
-//                filterlist.add(sanPham);
-//            }
-//        }
-//        if (filterlist.isEmpty()) {
-//
-//        } else {
-//            adapter.setFill_List(filterlist);
-//        }
-//    }
+    private void filterList(String text) {
+        List<DonHang> filterlist = new ArrayList<>();
+        for (DonHang donHang : list) {
+            if (donHang.getMaNV().toLowerCase().contains(text.toLowerCase())) {
+                filterlist.add(donHang);
+            }
+        }
+        if (filterlist.isEmpty()) {
+
+        } else {
+            adapter.setFill_List(filterlist);
+        }
+    }
 
     private void dialog_them() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

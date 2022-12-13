@@ -8,20 +8,6 @@ public class NhanVien {
     private String TaiKhoanNV;
     private String MatKhauNV;
 
-//    public NhanVien(String ten, String ngay, String diachi) {
-//        HoTenNV = ten;
-//        NamSinhNV = ngay;
-//        DiaChiNV = diachi;
-//
-//    }
-//
-//    public NhanVien(int maNV, String hoTenNV, String namSinhNV, String diaChiNV) {
-//        MaNV = maNV;
-//        HoTenNV = hoTenNV;
-//        NamSinhNV = namSinhNV;
-//        DiaChiNV = diaChiNV;
-//    }
-
 
     public NhanVien() {
     }

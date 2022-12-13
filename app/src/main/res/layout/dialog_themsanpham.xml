@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_gravity="center"
-    android:layout_height="500dp"
-    android:background="#818181"
+    android:layout_height="550dp"
+    android:orientation="vertical"
+    android:background="#E6D4D4"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.SanPhamFragment">
 
@@ -19,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Them San Pham"
+            android:text="Thêm Sản Phẩm"
             android:textStyle="bold"
             android:textSize="30dp"
             android:layout_gravity="center_vertical"
@@ -36,7 +37,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:orientation="vertical"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -146,4 +147,4 @@
 
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

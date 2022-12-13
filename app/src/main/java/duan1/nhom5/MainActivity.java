@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         String user = sharedPreferences.getString("USERNAME", "");
 
         if (user.equals("admin")) {
-            tenhienthi.setText("Chào mừng! Admin nha");
+            tenhienthi.setText("Chào mừng! Admin");
         } else {
             themnhanvien.setVisibility(View.GONE);
             vaitro.setText("Vai trò: Nhân viên");
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
         imageSlider = findViewById(R.id.imgslider);
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.aodaumu, ScaleTypes.CENTER_INSIDE));
+        slideModels.add(new SlideModel("https://www.sport9.vn/images/thumbs/001/0017143_2.jpeg", ScaleTypes.CENTER_INSIDE));
         slideModels.add(new SlideModel("https://338sport.com.vn/wp-content/uploads/2021/03/Slide-338sport.com_.vn-2021-1400x401.jpg", ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2021/08/Banner-Slide5.jpg", ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/Banner-Slide-T8-3.png", ScaleTypes.CENTER_CROP));
-        slideModels.add(new SlideModel("https://xyzsport.net/wp-content/uploads/2022/12/3333334.png", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel("https://file.hstatic.net/1000326314/article/1-_b40d8dad86db43afb36cc889dbb7f723_1024x1024.jpg", ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(slideModels, ScaleTypes.CENTER_CROP);
 

@@ -44,6 +44,7 @@ public class DoanhthuFragment extends Fragment {
 
         topDAO = new TopDAO(getActivity());
         Calendar calendar = Calendar.getInstance();
+
         edttuNgay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
