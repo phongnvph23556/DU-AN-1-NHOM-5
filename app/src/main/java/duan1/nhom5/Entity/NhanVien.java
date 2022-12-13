@@ -2,7 +2,7 @@ package duan1.nhom5.Entity;
 
 import java.io.Serializable;
 
-public class NhanVien implements Serializable {
+public class NhanVien {
     private String MaNV;
     private String HoTenNV;
     private String TaiKhoanNV;

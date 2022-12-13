@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,8 +56,13 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+
         holder.manv.setText("Mã nhân viên: " + nhanVienList.get(position).getMaNV());
         holder.hotennv.setText(nhanVienList.get(position).getHoTenNV());
+        if( nhanVienList.get(position).getTaiKhoanNV().equals("admin")){
+            holder.cardView.setVisibility(View.GONE);
+        }
+
         int stt = position;
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +83,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private TextView manv, hotennv;
-        CardView cardView;
+        LinearLayout cardView;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);

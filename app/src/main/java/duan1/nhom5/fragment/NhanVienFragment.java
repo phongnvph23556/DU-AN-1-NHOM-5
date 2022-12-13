@@ -45,7 +45,6 @@ public class NhanVienFragment extends Fragment {
     private NhanVienAdapter nhanVienAdapter;
     List<NhanVien> list;
     ImageView imgadd_nv, img_cancelnv;
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 
     @Override

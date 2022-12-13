@@ -55,6 +55,7 @@
         android:queryHint="Tìm nhân viên..." />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:orientation="vertical"
         android:id="@+id/rcv_nhanvien"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

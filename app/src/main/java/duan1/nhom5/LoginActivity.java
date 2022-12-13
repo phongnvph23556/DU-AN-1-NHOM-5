@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     TextView textView;
     EditText edtName, edtpass;
     CheckBox checkBoxuser;
-    AdminDAO adminDAO;
     NhanVienDAO nhanVienDAO;
 
     @SuppressLint("MissingInflatedId")
@@ -35,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         edtpass = findViewById(R.id.edtPass);
         textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
-        adminDAO = new AdminDAO(this);
+//        adminDAO = new AdminDAO(this);
         nhanVienDAO=new NhanVienDAO(this);
 
         //đọc user,pass trong sharedpreference
@@ -76,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
     }
@@ -95,6 +93,9 @@ public class LoginActivity extends AppCompatActivity {
         }
         //lưu lại toàn bộ dữ liệu
         editor.commit();
+
+    }
+    public void checkuser(){
 
     }
 

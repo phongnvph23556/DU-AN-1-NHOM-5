@@ -18,6 +18,7 @@ import com.denzcoskun.imageslider.models.SlideModel;
 
 import java.util.ArrayList;
 
+import duan1.nhom5.DAO.NhanVienDAO;
 import duan1.nhom5.Entity.NhanVien;
 import duan1.nhom5.fragment.CaiDatFragment;
 import duan1.nhom5.fragment.DoanhthuFragment;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageSlider imageSlider;
     ImageView img_donhang, img_khachhang, img_sanpham, img_nhanvien, img_loaisanpham, img_topbanchay, img_doanhthu, img_caidat;
     LinearLayout themnhanvien;
-    private NhanVien nhanVien;
+    NhanVienDAO nhanVienDAO;
 
 
     @Override
@@ -42,11 +43,18 @@ public class MainActivity extends AppCompatActivity {
 
         themnhanvien = findViewById(R.id.themnhanvien);
         TextView tenhienthi = findViewById(R.id.tv_tenhienthi);
+        TextView vaitro = findViewById(R.id.tv_vaitro);
+        nhanVienDAO = new NhanVienDAO(this);
 
-        if (nhanVien.getTaiKhoanNV().equals("admin")) {
+        SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        String user = sharedPreferences.getString("USERNAME", "");
+
+        if (user.equals("admin")) {
             tenhienthi.setText("Chào mừng! Admin nha");
         } else {
             themnhanvien.setVisibility(View.GONE);
+            vaitro.setText("Vai trò: Nhân viên");
+            tenhienthi.setText("Xin chào: "+user);
         }
 
 
@@ -149,4 +157,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
