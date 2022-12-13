@@ -14,10 +14,8 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import java.util.List;
-
-import duan1.nhom5.DAO.AdminDAO;
-import duan1.nhom5.Entity.Admin;
+import duan1.nhom5.DAO.NhanVienDAO;
+import duan1.nhom5.Entity.NhanVien;
 import duan1.nhom5.R;
 
 
@@ -25,12 +23,8 @@ public class DoimatkhauFragment extends Fragment {
     ImageView backdoimk;
     Button btnluu, btnhuy;
     EditText edpass, edpassmoi, edrepass;
-    AdminDAO adminDAO;
+    NhanVienDAO nhanVienDAO;
 
-    public static DoimatkhauFragment newInstance() {
-        DoimatkhauFragment fragment = new DoimatkhauFragment();
-        return fragment;
-    }
 
 
     @Override
@@ -40,11 +34,13 @@ public class DoimatkhauFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_doimatkhau, container, false);
         btnluu = v.findViewById(R.id.btnluu);
         btnhuy = v.findViewById(R.id.btnhuy);
+
         edpass = v.findViewById(R.id.edMatkhau);
         edpassmoi = v.findViewById(R.id.edPassmoi);
         edrepass = v.findViewById(R.id.ednhaplai);
         backdoimk = v.findViewById(R.id.backdoimk);
-        adminDAO = new AdminDAO(getActivity());
+//        adminDAO = new AdminDAO(getActivity());
+        nhanVienDAO=new NhanVienDAO(getActivity());
         backdoimk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,14 +53,14 @@ public class DoimatkhauFragment extends Fragment {
         btnluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = getActivity().getSharedPreferences("USER_FILE.txt", Context.MODE_PRIVATE);
-                String user = preferences.getString("UserName", "");
+                SharedPreferences preferences = getActivity().getSharedPreferences("USER_FILE", Context.MODE_PRIVATE);
+                String user = preferences.getString("USERNAME", "");
                 if (validate() > 0) {
                      String mkmoi=edpassmoi.getText().toString();
-//                    Admin admin = adminDAO.getTaiKhoan(user);
-//                    admin.setMatKhau(edpassmoi.getText().toString());
+                    NhanVien nhanVien = nhanVienDAO.getTaiKhoan(user);
+                    nhanVien.setMatKhauNV(edpassmoi.getText().toString());
 
-                    if (adminDAO.changepass(user,mkmoi)) {
+                    if (nhanVienDAO.changepass(user,mkmoi)) {
                         Toast.makeText(getActivity(), "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
                         edpass.setText("");
                         edpassmoi.setText("");

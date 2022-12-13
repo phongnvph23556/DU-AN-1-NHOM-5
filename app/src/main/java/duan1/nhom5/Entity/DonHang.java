@@ -5,7 +5,7 @@ import java.util.Date;
 public class DonHang {
     private int MaDH;
     private int MaKH;
-    private int MaNV;
+    private String MaNV;
     private int MaSanPham;
     private int TienBan;
     private Date Ngay;
@@ -14,7 +14,7 @@ public class DonHang {
     public DonHang() {
     }
 
-    public DonHang(int maDH, int maKH, int maNV, int maSanPham, int tienBan, Date ngay, int thanhToan) {
+    public DonHang(int maDH, int maKH, String maNV, int maSanPham, int tienBan, Date ngay, int thanhToan) {
         MaDH = maDH;
         MaKH = maKH;
         MaNV = maNV;
@@ -24,7 +24,7 @@ public class DonHang {
         ThanhToan = thanhToan;
     }
 
-    public DonHang(int madh, int maKH, int maSanPham, int tienBan, Date ngay, int thanhToan, int manv) {
+    public DonHang(int madh, int maKH, int maSanPham, int tienBan, Date ngay, int thanhToan, String manv) {
         MaDH = madh;
         MaKH = maKH;
         MaSanPham = maSanPham;
@@ -33,7 +33,7 @@ public class DonHang {
         ThanhToan = thanhToan;
         MaNV = manv;
     }
-    public DonHang(int maKH, int maSanPham, int tienBan, Date ngay, int thanhToan, int manv) {
+    public DonHang(int maKH, int maSanPham, int tienBan, Date ngay, int thanhToan, String manv) {
         MaKH = maKH;
         MaSanPham = maSanPham;
         TienBan = tienBan;
@@ -58,11 +58,11 @@ public class DonHang {
         MaKH = maKH;
     }
 
-    public int getMaNV() {
+    public String getMaNV() {
         return MaNV;
     }
 
-    public void setMaNV(int maNV) {
+    public void setMaNV(String maNV) {
         MaNV = maNV;
     }
 

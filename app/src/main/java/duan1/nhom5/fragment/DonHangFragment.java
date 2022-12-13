@@ -183,7 +183,7 @@ public class DonHangFragment extends Fragment {
                 int tienban = (int) hashMapSanpham.get("GiaBan");
                 int makhachhang = (int) hashMapKhachhang.get("MaKH");
                 int masanpham = (int) hashMapSanpham.get("MaSanPham");
-                int manhanvien = (int) hashMapNhanvien.get("MaNV");
+                String manhanvien = (String) hashMapNhanvien.get("MaNV");
                 if (donHangDAO.insert(new DonHang(makhachhang, masanpham, tienban, ngay, thanhtoan, manhanvien))) {
                     Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
@@ -240,8 +240,8 @@ public class DonHangFragment extends Fragment {
             HashMap<String, Object> hashmap = new HashMap<>();
             hashmap.put("MaNV", nhanVien.getMaNV());
             hashmap.put("HoTenNV", nhanVien.getHoTenNV());
-//            hashmap.put("NamSinhNV", nhanVien.getNamSinhNV());
-//            hashmap.put("DiaChiNV", nhanVien.getDiaChiNV());
+            hashmap.put("TaiKhoanNV", nhanVien.getTaiKhoanNV());
+            hashmap.put("MatKhauNV", nhanVien.getMatKhauNV());
             listHashMap.add(hashmap);
         }
         return listHashMap;

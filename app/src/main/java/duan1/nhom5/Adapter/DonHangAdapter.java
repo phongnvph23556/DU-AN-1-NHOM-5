@@ -228,7 +228,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
                 index = 0;
                 stt = -1;
                 for (HashMap<String, Object> item : listHMNhanVien) {
-                    if ((int) item.get("MaNV") == donHang.getMaNV()) {
+                    if ((String) item.get("MaNV") == donHang.getMaNV()) {
                         stt = index;
                     }
                     index++;
@@ -265,7 +265,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
                         int tienban = (int) hashMapSanPham.get("GiaBan");
                         int makhachhang = (int) hashMapKhachHang.get("MaKH");
                         int masanpham = (int) hashMapSanPham.get("MaSanPham");
-                        int manhanvien = (int) hashMapNhanvien.get("MaNV");
+                        String manhanvien = (String) hashMapNhanvien.get("MaNV");
                         if (donHangDAO.update(new DonHang(donHang.getMaDH(), makhachhang, masanpham, tienban, ngay, thanhtoan, manhanvien))) {
                             Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();

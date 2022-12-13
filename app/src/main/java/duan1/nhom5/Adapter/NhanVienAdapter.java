@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +60,9 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
         holder.manv.setText("Mã nhân viên: " + nhanVienList.get(position).getMaNV());
         holder.hotennv.setText(nhanVienList.get(position).getHoTenNV());
-        if( nhanVienList.get(position).getTaiKhoanNV().equals("admin")){
-            holder.cardView.setVisibility(View.GONE);
+        if (nhanVienList.get(position).getTaiKhoanNV().equals("admin")) {
+            holder.manv.setText("");
+            holder.cardView.setEnabled(false);
         }
 
         int stt = position;
@@ -83,14 +85,13 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private TextView manv, hotennv;
-        LinearLayout cardView;
+        CardView cardView;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             manv = itemView.findViewById(R.id.tv_maNV);
             hotennv = itemView.findViewById(R.id.tv_hotennv);
             cardView = itemView.findViewById(R.id.cardviewnv);
-
         }
     }
 
@@ -154,7 +155,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.UserVi
                 dialog.setContentView(R.layout.dialog_themnhanvien);
                 dialog.show();
 
-                EditText manv=dialog.findViewById(R.id.edtMaNV);
+                EditText manv = dialog.findViewById(R.id.edtMaNV);
                 EditText name = dialog.findViewById(R.id.edtTenNV);
                 EditText tknv = dialog.findViewById(R.id.edttaikhoanNV);
                 EditText mknv = dialog.findViewById(R.id.edtmatkhauNV);

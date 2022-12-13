@@ -82,7 +82,6 @@ public class NhanVienFragment extends Fragment {
             }
         });
 
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rcv_nhanvien.setLayoutManager(layoutManager);
         nhanVienAdapter = new NhanVienAdapter(getActivity(), list);

@@ -75,7 +75,7 @@ public class DonHangDAO {
             while (!cursor.isAfterLast()) {
                 int MaDH = cursor.getInt(0);
                 int MaKH = cursor.getInt(1);
-                int MaNV = cursor.getInt(2);
+                String MaNV = cursor.getString(2);
                 int MaSanPham = cursor.getInt(3);
                 int TienBan = cursor.getInt(4);
                 Date Ngay = simpleDateFormat.parse(cursor.getString(5));

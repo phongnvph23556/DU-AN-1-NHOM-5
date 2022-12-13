@@ -28,13 +28,6 @@ public class Manhinhchao extends AppCompatActivity {
             }
         });
 
-        btnsignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(Manhinhchao.this,SignupActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }

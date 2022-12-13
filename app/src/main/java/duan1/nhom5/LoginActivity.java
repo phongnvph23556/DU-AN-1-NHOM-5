@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import duan1.nhom5.DAO.AdminDAO;
 import duan1.nhom5.DAO.NhanVienDAO;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,8 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         edtpass = findViewById(R.id.edtPass);
         textView = findViewById(R.id.ed_backlai);
         checkBoxuser = findViewById(R.id.checkuser);
-//        adminDAO = new AdminDAO(this);
-        nhanVienDAO=new NhanVienDAO(this);
+        nhanVienDAO = new NhanVienDAO(this);
 
         //đọc user,pass trong sharedpreference
         SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
@@ -46,14 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         edtName.setText(user);
         edtpass.setText(pass);
         checkBoxuser.setChecked(rememb);
-
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -95,9 +85,5 @@ public class LoginActivity extends AppCompatActivity {
         editor.commit();
 
     }
-    public void checkuser(){
-
-    }
-
 
 }

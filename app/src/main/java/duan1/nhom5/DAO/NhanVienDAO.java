@@ -18,15 +18,22 @@ public class NhanVienDAO {
         SQLite sqLite = new SQLite(context);
         db = sqLite.getWritableDatabase();
     }
-    //check đăng nhập
-//    public boolean checkDangNhap(String matt, String matkhau){
-//        Cursor cursor = db.rawQuery("SELECT * FROM ThuThu WHERE maTT=? AND matkhau =?", new String[]{matt, matkhau});
-//        if (cursor.getCount() != 0){
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
+
+    public NhanVien getTaiKhoan(String TaiKhoan) {
+        String sql = "SELECT * FROM NhanVien WHERE TaiKhoanNV=?";
+        List<NhanVien> list = getData(sql, TaiKhoan);
+        return list.get(0);
+    }
+
+    public boolean changepass(String TaiKhoan, String MatKhau) {
+        ContentValues values = new ContentValues();
+        values.put("MatKhauNV", MatKhau);
+        int row = db.update("NhanVien", values, "TaiKhoanNV=?", new String[]{TaiKhoan});
+        if (row <= 0) {
+            return false;
+        }
+        return true;
+    }
 
     public boolean insert(NhanVien nhanVien) {
         ContentValues values = new ContentValues();
