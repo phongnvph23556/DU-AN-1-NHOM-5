@@ -39,6 +39,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     private Context context;
     private List<LoaiSanPham> loaiSanPhamList;
     LoaiSanPhamDAO loaiSanPhamDAO;
+    ArrayList<String> list=new ArrayList<>();
 
     public void setFill_List(List<LoaiSanPham> fillList) {
         this.loaiSanPhamList = fillList;
@@ -62,6 +63,11 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     @Override
     public void onBindViewHolder(@NonNull LoaiSanPhamAdapter.UserViewHolder holder, int position) {
         holder.tenloaisp.setText(loaiSanPhamList.get(position).getTenLoai());
+
+        list.add("https://binhminhdigital.com/StoreData/images/PageData/nhung-meo-giup-ban-chup-anh-the-thao-dep-BinhMinhDigital1.jpg");
+
+
+
         int stt = position;
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +90,13 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
 
         private TextView tenloaisp;
         CardView cardView;
+        ImageView imgspitem;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             tenloaisp = itemView.findViewById(R.id.tv_tenloaisp);
             cardView = itemView.findViewById(R.id.cardview_loaisp);
+            imgspitem=itemView.findViewById(R.id.imgitemsp);
 
         }
     }
