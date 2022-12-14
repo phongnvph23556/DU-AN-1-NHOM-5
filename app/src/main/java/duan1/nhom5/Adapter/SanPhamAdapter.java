@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,18 +31,19 @@ import duan1.nhom5.Entity.SanPham;
 import duan1.nhom5.R;
 import duan1.nhom5.fragment.SanPhamFragment;
 
-public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHolder>{
-
+public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHolder> {
+    ArrayList<String> listtt = new ArrayList<>();
     Context context;
     List<SanPham> list;
     SanPhamDAO sanPhamDAO;
     ArrayList<HashMap<String, Object>> listHMSP;
 
-    public void setFill_List(List<SanPham> fillList){
-        this.list=fillList;
+    public void setFill_List(List<SanPham> fillList) {
+        this.list = fillList;
         notifyDataSetChanged();
     }
-    public SanPhamAdapter(Context context, List<SanPham> list, ArrayList<HashMap<String, Object>> listHMSanPham ) {
+
+    public SanPhamAdapter(Context context, List<SanPham> list, ArrayList<HashMap<String, Object>> listHMSanPham) {
         this.context = context;
         this.list = list;
         this.listHMSP = listHMSanPham;
@@ -55,8 +59,22 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        listtt.add("https://www.hidosport.com/uploads/5/4/1/0/54105107/z2047890873443-f9e4350af317d4a5f5423310503ac6ff_orig.jpg");
+        listtt.add("https://filebroker-cdn.lazada.vn/kf/S86f41cb08814453a93a3ff3cdd334cebD.jpg");
+        listtt.add("https://vuaaodau.vn/wp-content/uploads/2022/11/AoDoiTuyen-WorldCup2022-BDN-SN.jpg");
+        listtt.add("https://vuaaodau.vn/wp-content/uploads/2022/11/AoDoiTuyen-WorldCup2022-Croatia-SK.jpg");
+        listtt.add("https://vuaaodau.vn/wp-content/uploads/2022/10/479-RVM-768x768.jpg");
+        listtt.add("https://vuaaodau.vn/wp-content/uploads/2022/11/2.05.png");
+        listtt.add("https://vuaaodau.vn/wp-content/uploads/2022/11/gang-tay-thu-mon-nike-tiempo-match-cam-768x768.jpg");
+        listtt.add("https://lzd-img-global.slatic.net/g/p/21097015534acfb3d54f849f3f48b7e9.jpg_720x720q80.jpg_.webp");
+        listtt.add("https://soccerstore.vn/wp-content/uploads/2017/01/1484640697-83368.jpg");
+
+        Picasso.get().load(listtt.get(position)).into(holder.imgspitem);
+
+
         holder.tvtensanpham.setText(list.get(position).getTenSanPham());
-        holder.tvgiabansanpham.setText(list.get(position).getGiaBan()+" VNĐ");
+        holder.tvgiabansanpham.setText(list.get(position).getGiaBan() + " VNĐ");
         int stt = position;
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,18 +92,21 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        TextView tvtensanpham,tvgiabansanpham;
+        TextView tvtensanpham, tvgiabansanpham;
+        ImageView imgspitem;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardview_sp);
             tvtensanpham = itemView.findViewById(R.id.tv_tensp);
-            tvgiabansanpham=itemView.findViewById(R.id.tv_giaban);
+            tvgiabansanpham = itemView.findViewById(R.id.tv_giaban);
+            imgspitem = itemView.findViewById(R.id.imgsanphamitem);
         }
     }
 
-    public void dialog_detail(int position){
+    public void dialog_detail(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(LayoutInflater.from(context).inflate(R.layout.dialog_detail_sp, null));
         AlertDialog dialogDetail = builder.create();
@@ -145,7 +166,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
                 EditText tensp = dialog.findViewById(R.id.edt_tensp);
                 EditText edtprice = dialog.findViewById(R.id.edt_giaban);
                 Spinner spnloaisp = dialog.findViewById(R.id.spn_loaisp);
-                Button  btnadd = dialog.findViewById(R.id.btnthemsp);
+                Button btnadd = dialog.findViewById(R.id.btnthemsp);
                 Button btncannel = dialog.findViewById(R.id.btnHuythemsp);
 
                 tensp.setText(list.get(position).getTenSanPham());
@@ -161,8 +182,8 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
                 spnloaisp.setAdapter(adapter);
                 //lấy vị trí loại sách
                 int index = 0, stt = -1;
-                for (HashMap<String, Object> item: listHMSP){
-                    if ((int) item.get("maloaisp")  == list.get(position).getMaLoaiSP()){
+                for (HashMap<String, Object> item : listHMSP) {
+                    if ((int) item.get("maloaisp") == list.get(position).getMaLoaiSP()) {
                         stt = index;
                     }
                     index++;
@@ -184,16 +205,16 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
                         int giaban = Integer.parseInt(edtprice.getText().toString().trim());
                         HashMap<String, Object> hashMap = (HashMap<String, Object>) spnloaisp.getSelectedItem();
                         int maloai = (int) hashMap.get("maloaisp");
-                        if (ten.isEmpty() || giaban == 0 || maloai == 0){
+                        if (ten.isEmpty() || giaban == 0 || maloai == 0) {
                             Toast.makeText(context, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
-                        }else {
-                            if (sanPhamDAO.update(new SanPham(list.get(position).getMaSanPham(),ten, giaban , maloai))){
+                        } else {
+                            if (sanPhamDAO.update(new SanPham(list.get(position).getMaSanPham(), ten, giaban, maloai))) {
                                 Toast.makeText(context, "Thành công", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                                 list.clear();
                                 list.addAll(sanPhamDAO.selectAll());
                                 notifyDataSetChanged();
-                            }else {
+                            } else {
                                 Toast.makeText(context, "Thất bại", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                             }

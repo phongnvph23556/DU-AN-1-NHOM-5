@@ -22,6 +22,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,7 +41,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     private Context context;
     private List<LoaiSanPham> loaiSanPhamList;
     LoaiSanPhamDAO loaiSanPhamDAO;
-    ArrayList<String> list=new ArrayList<>();
+    ArrayList<String> list = new ArrayList<>();
 
     public void setFill_List(List<LoaiSanPham> fillList) {
         this.loaiSanPhamList = fillList;
@@ -64,8 +66,27 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
     public void onBindViewHolder(@NonNull LoaiSanPhamAdapter.UserViewHolder holder, int position) {
         holder.tenloaisp.setText(loaiSanPhamList.get(position).getTenLoai());
 
-        list.add("https://binhminhdigital.com/StoreData/images/PageData/nhung-meo-giup-ban-chup-anh-the-thao-dep-BinhMinhDigital1.jpg");
-
+        list.add("https://cf.shopee.vn/file/acc552f5e74fec35ba15b12530ef84d2");//áo
+        list.add("https://cf.shopee.vn/file/3f217175d2ef0417ec83325907137a47");//giày
+        list.add("https://cf.shopee.vn/file/47f855690e6e0ac9ac1049e49fe2ae44");//găng
+        list.add("https://salt.tikicdn.com/cache/w1200/ts/product/39/1d/f6/43a182edee7e12d99f4e656b52f35434.jpg");//bóng
+        list.add("https://salt.tikicdn.com/cache/w1200/ts/product/ec/60/1c/0c4bf12cd2690b1b5270cad2997d2983.png");//tất
+        list.add("https://cf.shopee.vn/file/2d16127d21a0bbf7567e91e3b1c72ade");
+        if (holder.tenloaisp.getText().toString().equalsIgnoreCase("áo")) {
+            Picasso.get().load(list.get(0)).into(holder.imgspitem);
+        } else if (holder.tenloaisp.getText().toString().equalsIgnoreCase("giày")) {
+            Picasso.get().load(list.get(1)).into(holder.imgspitem);
+        } else if (holder.tenloaisp.getText().toString().equalsIgnoreCase("găng tay")) {
+            Picasso.get().load(list.get(2)).into(holder.imgspitem);
+        } else if (holder.tenloaisp.getText().toString().equalsIgnoreCase("bóng")) {
+            Picasso.get().load(list.get(3)).into(holder.imgspitem);
+        } else if (holder.tenloaisp.getText().toString().equalsIgnoreCase("tất")) {
+            Picasso.get().load(list.get(4)).into(holder.imgspitem);
+        } else if (holder.tenloaisp.getText().toString().equalsIgnoreCase("túi")) {
+            Picasso.get().load(list.get(5)).into(holder.imgspitem);
+        }else {
+            Picasso.get().load(list.get(position)).into(holder.imgspitem);
+        }
 
 
         int stt = position;
@@ -96,7 +117,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
             super(itemView);
             tenloaisp = itemView.findViewById(R.id.tv_tenloaisp);
             cardView = itemView.findViewById(R.id.cardview_loaisp);
-            imgspitem=itemView.findViewById(R.id.imgitemsp);
+            imgspitem = itemView.findViewById(R.id.imgitemsp);
 
         }
     }
